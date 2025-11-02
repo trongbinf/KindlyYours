@@ -1,5 +1,6 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Header } from '../../core/header/header';
 import { Footer } from '../../core/footer/footer';
 import { register } from 'swiper/element/bundle';
@@ -9,12 +10,16 @@ register();
 
 @Component({
   selector: 'app-homepage',
-  imports: [CommonModule, Header, Footer],
+  imports: [CommonModule, FormsModule, Header, Footer],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './homepage.html',
   styleUrl: './homepage.css',
 })
 export class Homepage implements AfterViewInit {
+  selectedPrice = '';
+  selectedRecipient = '';
+  selectedCatalog = '';
+  selectedSort = 'best-selling';
   statistics = [
     { quantity: '100', text: 'Món quà' },
     { quantity: '300', text: 'Vật phẩm chọn lựa' },
@@ -36,7 +41,8 @@ export class Homepage implements AfterViewInit {
     'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1726840604510_4.jpg',
     'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1726840604510_3.jpg',
     'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1726840604509_2.jpg',
-    'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1726840604509_1.jpg'
+    'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1726840604509_1.jpg',
+    'https://api.teamogift.com/uploads/Gi_i_thi_u/1726843716681_0.jpg'
   ];
 
   testimonials = [
@@ -75,11 +81,18 @@ export class Homepage implements AfterViewInit {
     'https://api.teamogift.com/uploads/LOGO___I_T_C__KHDN/1726801948115.jpg'
   ];
 
-  heroBannerData = {
-    desktopImage: 'https://api.teamogift.com/uploads/KHUNG__NH___CH_T_L__NG_CAO/1761114939853_1.jpg',
-    mobileImage: 'https://api.teamogift.com/uploads/KHUNG__NH___CH_T_L__NG_CAO/1761114939846_0.jpg',
-    link: 'https://www.teamogift.com/collection'
-  };
+  heroBanners = [
+    {
+      desktopImage: 'https://api.teamogift.com/uploads/KHUNG__NH___CH_T_L__NG_CAO/1761114939853_1.jpg',
+      mobileImage: 'https://api.teamogift.com/uploads/KHUNG__NH___CH_T_L__NG_CAO/1761114939846_0.jpg',
+      link: 'https://www.teamogift.com/collection'
+    },
+    {
+      desktopImage: 'https://api.teamogift.com/uploads/Gi_i_thi_u/1726843716681_0.jpg',
+      mobileImage: 'https://api.teamogift.com/uploads/Gi_i_thi_u/1726843716681_0.jpg',
+      link: 'https://www.teamogift.com/about'
+    }
+  ];
 
   newProductData = {
     desktopImage: 'https://api.teamogift.com/uploads/KHUNG__NH___CH_T_L__NG_CAO/1761115032238_0.jpg',
@@ -94,6 +107,29 @@ export class Homepage implements AfterViewInit {
   ngAfterViewInit() {
     // Đợi một chút để đảm bảo DOM đã render
     setTimeout(() => {
+      // Initialize Hero Banner Swiper with Autoplay
+      const heroSwiper = document.querySelector('#hero-swiper') as SwiperContainer;
+      if (heroSwiper) {
+        heroSwiper.slidesPerView = 1;
+        heroSwiper.spaceBetween = 0;
+        heroSwiper.speed = 1000;
+        heroSwiper.loop = true;
+        
+        // Cấu hình autoplay để tự động chạy
+        heroSwiper.autoplay = {
+          delay: 4000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
+        };
+        
+        // Set pagination và navigation
+        heroSwiper.pagination = { enabled: true };
+        heroSwiper.navigation = { enabled: true };
+        
+        // Khởi tạo Swiper
+        heroSwiper.initialize();
+      }
+
       // Initialize Featured Images Swiper with Autoplay
       const featuredSwiper = document.querySelector('#featured-swiper') as SwiperContainer;
       if (featuredSwiper) {

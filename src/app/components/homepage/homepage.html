@@ -2,39 +2,70 @@
   <app-header></app-header>
 
   <div class="flex-1 relative">
-    <!-- Hero Banner Section -->
+    <!-- Hero Banner Section with Swiper -->
     <div class="hero-banner-wrapper mb-[36px] lg:mb-0">
-      <a [href]="heroBannerData.link" target="_blank" class="block">
-        <img [src]="heroBannerData.desktopImage" alt="Hero Banner"
-          class="w-full h-auto rounded-3xl hidden md:block hover:scale-102 transition">
-        <img [src]="heroBannerData.mobileImage" alt="Hero Banner Mobile"
-          class="w-full h-auto rounded-3xl block md:hidden hover:scale-102 transition">
-      </a>
+      <swiper-container id="hero-swiper" class="hero-swiper" loop="true" slides-per-view="1" space-between="0" speed="1000" autoplay="true" autoplay-delay="4000" autoplay-disable-on-interaction="false" navigation="true" pagination="true">
+        <swiper-slide *ngFor="let banner of heroBanners">
+          <a [href]="banner.link" target="_blank" class="block hero-slide-link">
+            <img [src]="banner.desktopImage" alt="Hero Banner"
+              class="w-full h-auto rounded-3xl hidden md:block hero-image">
+            <img [src]="banner.mobileImage" alt="Hero Banner Mobile"
+              class="w-full h-auto rounded-3xl block md:hidden hero-image">
+          </a>
+        </swiper-slide>
+      </swiper-container>
     </div>
 
     <!-- Main Container -->
     <div class="app-container max-w-full gap-[36px] mb-[36px] lg:gap-[72px] lg:mb-[96px]">
       <div class="app-container-content space-y-[36px] lg:space-y-[72px] overflow-hidden">
         
+      
+       
+
+        <!-- Divider -->
+        <div class=" w-full h-px bg-gray-200"></div>
         <!-- Divider -->
         <div class="divider w-full h-px bg-gray-200"></div>
 
       
-
-        <!-- Divider -->
-        <div class="divider w-full h-px bg-gray-200"></div>
-
-       
-
-        <!-- Divider -->
-        <div class="divider w-full h-px bg-gray-200"></div>
-
-        <!-- New Product Section -->
-        <section class="new-product-section">
-          <img [src]="newProductData.desktopImage" alt="New Product"
-            class="w-full h-auto rounded-3xl hidden md:block hover:scale-102 transition">
-          <img [src]="newProductData.mobileImage" alt="New Product Mobile"
-            class="w-full h-auto rounded-3xl block md:hidden hover:scale-102 transition">
+        <!-- Filter Section -->
+        <section class="filter-section">
+          <div class="filter-container">
+            <div class="filter-left">
+              <span class="filter-label">LỌC THEO</span>
+              <select class="filter-dropdown" [(ngModel)]="selectedPrice">
+                <option value="">giá</option>
+                <option value="low">Dưới 500k</option>
+                <option value="medium">500k - 1 triệu</option>
+                <option value="high">Trên 1 triệu</option>
+              </select>
+              <select class="filter-dropdown" [(ngModel)]="selectedRecipient">
+                <option value="">người nhận</option>
+                <option value="friend">Bạn bè</option>
+                <option value="family">Gia đình</option>
+                <option value="lover">Người yêu</option>
+                <option value="colleague">Đồng nghiệp</option>
+              </select>
+              <select class="filter-dropdown" [(ngModel)]="selectedCatalog">
+                <option value="">mục lục</option>
+                <option value="gift-box">Hộp quà</option>
+                <option value="flowers">Hoa</option>
+                <option value="chocolate">Socola</option>
+                <option value="custom">Tùy chỉnh</option>
+              </select>
+            </div>
+            <div class="filter-right">
+              <span class="filter-label">SẮP XẾP THEO:</span>
+              <select class="filter-dropdown" [(ngModel)]="selectedSort">
+                <option value="best-selling">bán chạy nhất</option>
+                <option value="price-low">Giá thấp đến cao</option>
+                <option value="price-high">Giá cao đến thấp</option>
+                <option value="newest">Mới nhất</option>
+                <option value="oldest">Cũ nhất</option>
+              </select>
+            </div>
+          </div>
         </section>
 
         <!-- Featured Images Section with Swiper -->
