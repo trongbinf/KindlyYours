@@ -19,27 +19,12 @@
         <!-- Divider -->
         <div class="divider w-full h-px bg-gray-200"></div>
 
-        <!-- Statistics Section -->
-        <section class="statistics-section">
-          <div class="statistics-grid">
-            <div *ngFor="let stat of statistics" class="stat-item">
-              <div class="stat-quantity">{{ stat.quantity }}+</div>
-              <div class="stat-text">{{ stat.text }}</div>
-            </div>
-          </div>
-        </section>
+      
 
         <!-- Divider -->
         <div class="divider w-full h-px bg-gray-200"></div>
 
-        <!-- Product Showcase Section -->
-        <section class="product-showcase-section">
-          <div class="showcase-grid">
-            <div *ngFor="let image of productImages" class="showcase-item">
-              <img [src]="image" [alt]="'Product ' + image" loading="lazy">
-            </div>
-          </div>
-        </section>
+       
 
         <!-- Divider -->
         <div class="divider w-full h-px bg-gray-200"></div>
@@ -58,7 +43,7 @@
             <h2 class="section-title">HÌNH ẢNH NỔI BẬT</h2>
             <p class="section-subtitle">"The meaning, purpose and stories behind the each item are lovely"</p>
           </div>
-          <swiper-container id="featured-swiper" class="featured-swiper">
+          <swiper-container id="featured-swiper" class="featured-swiper" loop="true" slides-per-view="4" space-between="20" speed="1000" autoplay="true" autoplay-delay="3000" autoplay-disable-on-interaction="false" navigation="false">
             <swiper-slide *ngFor="let image of featuredImages">
               <div class="gallery-item">
                 <img [src]="image" [alt]="'Featured Image ' + image" loading="lazy">
@@ -69,16 +54,23 @@
 
         <!-- Testimonials Section -->
         <section class="testimonials-section">
+          <div class="testimonials-header">
+            <h2 class="testimonials-title">KHÁCH HÀNG NÓI GÌ VỀ CHÚNG TÔI</h2>
+            <p class="testimonials-quote">"Trải nghiệm mua quà thật dễ dàng và tiện lợi tại Kindly Yours"</p>
+          </div>
           <div class="testimonials-grid">
             <div *ngFor="let testimonial of testimonials" class="testimonial-card">
-              <div class="testimonial-header">
-                <img [src]="testimonial.imageUrl" [alt]="testimonial.name" class="testimonial-avatar">
-                <div class="testimonial-info">
-                  <div class="testimonial-name">{{ testimonial.name }}</div>
-                  <div class="testimonial-position">{{ testimonial.position }}</div>
-                </div>
-              </div>
+              <img [src]="testimonial.imageUrl" [alt]="testimonial.name" class="testimonial-avatar">
+              <div class="testimonial-name">{{ testimonial.name }}</div>
+              <div class="testimonial-position">{{ testimonial.position }}</div>
               <p class="testimonial-description">{{ testimonial.description }}</p>
+              <div class="testimonial-stars">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+              </div>
             </div>
           </div>
         </section>
@@ -88,7 +80,7 @@
           <div class="brands-header">
             <h2 class="brands-title">Thương hiệu đối tác</h2>
           </div>
-          <swiper-container id="brands-swiper" class="brands-swiper">
+          <swiper-container id="brands-swiper" class="brands-swiper" loop="true" slides-per-view="4" space-between="20" speed="1000" autoplay="true" autoplay-delay="3000" autoplay-disable-on-interaction="false" navigation="false">
             <swiper-slide *ngFor="let brand of partnerBrands">
               <div class="brand-item">
                 <img [src]="brand" [alt]="'Partner Brand ' + brand" loading="lazy">
@@ -97,13 +89,7 @@
           </swiper-container>
         </section>
 
-        <!-- QR Code Section -->
-        <section class="qr-code-section">
-          <img [src]="qrCodeData.desktopImage" alt="QR Code"
-            class="w-full h-auto rounded-3xl hidden md:block hover:scale-102 transition">
-          <img [src]="qrCodeData.mobileImage" alt="QR Code Mobile"
-            class="w-full h-auto rounded-3xl block md:hidden hover:scale-102 transition">
-        </section>
+      
 
       </div>
     </div>

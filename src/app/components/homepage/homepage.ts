@@ -92,35 +92,101 @@ export class Homepage implements AfterViewInit {
   };
 
   ngAfterViewInit() {
-    // Initialize Featured Images Swiper
-    const featuredSwiper = document.querySelector('#featured-swiper') as SwiperContainer;
-    if (featuredSwiper) {
-      featuredSwiper.slidesPerView = 1.7;
-      featuredSwiper.spaceBetween = 16;
-      featuredSwiper.breakpoints = {
-        576: { slidesPerView: 2, spaceBetween: 20 },
-        768: { slidesPerView: 3, spaceBetween: 20 },
-        1024: { slidesPerView: 4, spaceBetween: 20 }
-      };
-      featuredSwiper.loop = true;
-      featuredSwiper.pagination = { enabled: true };
-      featuredSwiper.navigation = { enabled: true };
-    }
+    // Đợi một chút để đảm bảo DOM đã render
+    setTimeout(() => {
+      // Initialize Featured Images Swiper with Autoplay
+      const featuredSwiper = document.querySelector('#featured-swiper') as SwiperContainer;
+      if (featuredSwiper) {
+        // Detect screen width để set slidesPerView phù hợp
+        const screenWidth = window.innerWidth;
+        let initialSlidesPerView = 2;
+        
+        if (screenWidth >= 1280) {
+          initialSlidesPerView = 5;
+        } else if (screenWidth >= 1024) {
+          initialSlidesPerView = 4;
+        } else if (screenWidth >= 768) {
+          initialSlidesPerView = 3;
+        } else if (screenWidth >= 576) {
+          initialSlidesPerView = 2;
+        }
+        
+        // Set các thuộc tính trực tiếp trên object
+        featuredSwiper.slidesPerView = initialSlidesPerView;
+        featuredSwiper.spaceBetween = 20;
+        featuredSwiper.speed = 1000;
+        featuredSwiper.loop = true;
+        
+        // Set breakpoints - hiển thị 4-5 ảnh trên desktop
+        featuredSwiper.breakpoints = {
+          576: { slidesPerView: 2, spaceBetween: 20 },
+          768: { slidesPerView: 3, spaceBetween: 20 },
+          1024: { slidesPerView: 4, spaceBetween: 20 },
+          1280: { slidesPerView: 5, spaceBetween: 20 }
+        };
+        
+        // Cấu hình autoplay để tự động chạy mượt
+        featuredSwiper.autoplay = {
+          delay: 3000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
+        };
+        
+        // Set pagination (giữ pagination dots)
+        featuredSwiper.pagination = { enabled: true };
+        // Tắt navigation buttons (next/prev)
+        featuredSwiper.navigation = { enabled: false };
+        
+        // Khởi tạo Swiper
+        featuredSwiper.initialize();
+      }
 
-    // Initialize Partner Brands Swiper
-    const brandsSwiper = document.querySelector('#brands-swiper') as SwiperContainer;
-    if (brandsSwiper) {
-      brandsSwiper.slidesPerView = 2;
-      brandsSwiper.spaceBetween = 20;
-      brandsSwiper.breakpoints = {
-        576: { slidesPerView: 3 },
-        768: { slidesPerView: 4 },
-        1024: { slidesPerView: 5 },
-        1206: { slidesPerView: 6 }
-      };
-      brandsSwiper.loop = true;
-      brandsSwiper.pagination = { enabled: true };
-      brandsSwiper.navigation = { enabled: true };
-    }
+      // Initialize Partner Brands Swiper with Autoplay
+      const brandsSwiper = document.querySelector('#brands-swiper') as SwiperContainer;
+      if (brandsSwiper) {
+        // Detect screen width để set slidesPerView phù hợp
+        const screenWidth = window.innerWidth;
+        let initialSlidesPerView = 2;
+        
+        if (screenWidth >= 1206) {
+          initialSlidesPerView = 6;
+        } else if (screenWidth >= 1024) {
+          initialSlidesPerView = 5;
+        } else if (screenWidth >= 768) {
+          initialSlidesPerView = 4;
+        } else if (screenWidth >= 576) {
+          initialSlidesPerView = 3;
+        }
+        
+        // Set các thuộc tính trực tiếp trên object
+        brandsSwiper.slidesPerView = initialSlidesPerView;
+        brandsSwiper.spaceBetween = 20;
+        brandsSwiper.speed = 1000; // Animation mượt
+        brandsSwiper.loop = true;
+        
+        // Set breakpoints
+        brandsSwiper.breakpoints = {
+          576: { slidesPerView: 3, spaceBetween: 20 },
+          768: { slidesPerView: 4, spaceBetween: 20 },
+          1024: { slidesPerView: 5, spaceBetween: 20 },
+          1206: { slidesPerView: 6, spaceBetween: 20 }
+        };
+        
+        // Cấu hình autoplay để tự động chạy mượt
+        brandsSwiper.autoplay = {
+          delay: 3000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
+        };
+        
+        // Set pagination (giữ pagination dots)
+        brandsSwiper.pagination = { enabled: true };
+        // Tắt navigation buttons (next/prev)
+        brandsSwiper.navigation = { enabled: false };
+        
+        // Khởi tạo Swiper
+        brandsSwiper.initialize();
+      }
+    }, 100);
   }
 }
