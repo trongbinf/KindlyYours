@@ -1,0 +1,113 @@
+<div class="bg-white flex flex-col min-h-screen">
+  <app-header></app-header>
+
+  <div class="flex-1 relative">
+    <!-- Hero Banner Section -->
+    <div class="hero-banner-wrapper mb-[36px] lg:mb-0">
+      <a [href]="heroBannerData.link" target="_blank" class="block">
+        <img [src]="heroBannerData.desktopImage" alt="Hero Banner"
+          class="w-full h-auto rounded-3xl hidden md:block hover:scale-102 transition">
+        <img [src]="heroBannerData.mobileImage" alt="Hero Banner Mobile"
+          class="w-full h-auto rounded-3xl block md:hidden hover:scale-102 transition">
+      </a>
+    </div>
+
+    <!-- Main Container -->
+    <div class="app-container max-w-full gap-[36px] mb-[36px] lg:gap-[72px] lg:mb-[96px]">
+      <div class="app-container-content space-y-[36px] lg:space-y-[72px] overflow-hidden">
+        
+        <!-- Divider -->
+        <div class="divider w-full h-px bg-gray-200"></div>
+
+        <!-- Statistics Section -->
+        <section class="statistics-section">
+          <div class="statistics-grid">
+            <div *ngFor="let stat of statistics" class="stat-item">
+              <div class="stat-quantity">{{ stat.quantity }}+</div>
+              <div class="stat-text">{{ stat.text }}</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider w-full h-px bg-gray-200"></div>
+
+        <!-- Product Showcase Section -->
+        <section class="product-showcase-section">
+          <div class="showcase-grid">
+            <div *ngFor="let image of productImages" class="showcase-item">
+              <img [src]="image" [alt]="'Product ' + image" loading="lazy">
+            </div>
+          </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider w-full h-px bg-gray-200"></div>
+
+        <!-- New Product Section -->
+        <section class="new-product-section">
+          <img [src]="newProductData.desktopImage" alt="New Product"
+            class="w-full h-auto rounded-3xl hidden md:block hover:scale-102 transition">
+          <img [src]="newProductData.mobileImage" alt="New Product Mobile"
+            class="w-full h-auto rounded-3xl block md:hidden hover:scale-102 transition">
+        </section>
+
+        <!-- Featured Images Section with Swiper -->
+        <section class="featured-images-section">
+          <div class="section-header">
+            <h2 class="section-title">HÌNH ẢNH NỔI BẬT</h2>
+            <p class="section-subtitle">"The meaning, purpose and stories behind the each item are lovely"</p>
+          </div>
+          <swiper-container id="featured-swiper" class="featured-swiper">
+            <swiper-slide *ngFor="let image of featuredImages">
+              <div class="gallery-item">
+                <img [src]="image" [alt]="'Featured Image ' + image" loading="lazy">
+              </div>
+            </swiper-slide>
+          </swiper-container>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+          <div class="testimonials-grid">
+            <div *ngFor="let testimonial of testimonials" class="testimonial-card">
+              <div class="testimonial-header">
+                <img [src]="testimonial.imageUrl" [alt]="testimonial.name" class="testimonial-avatar">
+                <div class="testimonial-info">
+                  <div class="testimonial-name">{{ testimonial.name }}</div>
+                  <div class="testimonial-position">{{ testimonial.position }}</div>
+                </div>
+              </div>
+              <p class="testimonial-description">{{ testimonial.description }}</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Partner Brands Section with Swiper -->
+        <section class="partner-brands-section">
+          <div class="brands-header">
+            <h2 class="brands-title">Thương hiệu đối tác</h2>
+          </div>
+          <swiper-container id="brands-swiper" class="brands-swiper">
+            <swiper-slide *ngFor="let brand of partnerBrands">
+              <div class="brand-item">
+                <img [src]="brand" [alt]="'Partner Brand ' + brand" loading="lazy">
+              </div>
+            </swiper-slide>
+          </swiper-container>
+        </section>
+
+        <!-- QR Code Section -->
+        <section class="qr-code-section">
+          <img [src]="qrCodeData.desktopImage" alt="QR Code"
+            class="w-full h-auto rounded-3xl hidden md:block hover:scale-102 transition">
+          <img [src]="qrCodeData.mobileImage" alt="QR Code Mobile"
+            class="w-full h-auto rounded-3xl block md:hidden hover:scale-102 transition">
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>

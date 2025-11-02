@@ -1,0 +1,440 @@
+.bg-white {
+  background-color: #ffffff;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.relative {
+  position: relative;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.transition {
+  transition: all 0.3s ease-in-out;
+}
+
+.hover\:scale-102:hover {
+  transform: scale(1.02);
+}
+
+/* App Container */
+.app-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.app-container-content {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+@media (min-width: 1024px) {
+  .app-container {
+    padding: 0 24px;
+    gap: 72px;
+    margin-bottom: 96px;
+  }
+
+  .app-container-content {
+    gap: 72px;
+  }
+}
+
+/* Hero Banner */
+.hero-banner-wrapper {
+  width: 100%;
+  margin-bottom: 36px;
+}
+
+.hero-banner-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 1024px) {
+  .hero-banner-wrapper {
+    margin-bottom: 0;
+  }
+}
+
+/* Divider */
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+/* Statistics Section */
+.statistics-section {
+  padding: 48px 20px;
+}
+
+.statistics-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+  min-width: 150px;
+  padding: 24px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+}
+
+.stat-quantity {
+  font-size: 48px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.stat-text {
+  font-size: 16px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .statistics-grid {
+    gap: 24px;
+  }
+
+  .stat-quantity {
+    font-size: 36px;
+  }
+}
+
+/* Product Showcase */
+.product-showcase-section {
+  padding: 20px;
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.showcase-item {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.showcase-item:hover {
+  transform: scale(1.05);
+}
+
+.showcase-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .showcase-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* New Product Section */
+.new-product-section {
+  padding: 20px;
+  text-align: center;
+}
+
+.new-product-section img {
+  width: 100%;
+  max-width: 1400px;
+  height: auto;
+  border-radius: 24px;
+  margin: 0 auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Featured Images Section */
+.featured-images-section {
+  padding: 48px 20px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.featured-swiper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 0 60px;
+}
+
+.gallery-item {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 344px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .gallery-item img {
+    height: 518px;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 44px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .featured-images-section {
+    padding: 96px 20px;
+  }
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  padding: 48px 20px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.testimonial-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 16px;
+  object-fit: cover;
+}
+
+.testimonial-info {
+  flex: 1;
+}
+
+.testimonial-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.testimonial-position {
+  font-size: 14px;
+  color: #666;
+}
+
+.testimonial-description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonials-section {
+    padding: 96px 20px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Partner Brands Section */
+.partner-brands-section {
+  padding: 48px 20px;
+}
+
+.brands-header {
+  margin-bottom: 40px;
+}
+
+.brands-title {
+  font-size: 19px;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.brands-swiper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 0 60px;
+}
+
+.brand-item {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  height: 169px;
+}
+
+.brand-item:hover {
+  transform: scale(1.05);
+}
+
+.brand-item img {
+  width: 100%;
+  height: 100%;
+  max-width: 169px;
+  max-height: 169px;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .brands-title {
+    font-size: 44px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .partner-brands-section {
+    padding: 96px 20px;
+  }
+}
+
+/* QR Code Section */
+.qr-code-section {
+  padding: 48px 20px;
+  text-align: center;
+}
+
+.qr-code-section img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 24px;
+  margin: 0 auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Utility Classes */
+.w-full {
+  width: 100%;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.rounded-3xl {
+  border-radius: 24px;
+}
+
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .md\:block {
+    display: block;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+}

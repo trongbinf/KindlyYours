@@ -1,0 +1,33 @@
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bg-light-gray {
+  background-color: #f5f5f5;
+}
+
+/* Swiper Custom Styles */
+swiper-container::part(button-prev),
+swiper-container::part(button-next) {
+  color: #1677ff;
+}
+
+swiper-container::part(pagination) {
+  bottom: 20px;
+}
+
+swiper-container::part(bullet-active) {
+  background: #1677ff;
+}

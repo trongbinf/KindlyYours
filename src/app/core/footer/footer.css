@@ -1,0 +1,235 @@
+.footer {
+  background-color: #ffffff;
+  padding: 60px 40px 40px;
+  margin-top: 48px;
+  position: relative;
+  border-radius: 12px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+/* Column 1: Company Information */
+.footer-company {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-logo {
+  font-size: 36px;
+  font-weight: 700;
+  color: #8b0000;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  letter-spacing: 2px;
+}
+
+.footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.6;
+}
+
+.contact-icon {
+  width: 18px;
+  height: 18px;
+  color: #666666;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Column 2: Quick Links */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-column-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links-list li {
+  margin: 0;
+}
+
+.footer-link {
+  color: #666666;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #8b0000;
+}
+
+/* Column 3: Contact & Social Media */
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-message {
+  font-size: 14px;
+  color: #666666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.online-hours {
+  font-size: 14px;
+  color: #666666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.social-media-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #4a5568;
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.social-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Floating Chat Icons */
+.floating-chat-icons {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+}
+
+.floating-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.floating-icon:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.zalo-icon {
+  background: linear-gradient(135deg, #0068ff 0%, #00a3ff 100%);
+  color: #ffffff;
+}
+
+.zalo-text {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.messenger-icon {
+  background: linear-gradient(135deg, #0084ff 0%, #0066ff 50%, #9b00ff 100%);
+  color: #ffffff;
+}
+
+.messenger-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .footer-content {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+  }
+
+  .footer {
+    padding: 80px 40px 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer {
+    padding: 40px 20px 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .footer-logo {
+    font-size: 28px;
+  }
+
+  .floating-chat-icons {
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .floating-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .zalo-text {
+    font-size: 12px;
+  }
+}
