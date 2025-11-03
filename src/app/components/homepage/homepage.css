@@ -327,7 +327,7 @@
 
 .section-ctas {
   max-width: 1400px;
-  margin: 6px auto 16px; /* closer to gift grid */
+  margin: 24px auto 16px; /* more spacing from gift grid */
   text-align: center;
 }
 
@@ -754,16 +754,27 @@
   white-space: nowrap;
 }
 
-.brands-swiper {
+/* Marquee layout for brands */
+.brands-marquee {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 20px 0 0;
-  overflow: visible;
+  padding: 12px 0 0;
+  overflow: hidden;
+  position: relative;
 }
 
-.brands-swiper::part(wrapper) {
-  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: max-content;
+  animation: brands-marquee 25s linear infinite;
+}
+
+@keyframes brands-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* Ẩn navigation buttons (next/prev) */
@@ -774,14 +785,16 @@
 
 .brand-item {
   background: #ffffff;
-  padding: 20px;
+  padding: 16px;
   border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease;
-  height: 169px;
+  height: 120px; /* compact height */
+  width: 160px;  /* fixed width to avoid stretch */
+  flex: 0 0 auto; /* prevent flex-grow */
 }
 
 .brand-item:hover {
@@ -791,8 +804,8 @@
 .brand-item img {
   width: 100%;
   height: 100%;
-  max-width: 169px;
-  max-height: 169px;
+  max-width: 140px;
+  max-height: 88px;
   object-fit: contain;
 }
 

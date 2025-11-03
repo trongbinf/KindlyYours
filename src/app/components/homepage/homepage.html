@@ -69,12 +69,7 @@
             </div>
           </div>
         </section>
-        <!-- CTA: View all products (placed right after Gift Boxes) -->
-        <div class="section-ctas" *ngIf="giftBoxesOnHome.length">
-          <a class="btn-primary" href="#">Xem tất cả sản phẩm</a>
-        </div>
-
-     
+        
         <!-- Categories Section (static original) -->
         <section class="categories-section">
           <div class="categories-grid">
@@ -95,6 +90,7 @@
               <span class="category-name">Quà doanh nghiệp</span>
             </div>
           </div>
+         
         </section>
 
         <!-- Gift Boxes from giftboxes.json (one per type) -->
@@ -111,6 +107,9 @@
                 <p class="gift-desc" *ngIf="g.description">{{ g.description }}</p>
               </div>
             </div>
+          </div>
+          <div class="section-ctas">
+            <a class="btn-primary" href="#">Xem tất cả sản phẩm</a>
           </div>
         </section>
             
@@ -161,15 +160,21 @@
             <h2 class="testimonials-title">Thương hiệu đối tác</h2>
             <p class="testimonials-quote">"Những thương hiệu uy tín đã hợp tác với chúng tôi"</p>
           </div>
-          <swiper-container id="brands-swiper" class="brands-swiper" loop="true" slides-per-view="4" space-between="20"
-            speed="1000" autoplay="true" autoplay-delay="3000" autoplay-disable-on-interaction="false"
-            navigation="false">
-            <swiper-slide *ngFor="let brand of partnerBrands">
+          <div class="brands-marquee">
+            <div class="marquee-track" aria-hidden="true">
+              <ng-container *ngFor="let brand of partnerBrands">
+                <div class="brand-item">
+                  <img [src]="brand" [alt]="'Partner Brand ' + brand" loading="lazy">
+                </div>
+              </ng-container>
+              <!-- duplicate for seamless loop -->
+              <ng-container *ngFor="let brand of partnerBrands">
               <div class="brand-item">
                 <img [src]="brand" [alt]="'Partner Brand ' + brand" loading="lazy">
               </div>
-            </swiper-slide>
-          </swiper-container>
+              </ng-container>
+            </div>
+          </div>
         </section>
 
 

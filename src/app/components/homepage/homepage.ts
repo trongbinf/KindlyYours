@@ -112,6 +112,87 @@ export class Homepage implements AfterViewInit, OnInit {
     mobileImage: 'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1732351160057_0.jpg'
   };
 
+  corporateGifts = [
+    {
+      id: 1,
+      image: 'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1726840771402_3.jpg',
+      name: 'Hộp Quà Tết Doanh Nghiệp',
+      originalPrice: 2500000,
+      salePrice: 1980000,
+      discount: 21,
+      sold: 156,
+      rating: 4.8,
+      reviewCount: 89,
+      isNew: false,
+      isSale: true
+    },
+    {
+      id: 2,
+      image: 'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1726840771400_0.jpg',
+      name: 'Combo Quà Tri Ân Khách Hàng',
+      originalPrice: 1200000,
+      salePrice: 950000,
+      discount: 21,
+      sold: 234,
+      rating: 4.9,
+      reviewCount: 156,
+      isNew: true,
+      isSale: true
+    },
+    {
+      id: 3,
+      image: 'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1726840771401_1.jpg',
+      name: 'Set Quà Kỷ Niệm Thành Lập',
+      originalPrice: 3500000,
+      salePrice: 2890000,
+      discount: 17,
+      sold: 89,
+      rating: 4.7,
+      reviewCount: 67,
+      isNew: false,
+      isSale: true
+    },
+    {
+      id: 4,
+      image: 'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1726840771402_2.jpg',
+      name: 'Hộp Quà Chúc Mừng Đối Tác',
+      originalPrice: 1800000,
+      salePrice: 0,
+      discount: 0,
+      sold: 78,
+      rating: 4.6,
+      reviewCount: 45,
+      isNew: true,
+      isSale: false
+    },
+    {
+      id: 5,
+      image: 'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1736921329241_0.jpg',
+      name: 'Gift Box Cao Cấp VIP',
+      originalPrice: 5200000,
+      salePrice: 4680000,
+      discount: 10,
+      sold: 23,
+      rating: 5.0,
+      reviewCount: 12,
+      isNew: true,
+      isSale: true
+    },
+    {
+      id: 6,
+      image: 'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1736921372822_0.jpg',
+      name: 'Bộ Quà Tặng Nhân Viên',
+      originalPrice: 890000,
+      salePrice: 720000,
+      discount: 19,
+      sold: 312,
+      rating: 4.5,
+      reviewCount: 198,
+      isNew: false,
+      isSale: true
+    }
+  ];
+
   // (categories removed as requested)
 
   // Gift boxes to display (one per type)
