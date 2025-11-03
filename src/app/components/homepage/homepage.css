@@ -101,7 +101,7 @@
     margin-bottom: 0;
     padding: 0 24px;
   }
-  
+
   .hero-swiper {
     max-width: 1400px;
     margin: 0 auto;
@@ -212,6 +212,103 @@
   margin: 0 auto;
   display: block;
   transition: transform 0.3s ease;
+}
+
+/* Categories Section */
+.categories-section {
+  padding: 0 20px;
+  margin: 20px 0;
+}
+
+.categories-swiper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.categories-swiper::part(wrapper) {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Categories Section */
+.categories-section {
+  padding: 24px 20px;
+  margin-bottom: 24px;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.category-item {
+  background: #F9F9F9;
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 240px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.category-item:hover {
+  background: #FFFFFF;
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-icon {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 24px;
+  object-fit: contain;
+}
+
+.category-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2F4157;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .category-item {
+    min-height: 200px;
+    padding: 24px;
+  }
+
+  .category-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 16px;
+    object-fit: contain;
+  }
+
+  .category-name {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .categories-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .category-item {
+    min-height: 120px;
+  }
 }
 
 /* Featured Images Section */
@@ -630,13 +727,6 @@
   object-fit: contain;
 }
 
-@media (min-width: 768px) {
-  .brands-title {
-    font-size: 44px;
-    margin-bottom: 20px;
-  }
-}
-
 @media (min-width: 1024px) {
   .partner-brands-section {
     padding: 96px 20px 0;
@@ -687,5 +777,17 @@
 
   .md\:hidden {
     display: none;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .category-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 12px;
+  }
+
+  .category-icon-container {
+    padding: 16px;
   }
 }

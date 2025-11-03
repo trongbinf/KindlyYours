@@ -4,7 +4,9 @@
   <div class="flex-1 relative">
     <!-- Hero Banner Section with Swiper -->
     <div class="hero-banner-wrapper mb-[36px] lg:mb-0">
-      <swiper-container id="hero-swiper" class="hero-swiper" loop="true" slides-per-view="1" space-between="0" speed="1000" autoplay="true" autoplay-delay="4000" autoplay-disable-on-interaction="false" navigation="true" pagination="true">
+      <swiper-container id="hero-swiper" class="hero-swiper" loop="true" slides-per-view="1" space-between="0"
+        speed="1000" autoplay="true" autoplay-delay="4000" autoplay-disable-on-interaction="false" navigation="true"
+        pagination="true">
         <swiper-slide *ngFor="let banner of heroBanners">
           <a [href]="banner.link" target="_blank" class="block hero-slide-link">
             <img [src]="banner.desktopImage" alt="Hero Banner"
@@ -19,16 +21,16 @@
     <!-- Main Container -->
     <div class="app-container max-w-full gap-[36px] mb-[36px] lg:gap-[72px] lg:mb-[96px]">
       <div class="app-container-content space-y-[36px] lg:space-y-[72px] overflow-hidden">
-        
-      
-       
+
+
+
 
         <!-- Divider -->
         <div class=" w-full h-px bg-gray-200"></div>
         <!-- Divider -->
         <div class="divider w-full h-px bg-gray-200"></div>
 
-      
+
         <!-- Filter Section -->
         <section class="filter-section">
           <div class="filter-container">
@@ -68,13 +70,41 @@
           </div>
         </section>
 
+        <!-- Categories Section -->
+        <section class="categories-section">
+          <div class="categories-grid">
+            <div class="category-item">
+              <img src="https://res.cloudinary.com/dafzz2c9j/image/upload/v1762137076/bosuutap_lwwj5o.png"
+                alt="Bộ sưu tập" class="category-icon">
+              <span class="category-name">Bộ sưu tập</span>
+            </div>
+            <div class="category-item">
+              <img src="https://res.cloudinary.com/dafzz2c9j/image/upload/v1762137076/hopquacosan_v3tl4o.png"
+                alt="Hộp quà có sẵn" class="category-icon">
+              <span class="category-name">Hộp quà có sẵn</span>
+            </div>
+            <div class="category-item">
+              <img src="https://res.cloudinary.com/dafzz2c9j/image/upload/v1762137075/tulamhopqua_vtlvrr.png"
+                alt="Tự làm hộp quà" class="category-icon">
+              <span class="category-name">Tự làm hộp quà</span>
+            </div>
+            <div class="category-item">
+              <img src="https://res.cloudinary.com/dafzz2c9j/image/upload/v1762137075/doanhnghiep_gl4gus.png"
+                alt="Quà doanh nghiệp" class="category-icon">
+              <span class="category-name">Quà doanh nghiệp</span>
+            </div>
+          </div>
+        </section>
+
         <!-- Featured Images Section with Swiper -->
         <section class="featured-images-section">
           <div class="section-header">
             <h2 class="section-title">HÌNH ẢNH NỔI BẬT</h2>
             <p class="section-subtitle">"The meaning, purpose and stories behind the each item are lovely"</p>
           </div>
-          <swiper-container id="featured-swiper" class="featured-swiper" loop="true" slides-per-view="4" space-between="20" speed="1000" autoplay="true" autoplay-delay="3000" autoplay-disable-on-interaction="false" navigation="false">
+          <swiper-container id="featured-swiper" class="featured-swiper" loop="true" slides-per-view="4"
+            space-between="20" speed="1000" autoplay="true" autoplay-delay="3000"
+            autoplay-disable-on-interaction="false" navigation="false">
             <swiper-slide *ngFor="let image of featuredImages">
               <div class="gallery-item">
                 <img [src]="image" [alt]="'Featured Image ' + image" loading="lazy">
@@ -108,10 +138,13 @@
 
         <!-- Partner Brands Section with Swiper -->
         <section class="partner-brands-section">
-          <div class="brands-header">
-            <h2 class="brands-title">Thương hiệu đối tác</h2>
+          <div class="testimonials-header">
+            <h2 class="testimonials-title">Thương hiệu đối tác</h2>
+            <p class="testimonials-quote">"Những thương hiệu uy tín đã hợp tác với chúng tôi"</p>
           </div>
-          <swiper-container id="brands-swiper" class="brands-swiper" loop="true" slides-per-view="4" space-between="20" speed="1000" autoplay="true" autoplay-delay="3000" autoplay-disable-on-interaction="false" navigation="false">
+          <swiper-container id="brands-swiper" class="brands-swiper" loop="true" slides-per-view="4" space-between="20"
+            speed="1000" autoplay="true" autoplay-delay="3000" autoplay-disable-on-interaction="false"
+            navigation="false">
             <swiper-slide *ngFor="let brand of partnerBrands">
               <div class="brand-item">
                 <img [src]="brand" [alt]="'Partner Brand ' + brand" loading="lazy">
@@ -120,7 +153,7 @@
           </swiper-container>
         </section>
 
-      
+
 
       </div>
     </div>
