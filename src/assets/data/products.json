@@ -1,0 +1,56 @@
+[
+  { "id": "box-basic", "name": "Hộp quà cơ bản", "slug": "box-basic", "categoryIds": ["gift-box"], "price": 35000, "images": ["https://res.cloudinary.com/dafzz2c9j/image/upload/v1699999999/box.png"], "isActive": true },
+  { "id": "card-rose", "name": "Thiệp Rose", "slug": "card-rose", "categoryIds": ["cards"], "price": 25000, "images": ["https://res.cloudinary.com/dafzz2c9j/image/upload/v1699999999/card-rose.jpg"], "isActive": true },
+
+  { "id": "ticky-sticks", "name": "Bánh que Ticky (20g)", "slug": "banh-que-ticky-20g", "categoryIds": ["food-drinks"], "price": 20000, "images": [], "isActive": true, "description": "Bánh Que Ticky Thái Lan 20g, tiện lợi, ngon miệng, hạn dùng 12 tháng." },
+  { "id": "oreo-classic", "name": "Bánh quy Oreo", "slug": "banh-quy-oreo", "categoryIds": ["food-drinks"], "price": 20000, "images": [], "isActive": true, "description": "Bánh quy giòn, kem ngọt dịu, quen thuộc, phù hợp mọi lứa tuổi." },
+  { "id": "chocolate-001", "name": "Chocolate 100g", "slug": "chocolate-100g", "categoryIds": ["food-drinks"], "price": 50000, "images": ["https://res.cloudinary.com/dafzz2c9j/image/upload/v1699999999/choco.jpg"], "isActive": true, "description": "Cacao nguyên chất kết hợp sữa Alpine, 18 viên tiện chia sẻ." },
+  { "id": "xylitol-mint", "name": "Kẹo Xylitol bạc hà (lọ)", "slug": "keo-xylitol-bac-ha", "categoryIds": ["food-drinks"], "price": 55000, "images": [], "isActive": true, "description": "Thơm miệng, ngăn ngừa sâu răng, lọ nhỏ gọn tiện mang theo." },
+  { "id": "milk-mini", "name": "Sữa tươi tiệt trùng (mini)", "slug": "sua-tiet-trung-mini", "categoryIds": ["food-drinks"], "price": 20000, "images": [], "isActive": true, "description": "Vinamilk 100%, ít đường, dễ uống, dạng hộp/chai mini tiện lợi." },
+  { "id": "juice-mamapop", "name": "Nước hoa quả MaMaPop (lon)", "slug": "nuoc-hoa-qua-mamapop", "categoryIds": ["food-drinks"], "price": 50000, "images": [], "isActive": true, "description": "Nước trái cây thật + Vitamin C + Kombucha, ngọt thanh, sảng khoái." },
+  { "id": "coffee-002", "name": "Cà phê G7 3in1 (gói)", "slug": "ca-phe-g7-3in1", "categoryIds": ["food-drinks"], "price": 70000, "images": ["https://res.cloudinary.com/dafzz2c9j/image/upload/v1699999999/coffee.jpg"], "isActive": true, "description": "Đậm đà, tiện pha nhanh; kết hợp cà phê, đường, sữa chuẩn vị." },
+  { "id": "tea-dong-trung", "name": "Set Trà Đông Trùng Tứ Vị", "slug": "set-tra-dong-trung-tu-vi", "categoryIds": ["food-drinks"], "price": 110000, "images": [], "isActive": true, "description": "Thảo mộc + đông trùng, thanh nhẹ, thư giãn, quà chăm sóc sức khỏe." },
+
+  { "id": "mug-ceramic", "name": "Cốc sứ 350ml", "slug": "coc-su-350ml", "categoryIds": ["home-accessories"], "price": 120000, "images": [], "isActive": true, "description": "Thủy tinh borosilicate, men bóng/nhám, thiết kế tinh tế." },
+  { "id": "bottle-thermal", "name": "Bình giữ nhiệt 500ml", "slug": "binh-giu-nhiet-500ml", "categoryIds": ["home-accessories"], "price": 200000, "images": [], "isActive": true, "description": "Inox + nhựa cao cấp, giữ nóng/lạnh hiệu quả, màu hồng." },
+  { "id": "bag-thermal", "name": "Túi giữ nhiệt", "slug": "tui-giu-nhiet", "categoryIds": ["home-accessories"], "price": 100000, "images": [], "isActive": true, "description": "Canvas lót bạc cách nhiệt, gọn nhẹ, phù hợp văn phòng/picnic." },
+  { "id": "socks-warm", "name": "Tất len", "slug": "tat-len", "categoryIds": ["home-accessories"], "price": 50000, "images": [], "isActive": true, "description": "Len mềm ấm, free size, tông trung tính." },
+  { "id": "gloves-warm", "name": "Găng tay len", "slug": "gang-tay-len", "categoryIds": ["home-accessories"], "price": 65000, "images": [], "isActive": true, "description": "Len dày co giãn, giữ ấm tay trong mùa lạnh." },
+  { "id": "beanie", "name": "Mũ len", "slug": "mu-len", "categoryIds": ["home-accessories"], "price": 60000, "images": [], "isActive": true, "description": "Len dệt kim mềm, free size, tông be/xám/nâu nhạt." },
+  { "id": "umbrella-upf50", "name": "Ô che nắng UPF 50+", "slug": "o-che-nang-upf50", "categoryIds": ["home-accessories"], "price": 150000, "images": [], "isActive": true, "description": "Vải dù chống UV, siêu nhẹ, gấp gọn 25cm." },
+  { "id": "desk-plant-mini", "name": "Cây mini để bàn", "slug": "cay-mini-de-ban", "categoryIds": ["home-accessories"], "price": 100000, "images": [], "isActive": true, "description": "Chậu gốm + cây giả, điểm nhấn xanh mát cho góc làm việc." },
+
+  { "id": "mask-face-shop", "name": "Mặt nạ The Face Shop", "slug": "mat-na-the-face-shop", "categoryIds": ["beauty"], "price": 36000, "images": [], "isActive": true, "description": "Cấp ẩm, làm dịu; chiết xuất tự nhiên; 20g/miếng." },
+  { "id": "cocoon-micellar", "name": "Nước tẩy trang Cocoon 140ml", "slug": "nuoc-tay-trang-cocoon", "categoryIds": ["beauty"], "price": 140000, "images": [], "isActive": true, "description": "Làm sạch makeup/bụi bẩn, giảm dầu, cấp ẩm." },
+  { "id": "cocoon-body-scrub", "name": "Tẩy da chết body Cocoon 200ml", "slug": "tay-te-bao-chet-cocoon", "categoryIds": ["beauty"], "price": 180000, "images": [], "isActive": true, "description": "Cà phê Đắk Lắk làm sạch; bơ ca cao dưỡng ẩm." },
+  { "id": "glove-exfoliate", "name": "Găng tay tẩy tế bào chết", "slug": "gang-tay-tay-te-bao-chet", "categoryIds": ["beauty"], "price": 60000, "images": [], "isActive": true, "description": "Tạo bọt mịn, làm sạch nhẹ nhàng, dễ bảo quản." },
+  { "id": "body-wash-purite", "name": "Sữa tắm Purité 500ml", "slug": "sua-tam-purite", "categoryIds": ["beauty"], "price": 120000, "images": [], "isActive": true, "description": "Làm sạch, dưỡng ẩm, lưu hương ngọt ngào." },
+  { "id": "alpha-arbutin-lotion", "name": "Sữa dưỡng thể 500ml", "slug": "sua-duong-the-alpha-arbutin", "categoryIds": ["beauty"], "price": 160000, "images": [], "isActive": true, "description": "Dưỡng trắng, đều màu, giảm thâm sạm." },
+  { "id": "hand-lotion-duo", "name": "Kem dưỡng tay (2 tuýp)", "slug": "kem-duong-tay-2-tuyt", "categoryIds": ["beauty"], "price": 60000, "images": [], "isActive": true, "description": "Maycreate/Flower of Story 30g; dưỡng mềm da tay." },
+  { "id": "vaseline-lip", "name": "Dưỡng môi Vaseline", "slug": "duong-moi-vaseline", "categoryIds": ["beauty"], "price": 80000, "images": [], "isActive": true, "description": "Dưỡng ẩm, phục hồi môi khô nứt; vitamin E + mật ong." },
+  { "id": "nivea-deo", "name": "Lăn nách Nivea 50ml", "slug": "lan-nach-nivea", "categoryIds": ["beauty"], "price": 80000, "images": [], "isActive": true, "description": "Giảm mồ hôi, ngăn mùi 48h, dưỡng trắng mịn." },
+  { "id": "perfume-mini", "name": "Nước hoa mini 5ml", "slug": "nuoc-hoa-mini", "categoryIds": ["beauty"], "price": 200000, "images": [], "isActive": true, "description": "Moschino – hương kẹo trái cây tươi vui." },
+  { "id": "sanitary-pad", "name": "Băng vệ sinh Doctor Care", "slug": "bang-ve-sinh-doctor-care", "categoryIds": ["beauty"], "price": 40000, "images": [], "isActive": true, "description": "Thảo dược tự nhiên, kháng khuẩn, thấm hút tốt." },
+  { "id": "headband-wash", "name": "Băng đô rửa mặt", "slug": "bang-do-rua-mat", "categoryIds": ["beauty"], "price": 40000, "images": [], "isActive": true, "description": "Vải lông mềm, co giãn tốt, nhiều mẫu dễ thương." },
+  { "id": "belly-massage", "name": "Máy massage bụng", "slug": "may-massage-bung", "categoryIds": ["beauty"], "price": 300000, "images": [], "isActive": true, "description": "Làm ấm + massage, 3 mức nhiệt, 3 chế độ rung, pin 2500mAh." },
+  { "id": "face-sponge", "name": "Miếng rửa mặt", "slug": "mieng-rua-mat", "categoryIds": ["beauty"], "price": 80000, "images": [], "isActive": true, "description": "Bọt biển tổ ong PU, làm sạch sâu, mềm mại khi ướt." },
+  { "id": "body-mist", "name": "Body mist 30ml", "slug": "body-mist-30ml", "categoryIds": ["beauty"], "price": 200000, "images": [], "isActive": true, "description": "Hương nhẹ nhàng, lưu đến 6 giờ; nhiều mùi lựa chọn." },
+  { "id": "eye-mask", "name": "Mặt nạ mắt 60 miếng", "slug": "mat-na-mat-60", "categoryIds": ["beauty"], "price": 100000, "images": [], "isActive": true, "description": "Giảm thâm/bọng mắt, cấp ẩm; dạng hydrogel mát lạnh." },
+  { "id": "ice-roller", "name": "Bộ đá massage", "slug": "bo-da-massage", "categoryIds": ["beauty"], "price": 80000, "images": [], "isActive": true, "description": "Con lăn đá lạnh se khít lỗ chân lông, sáng da, nhỏ gọn." },
+
+  { "id": "candle-scent", "name": "Nến thơm 35g", "slug": "nen-thom-35g", "categoryIds": ["relaxation"], "price": 100000, "images": [], "isActive": true, "description": "Handmade từ sáp thiên nhiên, hương dịu nhẹ, ~5 giờ đốt." },
+  { "id": "dried-flowers", "name": "Hoa khô mini / lavender", "slug": "hoa-kho-mini", "categoryIds": ["relaxation"], "price": 50000, "images": [], "isActive": true, "description": "Hoa thật sấy khô, bền đẹp 1–3 năm; trang trí/chụp ảnh/quà tặng." },
+
+  { "id": "notebook", "name": "Sổ tay bìa da PU", "slug": "so-tay-bia-da", "categoryIds": ["stationery"], "price": 50000, "images": [], "isActive": true, "description": "Giấy dày, viết êm; có ruy băng và móc cài bút." },
+  { "id": "mini-notebook", "name": "Sổ mini", "slug": "so-mini", "categoryIds": ["stationery"], "price": 25000, "images": [], "isActive": true, "description": "12×8cm, bìa da PU, dễ thương, chống nước nhẹ." },
+  { "id": "pen-metal", "name": "Bút ký kim loại", "slug": "but-ky-kim-loai", "categoryIds": ["stationery"], "price": 20000, "images": [], "isActive": true, "description": "Nét 0.7mm, mực ra đều, chi tiết mạ vàng sang trọng." },
+  { "id": "desk-plant-office", "name": "Cây mini trang trí bàn", "slug": "cay-mini-van-phong", "categoryIds": ["stationery"], "price": 100000, "images": [], "isActive": true, "description": "Chậu cây Grow mini – trang trí bàn/kệ, nên đặt 3–5 chậu." },
+  { "id": "powerbank", "name": "Sạc dự phòng", "slug": "sac-du-phong", "categoryIds": ["stationery"], "price": 400000, "images": [], "isActive": true, "description": "10.000–80.000mAh, sạc nhanh, Type‑C & Android, kèm cáp." },
+
+  { "id": "card-generic", "name": "Thiệp viết tay", "slug": "thiep-viet-tay", "categoryIds": ["cards", "emotional-decor"], "price": 30000, "images": [], "isActive": true, "description": "Giấy mỹ thuật cao cấp 10×15cm, tông pastel, cá nhân hóa thông điệp." },
+  { "id": "sticker-set", "name": "Sticker trang trí (set)", "slug": "sticker-trang-tri", "categoryIds": ["emotional-decor"], "price": 50000, "images": [], "isActive": true, "description": "Decal PVC chống nước, 10–20 mẫu/set, vui tươi hiện đại." },
+  { "id": "photo-frame-mini", "name": "Khung ảnh mini", "slug": "khung-anh-mini", "categoryIds": ["emotional-decor"], "price": 100000, "images": [], "isActive": true, "description": "Nhựa giả gỗ, 7×9/10×10cm, ấm áp sang trọng." },
+  { "id": "ky-box", "name": "Hộp quà Kindly Yours (các phiên bản)", "slug": "hop-qua-kindly-yours", "categoryIds": ["gift-box", "emotional-decor"], "price": 0, "images": [], "isActive": true, "description": "Giấy carton cứng phủ mờ, tông pastel Kindly, nhiều size." }
+]
+
+

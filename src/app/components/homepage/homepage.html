@@ -37,20 +37,20 @@
             <div class="filter-left">
               <span class="filter-label">LỌC THEO</span>
               <select class="filter-dropdown" [(ngModel)]="selectedPrice">
-                <option value="">giá</option>
+                <option value="">Giá</option>
                 <option value="low">Dưới 500k</option>
                 <option value="medium">500k - 1 triệu</option>
                 <option value="high">Trên 1 triệu</option>
               </select>
               <select class="filter-dropdown" [(ngModel)]="selectedRecipient">
-                <option value="">người nhận</option>
+                <option value="">Người nhận</option>
                 <option value="friend">Bạn bè</option>
                 <option value="family">Gia đình</option>
                 <option value="lover">Người yêu</option>
                 <option value="colleague">Đồng nghiệp</option>
               </select>
               <select class="filter-dropdown" [(ngModel)]="selectedCatalog">
-                <option value="">mục lục</option>
+                <option value="">Mục lục</option>
                 <option value="gift-box">Hộp quà</option>
                 <option value="flowers">Hoa</option>
                 <option value="chocolate">Socola</option>
@@ -60,7 +60,7 @@
             <div class="filter-right">
               <span class="filter-label">SẮP XẾP THEO:</span>
               <select class="filter-dropdown" [(ngModel)]="selectedSort">
-                <option value="best-selling">bán chạy nhất</option>
+                <option value="best-selling">Bán chạy nhất</option>
                 <option value="price-low">Giá thấp đến cao</option>
                 <option value="price-high">Giá cao đến thấp</option>
                 <option value="newest">Mới nhất</option>
@@ -69,32 +69,51 @@
             </div>
           </div>
         </section>
+        <!-- CTA: View all products (placed right after Gift Boxes) -->
+        <div class="section-ctas" *ngIf="giftBoxesOnHome.length">
+          <a class="btn-primary" href="#">Xem tất cả sản phẩm</a>
+        </div>
 
-        <!-- Categories Section -->
+     
+        <!-- Categories Section (static original) -->
         <section class="categories-section">
           <div class="categories-grid">
             <div class="category-item">
-              <img src="https://res.cloudinary.com/dafzz2c9j/image/upload/v1762137076/bosuutap_lwwj5o.png"
-                alt="Bộ sưu tập" class="category-icon">
+              <img src="https://res.cloudinary.com/dafzz2c9j/image/upload/v1762137076/bosuutap_lwwj5o.png" alt="Bộ sưu tập" class="category-icon">
               <span class="category-name">Bộ sưu tập</span>
             </div>
             <div class="category-item">
-              <img src="https://res.cloudinary.com/dafzz2c9j/image/upload/v1762137076/hopquacosan_v3tl4o.png"
-                alt="Hộp quà có sẵn" class="category-icon">
+              <img src="https://res.cloudinary.com/dafzz2c9j/image/upload/v1762137076/hopquacosan_v3tl4o.png" alt="Hộp quà có sẵn" class="category-icon">
               <span class="category-name">Hộp quà có sẵn</span>
             </div>
             <div class="category-item">
-              <img src="https://res.cloudinary.com/dafzz2c9j/image/upload/v1762137075/tulamhopqua_vtlvrr.png"
-                alt="Tự làm hộp quà" class="category-icon">
+              <img src="https://res.cloudinary.com/dafzz2c9j/image/upload/v1762137075/tulamhopqua_vtlvrr.png" alt="Tự làm hộp quà" class="category-icon">
               <span class="category-name">Tự làm hộp quà</span>
             </div>
             <div class="category-item">
-              <img src="https://res.cloudinary.com/dafzz2c9j/image/upload/v1762137075/doanhnghiep_gl4gus.png"
-                alt="Quà doanh nghiệp" class="category-icon">
+              <img src="https://res.cloudinary.com/dafzz2c9j/image/upload/v1762137075/doanhnghiep_gl4gus.png" alt="Quà doanh nghiệp" class="category-icon">
               <span class="category-name">Quà doanh nghiệp</span>
             </div>
           </div>
         </section>
+
+        <!-- Gift Boxes from giftboxes.json (one per type) -->
+        <section class="categories-section" *ngIf="giftBoxesOnHome.length">
+          <div class="categories-grid gift-grid">
+            <div class="category-item gift-card" *ngFor="let g of giftBoxesOnHome">
+              <img *ngIf="g.image" [src]="g.image" [alt]="g.name" class="gift-image" />
+              <div *ngIf="!g.image" class="gift-image flex items-center justify-center bg-gray-100 text-[#B4232C] font-semibold">
+                {{ g.name.charAt(0) }}
+              </div>
+              <div class="gift-content">
+                <span class="category-name">{{ g.name }}</span>
+                <span class="text-sm text-gray-600 mt-1 block price-text">{{ (g.price || 0) | number }} đ</span>
+                <p class="gift-desc" *ngIf="g.description">{{ g.description }}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+            
 
         <!-- Featured Images Section with Swiper -->
         <section class="featured-images-section">
@@ -105,9 +124,9 @@
           <swiper-container id="featured-swiper" class="featured-swiper" loop="true" slides-per-view="4"
             space-between="20" speed="1000" autoplay="true" autoplay-delay="3000"
             autoplay-disable-on-interaction="false" navigation="false">
-            <swiper-slide *ngFor="let image of featuredImages">
+            <swiper-slide *ngFor="let image of featuredImages; let i = index">
               <div class="gallery-item">
-                <img [src]="image" [alt]="'Featured Image ' + image" loading="lazy">
+                <img [src]="image" [alt]="'Featured Image ' + image" [attr.loading]="i === 0 ? 'eager' : 'lazy'">
               </div>
             </swiper-slide>
           </swiper-container>

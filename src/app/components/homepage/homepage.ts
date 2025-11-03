@@ -1,10 +1,13 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, AfterViewInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, AfterViewInit, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Header } from '../../core/header/header';
 import { Footer } from '../../core/footer/footer';
 import { register } from 'swiper/element/bundle';
 import type { SwiperContainer } from 'swiper/element';
+import { CatalogLocalService } from '../../services/local/catalog-local.service';
+import type { Category } from '../../models';
+import { GiftBoxTemplatesLocalService, GiftBoxTemplate } from '../../services/local/giftbox-templates-local.service';
 
 register();
 
@@ -15,7 +18,12 @@ register();
   templateUrl: './homepage.html',
   styleUrl: './homepage.css',
 })
-export class Homepage implements AfterViewInit {
+export class Homepage implements AfterViewInit, OnInit {
+  constructor(
+    private catalogLocal: CatalogLocalService,
+    private giftboxTemplates: GiftBoxTemplatesLocalService
+  ) {}
+
   selectedPrice = '';
   selectedRecipient = '';
   selectedCatalog = '';
@@ -83,14 +91,14 @@ export class Homepage implements AfterViewInit {
 
   heroBanners = [
     {
-      desktopImage: 'https://api.teamogift.com/uploads/KHUNG__NH___CH_T_L__NG_CAO/1761114939853_1.jpg',
-      mobileImage: 'https://api.teamogift.com/uploads/KHUNG__NH___CH_T_L__NG_CAO/1761114939846_0.jpg',
-      link: 'https://www.teamogift.com/collection'
+      desktopImage: 'https://res.cloudinary.com/dafzz2c9j/image/upload/v1762180608/banner_19_11_mwfnpz.png',
+      mobileImage: 'https://res.cloudinary.com/dafzz2c9j/image/upload/v1762180608/banner_19_11_mwfnpz.png',
+      link: '#'
     },
     {
-      desktopImage: 'https://api.teamogift.com/uploads/Gi_i_thi_u/1726843716681_0.jpg',
-      mobileImage: 'https://api.teamogift.com/uploads/Gi_i_thi_u/1726843716681_0.jpg',
-      link: 'https://www.teamogift.com/about'
+      desktopImage: 'https://res.cloudinary.com/dafzz2c9j/image/upload/v1762180607/IMG_5704_ygymmu.jpg',
+      mobileImage: 'https://res.cloudinary.com/dafzz2c9j/image/upload/v1762180607/IMG_5704_ygymmu.jpg',
+      link: '#'
     }
   ];
 
@@ -104,6 +112,48 @@ export class Homepage implements AfterViewInit {
     mobileImage: 'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1732351160057_0.jpg'
   };
 
+  // (categories removed as requested)
+
+  // Gift boxes to display (one per type)
+  featuredGift: GiftBoxTemplate | null = null; // keep first for backward compatibility
+  giftBoxesOnHome: GiftBoxTemplate[] = [];
+
+  async ngOnInit() {
+    try {
+      const templates = await this.giftboxTemplates.getTemplates();
+      this.featuredGift = templates && templates.length > 0 ? templates[0] : null;
+
+      // Pick the first item of each logical type
+      const typeOrder = [
+        'Period Care', 'Healing', 'Refresh', 'Season', 'First Work Day', 'Birthday', 'Love & Care', 'Joy', 'Corporate'
+      ];
+      const seen = new Set<string>();
+      const result: GiftBoxTemplate[] = [];
+      const getType = (n: string) => {
+        const normalized = n.toLowerCase();
+        for (const t of typeOrder) {
+          const key = t.toLowerCase();
+          if (normalized.includes(key)) return t;
+        }
+        return 'Other';
+      };
+      for (const t of templates) {
+        const type = getType(t.name);
+        if (!seen.has(type)) {
+          seen.add(type);
+          result.push(t);
+        }
+      }
+      // Preserve desired display order
+      this.giftBoxesOnHome = typeOrder
+        .map((ty) => result.find((r) => r && r.name.toLowerCase().includes(ty.toLowerCase())))
+        .filter((x): x is GiftBoxTemplate => !!x);
+    } catch {
+      this.featuredGift = null;
+      this.giftBoxesOnHome = [];
+    }
+  }
+
   ngAfterViewInit() {
     // Đợi một chút để đảm bảo DOM đã render
     setTimeout(() => {
@@ -113,7 +163,7 @@ export class Homepage implements AfterViewInit {
         heroSwiper.slidesPerView = 1;
         heroSwiper.spaceBetween = 0;
         heroSwiper.speed = 1000;
-        heroSwiper.loop = true;
+        heroSwiper.loop = this.heroBanners.length > 1;
         
         // Cấu hình autoplay để tự động chạy
         heroSwiper.autoplay = {
@@ -136,6 +186,7 @@ export class Homepage implements AfterViewInit {
         // Detect screen width để set slidesPerView phù hợp
         const screenWidth = window.innerWidth;
         let initialSlidesPerView = 2;
+        const totalSlides = this.featuredImages.length;
         
         if (screenWidth >= 1280) {
           initialSlidesPerView = 5;
@@ -148,10 +199,10 @@ export class Homepage implements AfterViewInit {
         }
         
         // Set các thuộc tính trực tiếp trên object
-        featuredSwiper.slidesPerView = initialSlidesPerView;
+        featuredSwiper.slidesPerView = Math.min(initialSlidesPerView, Math.max(1, totalSlides));
         featuredSwiper.spaceBetween = 20;
         featuredSwiper.speed = 1000;
-        featuredSwiper.loop = true;
+        featuredSwiper.loop = totalSlides > Number(featuredSwiper.slidesPerView);
         
         // Set breakpoints - hiển thị 4-5 ảnh trên desktop
         featuredSwiper.breakpoints = {
@@ -170,8 +221,6 @@ export class Homepage implements AfterViewInit {
         
         // Set pagination (giữ pagination dots)
         featuredSwiper.pagination = { enabled: true };
-        // Tắt navigation buttons (next/prev)
-        featuredSwiper.navigation = { enabled: false };
         
         // Khởi tạo Swiper
         featuredSwiper.initialize();
@@ -183,6 +232,7 @@ export class Homepage implements AfterViewInit {
         // Detect screen width để set slidesPerView phù hợp
         const screenWidth = window.innerWidth;
         let initialSlidesPerView = 2;
+        const totalSlides = this.partnerBrands.length;
         
         if (screenWidth >= 1206) {
           initialSlidesPerView = 6;
@@ -195,10 +245,10 @@ export class Homepage implements AfterViewInit {
         }
         
         // Set các thuộc tính trực tiếp trên object
-        brandsSwiper.slidesPerView = initialSlidesPerView;
+        brandsSwiper.slidesPerView = Math.min(initialSlidesPerView, Math.max(1, totalSlides));
         brandsSwiper.spaceBetween = 20;
         brandsSwiper.speed = 1000; // Animation mượt
-        brandsSwiper.loop = true;
+        brandsSwiper.loop = totalSlides > Number(brandsSwiper.slidesPerView);
         
         // Set breakpoints
         brandsSwiper.breakpoints = {
@@ -217,8 +267,6 @@ export class Homepage implements AfterViewInit {
         
         // Set pagination (giữ pagination dots)
         brandsSwiper.pagination = { enabled: true };
-        // Tắt navigation buttons (next/prev)
-        brandsSwiper.navigation = { enabled: false };
         
         // Khởi tạo Swiper
         brandsSwiper.initialize();

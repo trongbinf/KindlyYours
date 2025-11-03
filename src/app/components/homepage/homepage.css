@@ -279,6 +279,75 @@
   text-align: center;
 }
 
+/* Gift boxes grid overrides */
+.gift-grid .gift-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 0; /* full-bleed image */
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.08);
+  min-height: auto;
+  overflow: hidden; /* ensure image touches border without overflow */
+}
+
+.gift-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover; /* cover to edges */
+  display: block;
+  border-radius: 0; /* no inner rounding */
+}
+
+@media (min-width: 768px) {
+  .gift-image { height: 330px; }
+}
+
+.gift-content { padding: 16px 20px 22px; }
+
+.gift-grid .gift-card .category-name {
+  font-size: 28px;
+  color: #243A53;
+}
+
+.gift-grid .gift-card .price-text {
+  font-size: 20px;
+  color: #111827;
+}
+
+.gift-desc {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.6;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2; /* show 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.section-ctas {
+  max-width: 1400px;
+  margin: 6px auto 16px; /* closer to gift grid */
+  text-align: center;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 9999px;
+  background: #B4232C;
+  color: #fff;
+  text-decoration: none; /* remove underline */
+  font-weight: 600;
+  letter-spacing: .2px;
+  transition: filter .2s ease, transform .2s ease;
+}
+
+.btn-primary:hover {
+  filter: brightness(0.95);
+  transform: translateY(-1px);
+}
+
 @media (max-width: 1024px) {
   .categories-grid {
     grid-template-columns: repeat(2, 1fr);

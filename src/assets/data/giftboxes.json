@@ -1,0 +1,253 @@
+[
+  {
+    "id": "period-care-premium",
+    "name": "Gói chăm sóc chu kỳ kinh nguyệt",
+    "price": 1000000,
+    "image": "",
+    "description": "Bạn đang cần tìm một set quà tặng cho vợ, người yêu, chị gái hoặc nhỏ bạn thân vào những ngày đặc biệt như sinh nhật, kỷ niệm hay nhân dịp ngày lễ nào đó – hoặc đơn giản là muốn tặng quà cho người mình thương – thì set quà đai chườm nóng và massage giảm đau bụng kinh nguyệt combo 5 “tâm lý & ấm áp” này là món quà cực tinh tế dành riêng cho “người thương” của bạn nhé.\n\nSet này gồm:\n- Túi chườm bụng giảm đau kinh nguyệt – giúp làm ấm, giảm đau và thư giãn cơ bụng hiệu quả.\n- 3 gói băng vệ sinh Always – siêu thấm hút, mềm mại và an toàn cho da.\n- Khăn ướt Rose Essence – hương hoa hồng dễ chịu, giúp vệ sinh nhẹ nhàng.\n- Xịt khử mùi & lăn Nivea – mang lại cảm giác khô thoáng và tự tin cả ngày.\n- Nước hoa Victoria’s Secret Love Spell – hương ngọt ngào, giúp nàng thêm tự tin và quyến rũ.\n- Kẹo Xylitol, Mentos và snack nhỏ – tăng năng lượng, giúp tâm trạng vui vẻ hơn.\n- Nước ép ổi Rita – bổ sung vitamin, giảm mệt mỏi.\n- Một vài phụ kiện nhỏ đáng yêu – như son dưỡng, đồ trang trí, tạo cảm giác tươi mới.",
+    "cardOptions": [
+      "Thiệp động viên", "Thiệp động viên Frog", "Thiệp Animal", "Thiệp Girl change the world",
+      "Thiệp Girl power", "Thiệp Super Woman", "Thiệp Love Yourself", "Thiệp Gấu Lovely",
+      "Thiệp Gấu Surprise", "Thiệp Gấu Best Wish", "Thiệp Beautiful"
+    ],
+    "items": [
+      { "productId": "belly-massage", "quantity": 1 },
+      { "productId": "sanitary-pad", "quantity": 1 },
+      { "productId": "vaseline-lip", "quantity": 1 },
+      { "productId": "nivea-deo", "quantity": 1 },
+      { "productId": "perfume-mini", "quantity": 1 },
+      { "productId": "xylitol-mint", "quantity": 1 },
+      { "productId": "juice-mamapop", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "period-care-compact",
+    "name": "Gói chăm sóc chu kỳ kinh nguyệt",
+    "price": 550000,
+    "image": "",
+    "description": "Bạn đang tìm một set quà tặng tinh tế cho vợ, người yêu, chị gái hoặc bạn thân trong những dịp đặc biệt như sinh nhật, kỷ niệm hay lễ tết?\n\nVậy thì hộp quà tặng đai chườm nóng và massage giảm đau bụng kinh nguyệt combo 5 món “tâm lý & ngọt ngào” này chính là món quà hoàn hảo dành cho “người thương” của bạn.\n\n💝 Hộp quà gồm 5 món:\n– Đai chườm nóng & massage bụng: 3 mức nhiệt (45°C, 55°C, 60°C) và 3 chế độ rung giúp giảm đau, thư giãn, giảm mệt mỏi trong ngày “đèn đỏ”.\n– Cài tóc dễ thương: gọn gàng, tiện lợi khi skincare hay làm việc.\n– Hộp kẹo vị socola & dâu Meiji Nhật Bản: cung cấp năng lượng, giúp giảm mệt mỏi tiền kinh nguyệt.\n– Túi vải đựng băng vệ sinh: có khóa kéo chắc chắn, thiết kế hoạt hình đáng yêu.\n– Móc khóa gấu bông mini: xinh xắn, dễ thương.\n– Thiệp nhỏ: để bạn viết lời yêu thương gửi đến “người ấy” (Shop có hỗ trợ viết giúp nếu khách ở xa – bạn chỉ cần ghi chú trong đơn hàng nhé.)",
+    "cardOptions": [
+      "Thiệp động viên", "Thiệp động viên Frog", "Thiệp Animal", "Thiệp Girl change the world",
+      "Thiệp Girl power", "Thiệp Super Woman", "Thiệp Love Yourself", "Thiệp Gấu Lovely",
+      "Thiệp Gấu Surprise", "Thiệp Gấu Best Wish", "Thiệp Beautiful"
+    ],
+    "items": [
+      { "productId": "belly-massage", "quantity": 1 },
+      { "productId": "chocolate-001", "quantity": 1 },
+      { "productId": "sanitary-pad", "quantity": 1 },
+      { "productId": "headband-wash", "quantity": 1 },
+      { "productId": "card-generic", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "healing-box-rose",
+    "name": "Healing Box",
+    "price": 600000,
+    "image": "https://res.cloudinary.com/dfslf5ylj/image/upload/v1762192090/uc_oz1bx0.jpg",
+    "description": "Một hộp quà mang sắc hồng dịu dàng, giúp người nhận tận hưởng cảm giác thư giãn và yêu thương bản thân sau những ngày dài mệt mỏi.\n\nThành phần hộp quà gồm:\n- Gối thảo mộc thư giãn: chứa hỗn hợp thảo mộc thiên nhiên giúp giảm đau mỏi vai gáy, thư giãn và dễ ngủ.\n- Xịt thơm không gian Flower Canvas: hương hoa dịu nhẹ lan tỏa, giúp tinh thần thư thái và sảng khoái.\n- Nến thơm La Rose: mang hương hoa hồng ngọt ngào, giúp cân bằng cảm xúc và tạo không gian ấm áp, dễ chịu.",
+    "cardOptions": [
+      "Thiệp Here For You", "Thiệp Feel Better", "Thiệp Cake All Day", "Thiệp Hello Sunshine",
+      "Thiệp You are the best", "Thiệp Double Love", "Thiệp Thanks For Everything", "Thiệp Cheer"
+    ],
+    "items": [
+      { "productId": "candle-scent", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "healing-box-tea",
+    "name": "Healing Box",
+    "price": 390000,
+    "image": "https://res.cloudinary.com/dfslf5ylj/image/upload/v1762192090/uc_oz1bx0.jpg",
+    "description": "Một hộp quà tinh tế mang sắc hồng ngọt ngào, giúp nàng thư giãn và tái tạo năng lượng mỗi ngày.\n\nThành phần hộp quà gồm:\n- 1 bình lọc trà thủy tinh vân gỗ: sang trọng và tiện lợi, giúp nàng dễ dàng pha và thưởng thức trà yêu thích ở bất cứ đâu.\n- 1 lọ trà hoa hồng: hương vị thanh mát, giúp làm đẹp da, hỗ trợ cân bằng nội tiết tố và cải thiện vóc dáng.\n- 1 lọ trà Ô Long: vị đậm đà, thơm dịu, giàu chất chống oxy hoá giúp làn da tươi trẻ và khỏe mạnh hơn.\n- 1 túi vải ADORE: xinh xắn, có thể tái sử dụng, thân thiện với môi trường.\n- Hộp carton nắp gập: trang trí tông hồng pastel nhẹ nhàng, chỉn chu.",
+    "cardOptions": [
+      "Thiệp Here For You", "Thiệp Feel Better", "Thiệp Cake All Day", "Thiệp Hello Sunshine",
+      "Thiệp You are the best", "Thiệp Double Love", "Thiệp Thanks For Everything", "Thiệp Cheer"
+    ],
+    "items": [
+      { "productId": "mug-ceramic", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "refresh-box-basic",
+    "name": "Refresh Box",
+    "price": 450000,
+    "image": "https://res.cloudinary.com/dfslf5ylj/image/upload/v1762191384/uc_ev8rjy.jpg",
+    "description": "Refresh Box là món quà hoàn hảo cho những ai cần một “reset” nhỏ trong cuộc sống — sau những ngày mệt mỏi, giúp người nhận làm mới cơ thể, thư giãn tinh thần và lấy lại năng lượng tích cực.\n\nBên trong hộp gồm:\n- 2 mặt nạ Mediheal Collagen – cấp ẩm, giúp da căng bóng.\n- Máy massage mặt đa năng – thư giãn cơ mặt, hỗ trợ nâng cơ.\n- Ly sứ pastel xinh xắn – tông hồng dịu nhẹ.\n- Xà phòng thơm Roman – hương thơm tinh tế, thư thái.\n- Hoa và phụ kiện decor nhỏ – tăng sự sang trọng, tinh tế.",
+    "cardOptions": [
+      "Thiệp Hello", "Thiệp Thanks For Everything", "Thiệp Gấu Lovely", "Thiệp Gấu Surprise",
+      "Thiệp Gấu Best Wish", "Thiệp Happy", "Thiệp Good for You"
+    ],
+    "items": [
+      { "productId": "mask-face-shop", "quantity": 2 },
+      { "productId": "mug-ceramic", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "refresh-box-grapefruit",
+    "name": "Refresh Box",
+    "price": 1000000,
+    "image": "",
+    "description": "Hộp quà giúp bạn tái tạo năng lượng, thư giãn và chăm sóc bản thân sau những ngày dài mệt mỏi. Lấy cảm hứng từ hương bưởi tươi mát, bộ sản phẩm mang lại cảm giác sạch sẽ, nhẹ nhàng và tươi mới như sau một buổi spa tại nhà.\n\nBên trong hộp gồm:\n- Dầu gội bưởi Cocoon.\n- Dầu xả bưởi Cocoon.\n- Kem ủ tóc bưởi Cocoon.\n- Khăn mặt Wishes (xanh lá cây): mềm mại, thấm hút tốt.",
+    "cardOptions": [
+      "Thiệp Hello", "Thiệp Thanks For Everything", "Thiệp Gấu Lovely", "Thiệp Gấu Surprise",
+      "Thiệp Gấu Best Wish", "Thiệp Happy", "Thiệp Good for You"
+    ],
+    "items": [
+      { "productId": "cocoon-micellar", "quantity": 1 },
+      { "productId": "body-wash-purite", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "season-box-a",
+    "name": "Season Box",
+    "price": 700000,
+    "image": "https://res.cloudinary.com/dfslf5ylj/image/upload/v1762192273/uc_rafguu.jpg",
+    "description": "Season Box là món quà mang hơi thở mùa đông – ấm áp, sang trọng và đầy cảm xúc. Dành tặng người thân, bạn bè hay đồng nghiệp như một lời chúc “Giữ ấm và yêu thương” trong những ngày lạnh đầu mùa.\n\nBên trong hộp gồm:\n- Găng tay len mềm.\n- Khăn choàng caro cổ điển.\n- Bình giữ nhiệt.\n- Móc khóa gấu bông.\n- Thiệp chúc & túi quà sang trọng.",
+    "cardOptions": [
+      "Thiệp Season Greeting", "Thiệp Holiday", "Thiệp Merry & Bright", "Thiệp Cheer", "Thiệp Blue Cheer"
+    ],
+    "items": [
+      { "productId": "gloves-warm", "quantity": 1 },
+      { "productId": "bottle-thermal", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "season-box-b",
+    "name": "Season Box",
+    "price": 400000,
+    "image": "",
+    "description": "Set quà lý tưởng cho những ngày se lạnh, mang lại cảm giác ấm áp – tinh tế – đầy yêu thương. Phù hợp tặng bạn bè, người yêu hoặc đồng nghiệp trong mùa đông đầu năm.\n\nBên trong hộp gồm:\n- Khăn len caro.\n- Găng tay len “HELLO”.\n- Mũ len trơn.\n- Móc khóa gấu bông.\n- Thiệp chúc ấm áp.",
+    "cardOptions": [
+      "Thiệp Season Greeting", "Thiệp Holiday", "Thiệp Merry & Bright", "Thiệp Cheer", "Thiệp Blue Cheer"
+    ],
+    "items": [
+      { "productId": "beanie", "quantity": 1 },
+      { "productId": "gloves-warm", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "first-workday-premium",
+    "name": "First Work Day Box",
+    "price": 1000000,
+    "image": "https://res.cloudinary.com/dfslf5ylj/image/upload/v1762192391/uc_iln9fx.jpg",
+    "description": "Một hộp quà tinh tế và ý nghĩa dành cho ngày đầu tiên đi làm, mang đến cảm giác tự tin, hứng khởi và năng lượng tích cực cho khởi đầu mới.\n\nBộ quà gồm:\n- Cà phê phin Cầu Đất & Trà Oolong Kim Tuyên.\n- Ly sứ cao cấp & muỗng vàng.\n- Sổ tay minh họa Việt Nam & bút ký.\n- Set postcard “I ❤️ Vietnam”.",
+    "cardOptions": [
+      "Thiệp ConGradulations", "Thiệp Blue Cheer", "Thiệp Cheer", "Thiệp Congrats"
+    ],
+    "items": [
+      { "productId": "coffee-002", "quantity": 1 },
+      { "productId": "mug-ceramic", "quantity": 1 },
+      { "productId": "notebook", "quantity": 1 },
+      { "productId": "pen-metal", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "first-workday-compact",
+    "name": "First Work Day Box",
+    "price": 400000,
+    "image": "",
+    "description": "Một hộp quà nhỏ xinh mang sắc hồng dịu dàng, giúp “người nhận” khởi đầu công việc mới với thật nhiều năng lượng tích cực và cảm hứng mỗi ngày.\n\nBộ quà gồm:\n– Sổ tay bìa hồng “Whatever”.\n– Hai bút ký pastel.\n– Hai scrunchie lụa trắng – hồng.\n– Bó hoa khô mini.\n– Thiệp chúc.",
+    "cardOptions": [
+      "Thiệp ConGradulations", "Thiệp Blue Cheer", "Thiệp Cheer", "Thiệp Congrats"
+    ],
+    "items": [
+      { "productId": "mini-notebook", "quantity": 1 },
+      { "productId": "pen-metal", "quantity": 2 },
+      { "productId": "dried-flowers", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "birthday-basic",
+    "name": "Birthday Care Box",
+    "price": 450000,
+    "image": "https://res.cloudinary.com/dfslf5ylj/image/upload/v1762192618/uc_k8essp.jpg",
+    "description": "SET BIRTHDAY – MÓN QUÀ NHỎ GỬI TRỌN YÊU THƯƠNG. Nếu bạn đang tìm một món quà sinh nhật tinh tế và ý nghĩa, đây là lựa chọn hoàn hảo để gửi gắm yêu thương.\n\nSet gồm:\n- Bình giữ nhiệt họa tiết hoa pastel.\n- Khăn cotton mềm mại.\n- Sáp thơm hương hoa.\n- Bó hoa tulip giả cao cấp.\n- Thiệp sinh nhật nhỏ xinh.",
+    "cardOptions": [
+      "Thiệp Better than Ever", "Thiệp Happy Birthday (1)", "Thiệp Happy Birthday (2)",
+      "Thiệp Happy Birthday (3)", "Thiệp Happy Birthday (4)", "Thiệp Happy Birthday (5)", "Thiệp Look at me"
+    ],
+    "items": [
+      { "productId": "bottle-thermal", "quantity": 1 },
+      { "productId": "candle-scent", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "birthday-premium",
+    "name": "Birthday Care Box",
+    "price": 800000,
+    "image": "",
+    "description": "SET BIRTHDAY – PHIÊN BẢN CAO CẤP. Một món quà xinh xắn và ý nghĩa dành cho ngày sinh nhật.\n\nBộ quà gồm:\n- Máy rửa mặt silicon màu hồng.\n- 2 mặt nạ Mediheal Collagen.\n- Khăn bông mềm/băng đô skincare.\n- Sáp thơm hương hoa.\n- Hoa tulip giả cao cấp & hoa resin.\n- Thiệp sinh nhật nhỏ xinh.",
+    "cardOptions": [
+      "Thiệp Better than Ever", "Thiệp Happy Birthday (1)", "Thiệp Happy Birthday (2)",
+      "Thiệp Happy Birthday (3)", "Thiệp Happy Birthday (4)", "Thiệp Happy Birthday (5)", "Thiệp Look at me"
+    ],
+    "items": [
+      { "productId": "mask-face-shop", "quantity": 2 },
+      { "productId": "headband-wash", "quantity": 1 },
+      { "productId": "candle-scent", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "love-care-basic",
+    "name": "Love & Care Box",
+    "price": 600000,
+    "image": "https://res.cloudinary.com/dfslf5ylj/image/upload/v1762192757/uc_fl3wk2.jpg",
+    "description": "LOVE & CARE BOX – MÓN QUÀ NGỌT NGÀO CỦA SỰ CHĂM SÓC. Đôi khi, cách thể hiện tình yêu đơn giản nhất là gửi đi một chút quan tâm dịu dàng.\n\nBộ quà gồm:\n- Kem dưỡng da tay hương hạnh nhân.\n- Dụng cụ massage gua sha thạch anh hồng.\n- Mặt nạ giấy Nature Republic Rose.\n- Mặt nạ môi hồng.\n- Hoa hồng xà phòng.\n- Khăn ren hồng.",
+    "cardOptions": [
+      "Thiệp Gấu Lovely", "Thiệp Gấu Surprise", "Thiệp Gấu Best Wish", "Thiệp Hold My Hand", "Thiệp Bloom"
+    ],
+    "items": [
+      { "productId": "hand-lotion-duo", "quantity": 1 },
+      { "productId": "body-mist", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "love-care-premium",
+    "name": "Love & Care Box",
+    "price": 1190000,
+    "image": "",
+    "description": "LOVE & CARE BOX – PHIÊN BẢN NÂNG CẤP CỦA YÊU THƯƠNG. Một món quà ngọt ngào và sang trọng, nơi từng chi tiết nhỏ đều chứa đựng sự quan tâm.\n\nBộ quà gồm:\n- Kem dưỡng da tay hương hạnh nhân.\n- Tinh dầu Relax Essential Oil.\n- Mặt nạ môi hồng.\n- Mặt nạ giấy Nature Republic Rose.\n- Socola thanh vàng.\n- Hoa hồng xà phòng & hoa trang trí.\n- Khăn ren hồng mềm mại.\n- Móc khóa đôi trái tim vàng.\n- Khung ảnh mini.",
+    "cardOptions": [
+      "Thiệp Gấu Lovely", "Thiệp Gấu Surprise", "Thiệp Gấu Best Wish", "Thiệp Hold My Hand", "Thiệp Bloom"
+    ],
+    "items": [
+      { "productId": "chocolate-001", "quantity": 1 },
+      { "productId": "photo-frame-mini", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "joy-box",
+    "name": "Joy Box",
+    "price": 700000,
+    "image": "https://res.cloudinary.com/dfslf5ylj/image/upload/v1762192821/uc_c7kao9.jpg",
+    "description": "JOY BOX – MÓN QUÀ NHỎ MANG NIỀM VUI LỚN. Một ngày mới trọn vẹn bắt đầu bằng tách trà thơm, chiếc bánh ngọt nhỏ và mùi hương vanilla dịu nhẹ.\n\nBộ quà gồm:\n- Cốc sứ tông nude.\n- Nến thơm vanilla.\n- Sổ tay pastel.\n- Bánh quy bơ handmade.\n- Kẹo ngọt mix pastel.\n- Trà hoa cúc Chamomile.\n- Mặt nạ dưỡng ẩm.",
+    "cardOptions": [
+      "Thiệp Gấu Lovely", "Thiệp Gấu Surprise", "Thiệp Gấu Best Wish", "Thiệp Happy"
+    ],
+    "items": [
+      { "productId": "mug-ceramic", "quantity": 1 },
+      { "productId": "candle-scent", "quantity": 1 },
+      { "productId": "notebook", "quantity": 1 },
+      { "productId": "mask-face-shop", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "corporate-box",
+    "name": "Corporate Box",
+    "price": 1000000,
+    "image": "https://res.cloudinary.com/dfslf5ylj/image/upload/v1762192917/uc_wb2fe4.jpg",
+    "description": "CORPORATE BOX – MÓN QUÀ THANH LỊCH DÀNH CHO NGÀY ĐẶC BIỆT. Dành cho đối tác, đồng nghiệp hoặc chính bạn, phong cách tối giản – sang trọng, kết hợp giữa thẩm mỹ và giá trị sử dụng.\n\nBộ quà gồm:\n- Cốc sứ gân màu kem.\n- Socola sữa Moonstruck cao cấp.\n- Sổ da nâu kèm bút mạ vàng.\n- Nến thơm tone be.\n- Khăn bông trắng mềm mại.\n- Muỗng khuấy vàng.\n\nTất cả được đặt trong hộp quà kraft cao cấp, tông nâu – be – vàng đồng, trang trí nơ satin thanh lịch.",
+    "cardOptions": [
+      "Thiệp ConGradulations", "Thiệp Cheer", "Thiệp Blue Cheer"
+    ],
+    "items": [
+      { "productId": "mug-ceramic", "quantity": 1 },
+      { "productId": "chocolate-001", "quantity": 1 },
+      { "productId": "notebook", "quantity": 1 },
+      { "productId": "pen-metal", "quantity": 1 },
+      { "productId": "candle-scent", "quantity": 1 }
+    ]
+  }
+]
+
+

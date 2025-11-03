@@ -1,0 +1,12 @@
+[
+  { "id": "gift-box", "name": "Gift Box", "slug": "gift-box" },
+  { "id": "cards", "name": "Thiệp", "slug": "cards" },
+  { "id": "food-drinks", "name": "Đồ ăn & thức uống", "slug": "food-drinks", "imageUrl": "" },
+  { "id": "home-accessories", "name": "Đồ dùng & phụ kiện sinh hoạt", "slug": "home-accessories", "imageUrl": "" },
+  { "id": "beauty", "name": "Mỹ phẩm & chăm sóc cá nhân", "slug": "beauty", "imageUrl": "" },
+  { "id": "relaxation", "name": "Tinh thần & thư giãn", "slug": "relaxation", "imageUrl": "" },
+  { "id": "stationery", "name": "Văn phòng phẩm & quà tặng doanh nghiệp", "slug": "stationery", "imageUrl": "" },
+  { "id": "emotional-decor", "name": "Phụ kiện cảm xúc & trang trí", "slug": "emotional-decor", "imageUrl": "" }
+]
+
+
