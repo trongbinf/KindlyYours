@@ -1,5 +1,5 @@
 .footer {
-  background-color: #ffffff;
+  background-color: white; /* match header background */
   padding: 60px 40px 40px;
   margin-top: 0;
   position: relative;
@@ -29,7 +29,7 @@
 .footer-logo {
   font-size: 36px;
   font-weight: 700;
-  color: #8b0000;
+  color: #000000; /* brand text black */
   font-family: 'Georgia', 'Times New Roman', serif;
   letter-spacing: 2px;
 }
@@ -45,14 +45,14 @@
   align-items: flex-start;
   gap: 12px;
   font-size: 14px;
-  color: #666666;
+  color: #000000; /* black body text */
   line-height: 1.6;
 }
 
 .contact-icon {
   width: 18px;
   height: 18px;
-  color: #666666;
+  color: #000000;
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -67,7 +67,7 @@
 .footer-column-title {
   font-size: 16px;
   font-weight: 700;
-  color: #333333;
+  color: #000000;
   text-transform: uppercase;
   margin: 0;
   letter-spacing: 0.5px;
@@ -87,14 +87,14 @@
 }
 
 .footer-link {
-  color: #666666;
+  color: #000000; /* black link */
   text-decoration: none;
   font-size: 14px;
   transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-  color: #8b0000;
+  color: #333333; /* subtle darken */
 }
 
 /* Column 3: Contact & Social Media */
@@ -106,14 +106,14 @@
 
 .contact-message {
   font-size: 14px;
-  color: #666666;
+  color: #000000;
   margin: 0;
   line-height: 1.6;
 }
 
 .online-hours {
   font-size: 14px;
-  color: #666666;
+  color: #000000;
   margin: 0;
   line-height: 1.6;
 }
@@ -131,8 +131,8 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #4a5568;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #000000;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -177,7 +177,7 @@
 }
 
 .zalo-icon {
-  background: linear-gradient(135deg, #0068ff 0%, #00a3ff 100%);
+  background: linear-gradient(135deg, #4a90e2 0%, #5ba3f5 100%);
   color: #ffffff;
 }
 
@@ -187,13 +187,32 @@
 }
 
 .messenger-icon {
-  background: linear-gradient(135deg, #0084ff 0%, #0066ff 50%, #9b00ff 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, #fee0e8 0%, #f6ccd7 50%, #e8b4c4 100%);
+  color: #1F2A44;
+  border: 2px solid #e8b4c4;
 }
 
 .messenger-icon svg {
   width: 24px;
   height: 24px;
+}
+
+.chatbot-icon {
+  background: #ffffff;
+  border: 2px solid #fee0e8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.chatbot-icon:hover {
+  border-color: #f6ccd7;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.chatbot-icon img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 /* Responsive */

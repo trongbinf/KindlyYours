@@ -1,0 +1,161 @@
+.about {
+  background: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 800;
+  color: #8b0000;
+  margin-bottom: 24px;
+  font-family: '__Nunito_eef148', '__Nunito_Fallback_eef148', sans-serif;
+}
+
+.brand-story .section-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+  color: #2d4a62;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  font-family: '__Nunito_eef148', '__Nunito_Fallback_eef148', sans-serif;
+}
+
+.lead {
+  text-align: center;
+  font-size: 18px;
+  color: #2f4157;
+  margin-bottom: 32px;
+}
+
+.brand { color: black; }
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.split-text p {
+  font-size: 18px;
+  color: #2f4157;
+  margin: 0 0 14px 0;
+  line-height: 1.9;
+  text-align: center;
+}
+
+/* Quote layout like screenshot */
+.split-text {
+  position: relative;
+  padding: 12px 72px; /* room for decorative quotes so quotes don't touch text */
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.split-text svg {
+  position: absolute;
+  width: 56px;
+  height: auto;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.split-text svg:first-child {
+  top: -8px;
+  left: 12px;
+}
+
+.split-text svg:last-child {
+  bottom: -8px;
+  right: 12px;
+}
+
+.split-image img {
+  width: 100%;
+  border-radius: 16px;
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+  animation: aboutFadeIn 600ms ease forwards;
+  transition: transform 200ms ease, filter 200ms ease;
+}
+
+.full-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  margin: 8px 0 28px;
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+  animation: aboutFadeIn 700ms ease 120ms forwards;
+  transition: transform 200ms ease, filter 200ms ease;
+}
+
+/* Click/press feedback */
+.split-image img:active,
+.full-image img:active {
+  transform: scale(0.985);
+  filter: brightness(0.98);
+}
+
+@keyframes aboutFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.closing {
+  padding: 8px 20px 0;
+}
+
+.closing p {
+  text-align: center;
+  color: #2f4157;
+  font-size: 20px;
+  line-height: 1.9;
+  letter-spacing: .2px;
+}
+
+/* Emphasized closing sentence */
+.closing p i strong {
+  display: block;
+  margin-top: 18px;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 800;
+}
+
+@media (min-width: 992px) {
+  .split {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+
+  .split-text p {
+    font-size: 22px;
+  }
+
+  .split-text svg {
+    width: 68px;
+  }
+
+  .closing p {
+    font-size: 26px;
+  }
+
+  .closing p i strong {
+    font-size: 28px;
+  }
+}
+
+

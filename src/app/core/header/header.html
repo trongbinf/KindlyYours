@@ -47,20 +47,53 @@
       <div class="nav-bar-content">
       <!-- Logo -->
       <div class="logo-section">
-        <a routerLink="/" class="logo-link">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="logo-link">
             <span class="logo-text">Kindly Yours</span>
         </a>
       </div>
 
       <!-- Desktop Navigation -->
       <nav class="nav-desktop">
-        <a *ngFor="let link of navLinks" 
-           [routerLink]="link.href" 
-           routerLinkActive="active"
-           class="nav-link">
-          {{ link.label }}
-            <span *ngIf="link.hasDropdown" class="dropdown-arrow">▼</span>
-        </a>
+        <ng-container *ngFor="let link of navLinks">
+          <!-- Normal link -->
+          <a *ngIf="!link.hasDropdown"
+             [routerLink]="link.href"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{ exact: true }"
+             class="nav-link">
+            {{ link.label }}
+          </a>
+
+          <!-- Link with optional mega dropdown -->
+          <div *ngIf="link.hasDropdown"
+               class="nav-link-with-dropdown"
+               (mouseenter)="openDropdown(link.key)"
+               (mouseleave)="closeDropdown()">
+            <a [routerLink]="link.href" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">
+              {{ link.label }}
+              <span class="dropdown-arrow">▼</span>
+            </a>
+            <!-- Giftbox dropdown (only for giftbox link) -->
+            <div class="mega-dropdown" *ngIf="link.key==='giftbox' && activeDropdown==='giftbox'">
+              <div class="mega-column">
+                <div class="mega-title">Quà tặng của người nhận</div>
+                <a class="mega-item" *ngFor="let r of giftboxRecipients" [routerLink]="'/collection'">{{ r }}</a>
+              </div>
+              <div class="mega-column">
+                <div class="mega-title">Quà tặng theo dịp</div>
+                <a class="mega-item" *ngFor="let o of giftboxOccasions" [routerLink]="'/collection'">{{ o }}</a>
+              </div>
+            </div>
+
+            <!-- Corporate dropdown (only for corporate link) -->
+            <div class="mega-dropdown corporate" *ngIf="link.key==='corporate' && activeDropdown==='corporate'">
+              <div class="mega-column">
+                <div class="mega-title">Doanh nghiệp</div>
+                <a class="mega-item" *ngFor="let c of corporateLinks" [routerLink]="'/corporate-gifts'">{{ c }}</a>
+              </div>
+            </div>
+          </div>
+        </ng-container>
         
         <!-- Search Box -->
         <div class="search-box">

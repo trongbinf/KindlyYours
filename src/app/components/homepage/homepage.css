@@ -2,6 +2,19 @@
   background-color: #ffffff;
 }
 
+/* Ensure header stays sticky */
+app-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  width: 100% !important;
+  display: block;
+}
+
+.bg-white.flex.flex-col {
+  overflow: visible;
+}
+
 .flex {
   display: flex;
 }
@@ -277,11 +290,12 @@
   font-weight: 700;
   color: #2F4157;
   text-align: center;
+  font-family: '__Nunito_eef148', '__Nunito_Fallback_eef148', sans-serif;
 }
 
 /* Gift boxes grid overrides */
 .gift-grid .gift-card {
-  background: #ffffff;
+  background: #fee0e8; /* requested background */
   border-radius: 20px;
   padding: 0; /* full-bleed image */
   box-shadow: 0 8px 24px rgba(17, 24, 39, 0.08);
@@ -304,19 +318,42 @@
 .gift-content { padding: 16px 20px 22px; }
 
 .gift-grid .gift-card .category-name {
-  font-size: 28px;
-  color: #243A53;
+  font-size: 16px;
+  color: #111827; /* black text */
 }
 
 .gift-grid .gift-card .price-text {
   font-size: 20px;
-  color: #111827;
+  color: #111827; /* black text */
 }
+
+/* Stars and price rows for gift cards */
+.stars-row {
+  margin-top: 6px;
+}
+.stars-row .star {
+  color: #B4232C;
+  font-size: 18px;
+  margin-right: 2px;
+}
+.stars-row .star:not(.filled) { opacity: .25; }
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 6px;
+}
+.price-current { font-size: 20px; font-weight: 700; color: #111827; }
+.price-original { font-size: 14px; color: #6b7280; text-decoration: line-through; }
+.price-discount { font-size: 12px; color: #B4232C; font-weight: 700; background: #ffe8ea; padding: 2px 6px; border-radius: 9999px; }
+
+.sold-row { margin-top: 4px; font-size: 12px; color: #111827; }
 
 .gift-desc {
   margin-top: 6px;
   font-size: 14px;
-  color: #4b5563;
+  color: #111827; /* black text */
   line-height: 1.6;
   display: -webkit-box;
   line-clamp: 2;
@@ -335,8 +372,8 @@
   display: inline-block;
   padding: 12px 20px;
   border-radius: 9999px;
-  background: #B4232C;
-  color: #fff;
+  background: #fee0e8;
+  color: black;
   text-decoration: none; /* remove underline */
   font-weight: 600;
   letter-spacing: .2px;
@@ -397,6 +434,7 @@
   color: #2d4a62;
   margin-bottom: 16px;
   letter-spacing: 0.5px;
+  font-family: '__Nunito_eef148', '__Nunito_Fallback_eef148', sans-serif;
 }
 
 .section-subtitle {
@@ -614,6 +652,7 @@
   color: #2d4a62;
   margin-bottom: 16px;
   letter-spacing: 0.5px;
+  font-family: '__Nunito_eef148', '__Nunito_Fallback_eef148', sans-serif;
 }
 
 .testimonials-quote {
@@ -752,6 +791,7 @@
   color: #333;
   text-align: left;
   white-space: nowrap;
+  font-family: '__Nunito_eef148', '__Nunito_Fallback_eef148', sans-serif;
 }
 
 /* Marquee layout for brands */

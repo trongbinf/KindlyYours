@@ -1,0 +1,178 @@
+<div class="bg-white flex flex-col min-h-screen">
+  <app-header></app-header>
+
+  <div class="flex-1 app-container py-6">
+    <!-- Banner -->
+    <div class="banner">
+      <img src="https://api.teamogift.com/uploads/KHUNG__NH___CH_T_L__NG_CAO/1758554089992_0.jpg" alt="Corporate gifts banner" />
+    </div>
+    
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+      <a routerLink="/" class="crumb">Trang chủ</a>
+      <span class="sep">></span>
+      <span class="crumb current">Quà doanh nghiệp</span>
+    </nav>
+
+    <!-- Features Section -->
+    <section class="section features-section">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-image">
+            <img src="https://api.teamogift.com/uploads/KHDN/1726841528340_0.jpg" alt="Phân khúc giá" />
+          </div>
+          
+        </div>
+        <div class="feature-card">
+          <div class="feature-image">
+            <img src="https://api.teamogift.com/uploads/KHDN/1726841528341_1.jpg" alt="Tự mix quà" />
+          </div>
+         
+        </div>
+        <div class="feature-card">
+          <div class="feature-image">
+            <img src="https://api.teamogift.com/uploads/KHDN/1726841528341_2.jpg" alt="Đa dạng concept" />
+          </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- Quà tặng đối tác Section -->
+    <section class="section">
+      <h2 class="section-title">Quà tặng đối tác</h2>
+      <div class="gift-grid">
+        <div class="gift-card" *ngFor="let g of corporateGiftboxes">
+          <div class="gift-image">
+            <img *ngIf="g.image" [src]="g.image" [alt]="g.name" />
+            <div *ngIf="!g.image" class="no-img">No image</div>
+          </div>
+          <div class="gift-info">
+            <div class="gift-name">{{ g.name }}</div>
+            <div class="stars" *ngIf="g.rating">
+              <span class="star" *ngFor="let s of [1,2,3,4,5]" [class.filled]="s <= Math.round(g.rating || 5)">★</span>
+            </div>
+            <div class="price-row">
+              <span class="price-current">{{ getFinalPrice(g) | number }} Đ</span>
+              <span class="price-original" *ngIf="g.discountPercent">{{ g.price | number }} Đ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Giải pháp thương hiệu Section -->
+    <section class="section branding-section">
+      <h2 class="section-title">GIẢI PHÁP THƯƠNG HIỆU</h2>
+      <p class="section-subtitle">Hãy gửi cho chúng tôi thiết kế thương hiệu của bạn!</p>
+      <div class="branding-grid">
+        <div class="branding-card">
+          <div class="branding-image">
+            <img src="https://api.teamogift.com/uploads/17258155259752.png" alt="Khắc laser" />
+          </div>
+          <div class="branding-label">Khắc laser lên sản phẩm</div>
+        </div>
+        <div class="branding-card">
+          <div class="branding-image">
+            <img src="https://api.teamogift.com/uploads/17258155280573.png" alt="In UV" />
+          </div>
+          <div class="branding-label">In UV lên sổ, bình, hộp</div>
+        </div>
+        <div class="branding-card">
+          <div class="branding-image">
+            <img src="https://api.teamogift.com/uploads/1726594281732.webp" alt="Logo decal" />
+          </div>
+          <div class="branding-label">Logo decal thúc nổi</div>
+        </div>
+        <div class="branding-card">
+          <div class="branding-image">
+            <img src="https://api.teamogift.com/uploads/17258155326204.png" alt="Thiệp tag" />
+          </div>
+          <div class="branding-label">In ấn thiệp, tag cá nhân hóa</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chính sách bán hàng Section -->
+    <section class="section policy-section">
+      <h2 class="section-title">CHÍNH SÁCH BÁN HÀNG</h2>
+      <p class="section-subtitle">Chính sách bán hàng linh hoạt, thuận tiện cho khách hàng</p>
+      <div class="policy-grid">
+        <div class="policy-card">
+          <div class="policy-bg" style="background-image: url('https://api.teamogift.com/uploads/KHDN/1726841549522_0.jpg');"></div>
+          <div class="policy-content">
+          
+          </div>
+        </div>
+        <div class="policy-card">
+          <div class="policy-bg" style="background-image: url('https://api.teamogift.com/uploads/KHDN/1726841549523_3.jpg');"></div>
+          <div class="policy-content">
+            
+          </div>
+        </div>
+        <div class="policy-card">
+          <div class="policy-bg" style="background-image: url('https://api.teamogift.com/uploads/KHDN/1726841549523_2.jpg');"></div>
+          <div class="policy-content">
+            
+          </div>
+        </div>
+        <div class="policy-card">
+          <div class="policy-bg" style="background-image: url('https://api.teamogift.com/uploads/KHDN/1726841549522_1.jpg');"></div>
+          <div class="policy-content">
+           
+          </div>
+        </div>
+      </div>
+      <p class="policy-footer">Việc mang đến cảm xúc tích cực tại mỗi điểm chạm khách hàng trở thành mục tiêu chiến lược trong quá trình xây dựng thương hiệu!</p>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="section contact-section">
+      <h2 class="section-title">HÃY TẠO DẤU ẤN DÀNH RIÊNG CHO DOANH NGHIỆP CỦA BẠN</h2>
+      <p class="section-subtitle">Chúng tôi sẽ cung cấp Catalogs và Hàng Mẫu tận nơi. Bạn chỉ cần điền đầy đủ trường thông tin dưới đây.</p>
+      <div class="contact-wrapper">
+        <div class="contact-image">
+          <img src="https://api.teamogift.com/uploads/KHDN/1758798913240_0.jpg" alt="Corporate gift" />
+        </div>
+        <div class="contact-form">
+          <form (ngSubmit)="submitForm()">
+            <div class="form-group">
+              <label>Tên khách hàng <span class="required">*</span></label>
+              <input type="text" [(ngModel)]="formData.customerName" name="customerName" placeholder="Tên khách hàng..." required />
+            </div>
+            <div class="form-group">
+              <label>Email <span class="required">*</span></label>
+              <input type="email" [(ngModel)]="formData.email" name="email" placeholder="Email..." required />
+            </div>
+            <div class="form-group">
+              <label>Số điện thoại <span class="required">*</span></label>
+              <input type="tel" [(ngModel)]="formData.phone" name="phone" placeholder="Số điện thoại" required />
+            </div>
+            <div class="form-group">
+              <label>Công ty/Tổ chức <span class="required">*</span></label>
+              <input type="text" [(ngModel)]="formData.company" name="company" placeholder="Công ty/Tổ chức" required />
+            </div>
+            <div class="form-group">
+              <label>Số lượng set quà <span class="required">*</span></label>
+              <select [(ngModel)]="formData.quantity" name="quantity" required>
+                <option value="">Số lượng set quà</option>
+                <option value="10-50">10 - 50 set</option>
+                <option value="50-100">50 - 100 set</option>
+                <option value="100-500">100 - 500 set</option>
+                <option value="500+">500+ set</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Nhu cầu của doanh nghiệp <span class="required">*</span></label>
+              <textarea [(ngModel)]="formData.needs" name="needs" placeholder="Chia sẻ về nhu cầu của doanh nghiệp" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Gửi thông tin</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <app-footer></app-footer>
+</div>
+

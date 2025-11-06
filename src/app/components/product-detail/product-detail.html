@@ -1,0 +1,166 @@
+<div class="bg-white flex flex-col min-h-screen">
+  <app-header></app-header>
+
+  <div class="flex-1 app-container py-6">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumb">
+      <a routerLink="/" class="crumb">Trang chủ</a>
+      <span class="sep">></span>
+      <a routerLink="/collections/giftboxes" class="crumb">Bộ sưu tập</a>
+      <span class="sep">></span>
+      <span class="crumb current" *ngIf="product">{{ product.name }}</span>
+    </nav>
+
+    <!-- Product Detail Section -->
+    <div class="product-detail-section" *ngIf="product">
+      <!-- Left: Product Images -->
+      <div class="product-images">
+        <div class="main-image">
+          <img *ngIf="productImages[currentImageIndex]" [src]="productImages[currentImageIndex]" [alt]="product.name" />
+          <div *ngIf="!productImages[currentImageIndex]" class="no-img">No image</div>
+        </div>
+        <div class="thumbnail-gallery" *ngIf="productImages.length > 1">
+          <div 
+            class="thumbnail" 
+            *ngFor="let img of productImages; let i = index"
+            [class.active]="i === currentImageIndex"
+            (click)="selectImage(i)">
+            <img [src]="img" [alt]="product.name + ' ' + (i + 1)" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Product Information -->
+      <div class="product-info">
+        <h1 class="product-name">{{ product.name }}</h1>
+        
+        <div class="price-section">
+          <span class="price-current">{{ getFinalPrice() | number }} ₫</span>
+          <span class="price-original" *ngIf="product.discountPercent">{{ product.price | number }} ₫</span>
+        </div>
+
+        <div class="rating-section" *ngIf="product.rating">
+          <div class="stars">
+            <span class="star" *ngFor="let s of [1,2,3,4,5]" [class.filled]="s <= Math.round(product.rating || 5)">★</span>
+          </div>
+          <span class="rating-text">({{ product.sold || 0 }} đánh giá của khách hàng)</span>
+        </div>
+
+        <!-- Card Options -->
+        <div class="option-section" *ngIf="cardOptionsList && cardOptionsList.length > 0">
+          <label class="option-label">Thiệp:</label>
+          <div class="card-options">
+            <button 
+              *ngFor="let card of getCardOptions()"
+              class="card-option"
+              [class.selected]="selectedCard === card.id"
+              (click)="selectCard(card.id)">
+              <span class="card-icon">{{ card.icon }}</span>
+              <span class="card-name">{{ card.name }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quantity -->
+        <div class="option-section">
+          <label class="option-label">Số lượng:</label>
+          <div class="quantity-selector">
+            <button class="qty-btn" (click)="decrementQuantity()">—</button>
+            <span class="qty-value">{{ quantity }}</span>
+            <button class="qty-btn" (click)="incrementQuantity()">+</button>
+          </div>
+        </div>
+
+        <!-- Personalization -->
+        <div class="option-section">
+          <label class="option-label">Cá nhân hóa:</label>
+          <button class="personalize-btn">
+            <span class="personalize-icon">✏️</span>
+            <span>Khắc tên</span>
+          </button>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button class="btn-add-cart" (click)="addToCart()">Thêm vào giỏ hàng</button>
+          <button class="btn-buy-now" (click)="buyNow()">Mua ngay</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Description Tabs -->
+    <div class="product-tabs-section" *ngIf="product">
+      <div class="tabs-header">
+        <button 
+          *ngFor="let tab of tabs"
+          class="tab-btn"
+          [class.active]="activeTab === tab.id"
+          (click)="setActiveTab(tab.id)">
+          {{ tab.label }}
+        </button>
+      </div>
+
+      <div class="tabs-content">
+        <!-- Description Tab -->
+        <div class="tab-panel" *ngIf="activeTab === 'description'">
+          <h2 class="tab-title">Bộ quà tặng {{ product.name }} – Thiết kế độc quyền ✨</h2>
+          <p class="tab-subtitle">Set quà sang trọng, tiện ích & thư giãn, thích hợp để tặng trong những dịp đặc biệt, mang đến trải nghiệm trọn vẹn và ý nghĩa cho người nhận.</p>
+          
+          <div class="includes-section">
+            <h3 class="includes-title">⭐ Bao gồm:</h3>
+            <ul class="includes-list">
+              <li>⭐ Hộp quà + túi xách {{ product.name }} (25x21x9,5cm) - tinh tế, chắc chắn, dễ dàng mang theo.</li>
+              <li>❤️ Thiệp {{ product.name }} x 1 – để bạn gửi gắm những lời chúc ý nghĩa.</li>
+              <li>☕ Ly giữ nhiệt {{ product.name }} x 1 – hiện đại, tiện dụng, giữ nhiệt tốt cho cả đồ uống nóng & lạnh.</li>
+              <li>🌸 Miễn phí khắc/in tên cá nhân hóa</li>
+              <li>🏠 Tinh dầu thơm phòng 200ml x 1 – hương thơm dễ chịu, tạo không gian thư giãn và ấm áp.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Includes Tab -->
+        <div class="tab-panel" *ngIf="activeTab === 'includes'">
+          <h3 class="tab-title">Set quà bao gồm</h3>
+          <p *ngIf="product.description" class="tab-description">{{ product.description }}</p>
+        </div>
+
+        <!-- Shipping Tab -->
+        <div class="tab-panel" *ngIf="activeTab === 'shipping'">
+          <h3 class="tab-title">Đóng gói và vận chuyển</h3>
+          <p class="tab-description">Thông tin về đóng gói và vận chuyển sẽ được cập nhật...</p>
+        </div>
+
+        <!-- Video Tab -->
+        <div class="tab-panel" *ngIf="activeTab === 'video'">
+          <h3 class="tab-title">Video</h3>
+          <p class="tab-description">Video sản phẩm sẽ được cập nhật...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recently Viewed Products -->
+    <div class="recently-viewed-section" *ngIf="recentlyViewed.length > 0">
+      <h2 class="section-title">Sản phẩm đã xem</h2>
+      <div class="products-grid">
+        <div class="product-card" *ngFor="let p of recentlyViewed" (click)="router.navigate(['/product', p.id])">
+          <div class="product-image">
+            <img *ngIf="p.image" [src]="p.image" [alt]="p.name" />
+            <div *ngIf="!p.image" class="no-img">No image</div>
+          </div>
+          <div class="product-info-card">
+            <div class="product-name-card">{{ p.name }}</div>
+            <div class="stars" *ngIf="p.rating">
+              <span class="star" *ngFor="let s of [1,2,3,4,5]" [class.filled]="s <= Math.round(p.rating || 5)">★</span>
+            </div>
+            <div class="price-card">
+              <span class="price-current-card">{{ (p.price * (1 - (p.discountPercent || 0))) | number }} Đ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>
+

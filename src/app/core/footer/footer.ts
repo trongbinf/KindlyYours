@@ -11,18 +11,18 @@ import { RouterModule } from '@angular/router';
 export class Footer {
   currentYear = new Date().getFullYear();
 
-  hotline = '0368.598.286';
-  address = '126 Hạ Hội, Tân Lập, Đan Phượng, Hà Nội';
-  email = 'cskh.teamogift@gmail.com';
+  hotline = '039 541 4344';
+  address = '125 Hoàng Ngân, Thanh Xuân, Hà Nội, Vietnam';
+  email = 'kindlyyours.official@gmail.com';
   
   socialMedia = {
-    facebook: 'https://www.facebook.com/teamogift.official',
-    instagram: 'https://www.instagram.com/teamogift',
-    tiktok: 'https://www.tiktok.com/@teamogiftofficial'
+    facebook: 'https://www.facebook.com/kindlyyours.official',
+    instagram: 'https://www.instagram.com/kindlyyours.official',
+    tiktok: 'https://www.tiktok.com/@kindlyyours.official'
   };
 
-  zalo = '0368598286';
-  messengerId = 'teamogift.official';
+  zalo = '0395414344';
+  messengerId = 'kindlyyours.official';
 
   quickLinks = [
     { href: '/', label: 'Trang chủ' },
@@ -32,4 +32,11 @@ export class Footer {
     { href: '/corporate-gifts', label: 'Quà tặng doanh nghiệp' },
     { href: '/about', label: 'Giới thiệu' }
   ];
+
+  openChatbot(event: Event) {
+    event.preventDefault();
+    // TODO: Implement chatbot opening logic
+    // For now, you can add your chatbot widget initialization here
+    console.log('Chatbot clicked');
+  }
 }

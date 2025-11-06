@@ -52,8 +52,8 @@
               <select class="filter-dropdown" [(ngModel)]="selectedCatalog">
                 <option value="">Mục lục</option>
                 <option value="gift-box">Hộp quà</option>
-                <option value="flowers">Hoa</option>
-                <option value="chocolate">Socola</option>
+                <option value="flowers">Theo dịp</option>
+                <option value="chocolate">Khuyến mãi</option>
                 <option value="custom">Tùy chỉnh</option>
               </select>
             </div>
@@ -73,19 +73,19 @@
         <!-- Categories Section (static original) -->
         <section class="categories-section">
           <div class="categories-grid">
-            <div class="category-item">
+            <div class="category-item" routerLink="/collections/giftboxes" style="cursor:pointer">
               <img src="https://res.cloudinary.com/dafzz2c9j/image/upload/v1762137076/bosuutap_lwwj5o.png" alt="Bộ sưu tập" class="category-icon">
               <span class="category-name">Bộ sưu tập</span>
             </div>
-            <div class="category-item">
+            <div class="category-item" routerLink="/collections/giftboxes" style="cursor:pointer">
               <img src="https://res.cloudinary.com/dafzz2c9j/image/upload/v1762137076/hopquacosan_v3tl4o.png" alt="Hộp quà có sẵn" class="category-icon">
               <span class="category-name">Hộp quà có sẵn</span>
             </div>
-            <div class="category-item">
+            <div class="category-item" routerLink="/collections/giftboxes" style="cursor:pointer">
               <img src="https://res.cloudinary.com/dafzz2c9j/image/upload/v1762137075/tulamhopqua_vtlvrr.png" alt="Tự làm hộp quà" class="category-icon">
               <span class="category-name">Tự làm hộp quà</span>
             </div>
-            <div class="category-item">
+            <div class="category-item" routerLink="/corporate-gifts" style="cursor:pointer">
               <img src="https://res.cloudinary.com/dafzz2c9j/image/upload/v1762137075/doanhnghiep_gl4gus.png" alt="Quà doanh nghiệp" class="category-icon">
               <span class="category-name">Quà doanh nghiệp</span>
             </div>
@@ -103,13 +103,21 @@
               </div>
               <div class="gift-content">
                 <span class="category-name">{{ g.name }}</span>
-                <span class="text-sm text-gray-600 mt-1 block price-text">{{ (g.price || 0) | number }} đ</span>
+                <div class="stars-row" *ngIf="g.rating">
+                  <span class="star" *ngFor="let s of [1,2,3,4,5]" [class.filled]="s <= Math.round(g.rating || 5)">★</span>
+                </div>
+                <div class="price-row">
+                  <span class="price-current">{{ (g.price * (1 - (g.discountPercent || 0))) | number }} đ</span>
+                  <span class="price-original" *ngIf="g.discountPercent">{{ g.price | number }} đ</span>
+                  <span class="price-discount" *ngIf="g.discountPercent">-{{ (g.discountPercent * 100) | number:'1.0-0' }}%</span>
+                </div>
+                <div class="sold-row" *ngIf="g.sold">Đã bán {{ g.sold | number }}</div>
                 <p class="gift-desc" *ngIf="g.description">{{ g.description }}</p>
               </div>
             </div>
           </div>
           <div class="section-ctas">
-            <a class="btn-primary" href="#">Xem tất cả sản phẩm</a>
+            <a routerLink="/collections/giftboxes" class="btn-primary">Xem tất cả sản phẩm</a>
           </div>
         </section>
             
@@ -129,6 +137,37 @@
               </div>
             </swiper-slide>
           </swiper-container>
+        </section>
+
+        <!-- Corporate Gifts Section -->
+        <section class="categories-section" *ngIf="corporateGiftboxes.length">
+          <div class="section-header">
+            <h2 class="section-title">QUÀ TẶNG DOANH NGHIỆP</h2>
+            <p class="section-subtitle">Gợi ý hộp quà cho doanh nghiệp</p>
+          </div>
+          <div class="categories-grid gift-grid">
+            <div class="category-item gift-card" *ngFor="let g of corporateGiftboxes">
+              <img *ngIf="g.image" [src]="g.image" [alt]="g.name" class="gift-image" />
+              <div *ngIf="!g.image" class="gift-image flex items-center justify-center bg-gray-100 text-[#B4232C] font-semibold">
+                {{ g.name.charAt(0) }}
+              </div>
+              <div class="gift-content">
+                <span class="category-name">{{ g.name }}</span>
+                <div class="stars-row" *ngIf="g.rating">
+                  <span class="star" *ngFor="let s of [1,2,3,4,5]" [class.filled]="s <= Math.round(g.rating || 5)">★</span>
+                </div>
+                <div class="price-row">
+                  <span class="price-current">{{ getFinalPrice(g) | number }} đ</span>
+                  <span class="price-original" *ngIf="g.discountPercent">{{ g.price | number }} đ</span>
+                  <span class="price-discount" *ngIf="g.discountPercent">-{{ (g.discountPercent * 100) | number:'1.0-0' }}%</span>
+                </div>
+                <div class="sold-row" *ngIf="g.sold">Đã bán {{ g.sold | number }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="section-ctas">
+            <a routerLink="/corporate-gifts" class="btn-primary">Xem thêm</a>
+          </div>
         </section>
 
         <!-- Testimonials Section -->

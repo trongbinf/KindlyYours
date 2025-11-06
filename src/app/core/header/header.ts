@@ -13,21 +13,60 @@ export class Header {
   mobileMenuOpen = false;
   searchQuery = '';
   cartCount = 0;
+  activeDropdown: 'giftbox' | 'corporate' | null = null;
 
-  hotline = '0368.598.286';
-  address = '126 Hạ Hội, Tân Lập, Đan Phượng, Hà Nội';
+  hotline = '039 541 4344';
+  address = '125 Hoàng Ngân, Thanh Xuân, Hà Nội, Vietnam';
   
   socialMedia = {
-    facebook: 'https://www.facebook.com/teamogift.official',
-    instagram: 'https://www.instagram.com/teamogift',
-    tiktok: 'https://www.tiktok.com/@teamogiftofficial'
+    facebook: 'https://www.facebook.com/kindlyyours.official',
+    instagram: 'https://www.instagram.com/kindlyyours.official',
+    tiktok: 'https://www.tiktok.com/@kindlyyours.official'
   };
 
   navLinks = [
     { href: '/', label: 'Trang chủ', hasDropdown: false },
-    { href: '/collection', label: 'GIFT BOX', hasDropdown: true },
-    { href: '/corporate-gifts', label: 'Quà tặng doanh nghiệp', hasDropdown: false },
+    { href: '/collection', label: 'GIFT BOX', hasDropdown: true, key: 'giftbox' as const },
+    { href: '/corporate-gifts', label: 'Quà tặng doanh nghiệp', hasDropdown: true, key: 'corporate' as const },
     { href: '/about', label: 'Giới thiệu', hasDropdown: false },
+  ];
+
+  // Mega dropdown data
+  giftboxRecipients: string[] = [
+    'Quà tặng cho cô ấy',
+    'Quà tặng cho anh ấy',
+    'Quà tặng cho mọi giới tính',
+    'Quà tặng cho thanh thiếu niên',
+    'Quà tặng cho trẻ em',
+    'Quà tặng cho các cặp đôi hoặc gia đình',
+    'Dành cho em bé mới sinh'
+  ];
+
+  giftboxOccasions: string[] = [
+    'Gói chăm sóc',
+    'Quà tặng sinh nhật',
+    'Quà tặng tang lễ',
+    'Nghĩ về bạn',
+    'Em bé mới sinh',
+    'Quà tặng cho bà mẹ mới và bà mẹ tương lai',
+    'Lễ kỷ niệm',
+    'Lễ cưới',
+    'Dịp kỉ niệm',
+    'Chúc mừng',
+    'Hôn ước',
+    'Nhà mới',
+    'Quà tặng cảm ơn',
+  ];
+
+  corporateLinks: string[] = [
+    'Chúng tôi làm gì',
+    'Liên hệ với chúng tôi',
+    'Quà tặng nhân viên',
+    'Quà tặng khách hàng',
+    'Quà tặng sự kiện',
+    'Quà tặng có thương hiệu',
+    'Quà tặng Giáng sinh của doanh nghiệp',
+    'Mua ngay'
   ];
 
   toggleMobileMenu() {
@@ -48,5 +87,15 @@ export class Header {
     console.log('Opening cart...');
     // Example: this.router.navigate(['/cart']);
     // or trigger cart drawer/modal
+  }
+
+  openDropdown(key: 'giftbox' | 'corporate' | null | undefined) {
+    if (key === 'giftbox' || key === 'corporate') {
+      this.activeDropdown = key;
+    }
+  }
+
+  closeDropdown() {
+    this.activeDropdown = null;
   }
 }

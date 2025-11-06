@@ -1,5 +1,6 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, AfterViewInit, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Header } from '../../core/header/header';
 import { Footer } from '../../core/footer/footer';
@@ -13,7 +14,7 @@ register();
 
 @Component({
   selector: 'app-homepage',
-  imports: [CommonModule, FormsModule, Header, Footer],
+  imports: [CommonModule, RouterModule, FormsModule, Header, Footer],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './homepage.html',
   styleUrl: './homepage.css',
@@ -23,6 +24,9 @@ export class Homepage implements AfterViewInit, OnInit {
     private catalogLocal: CatalogLocalService,
     private giftboxTemplates: GiftBoxTemplatesLocalService
   ) {}
+
+  // Expose Math for template expressions (e.g., Math.round)
+  readonly Math = Math;
 
   selectedPrice = '';
   selectedRecipient = '';
@@ -198,11 +202,24 @@ export class Homepage implements AfterViewInit, OnInit {
   // Gift boxes to display (one per type)
   featuredGift: GiftBoxTemplate | null = null; // keep first for backward compatibility
   giftBoxesOnHome: GiftBoxTemplate[] = [];
+  corporateBox: GiftBoxTemplate | null = null;
+  corporateGiftboxes: GiftBoxTemplate[] = [];
 
   async ngOnInit() {
     try {
       const templates = await this.giftboxTemplates.getTemplates();
       this.featuredGift = templates && templates.length > 0 ? templates[0] : null;
+      // Load corporate-box for Doanh nghiệp section
+      this.corporateBox = templates.find(t => t.id === 'corporate-box') || null;
+      
+      // Load corporate gift boxes for "Quà tặng đối tác" section
+      this.corporateGiftboxes = templates.filter(g => 
+        g.id === 'corporate-box' || 
+        g.id.includes('corporate-gift-set') ||
+        g.name.toLowerCase().includes('corporate') ||
+        g.name.toLowerCase().includes('doanh nghiệp') ||
+        g.name.toLowerCase().includes('đối tác')
+      ).slice(0, 6); // Show first 6 corporate gifts
 
       // Pick the first item of each logical type
       const typeOrder = [
@@ -232,7 +249,14 @@ export class Homepage implements AfterViewInit, OnInit {
     } catch {
       this.featuredGift = null;
       this.giftBoxesOnHome = [];
+      this.corporateBox = null;
+      this.corporateGiftboxes = [];
     }
+  }
+
+  getFinalPrice(g: GiftBoxTemplate): number {
+    const discount = g.discountPercent || 0;
+    return Math.round(g.price * (1 - discount));
   }
 
   ngAfterViewInit() {

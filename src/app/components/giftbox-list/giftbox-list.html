@@ -1,0 +1,82 @@
+<div class="bg-white flex flex-col min-h-screen">
+  <app-header></app-header>
+
+  <div class="flex-1 app-container py-6">
+    <div class="banner">
+      <img src="https://api.teamogift.com/uploads/KHUNG__NH___CH_T_L__NG_CAO/1758554089992_0.jpg" alt="Giftbox collection banner" />
+    </div>
+    <nav class="breadcrumb">
+      <a routerLink="/" class="crumb">Trang chủ</a>
+      <span class="sep">></span>
+      <span class="crumb current">Bộ sưu tập</span>
+    </nav>
+
+    <div class="page-header">
+      <div class="title">Bộ lọc</div>
+      <div class="title products">Sản phẩm</div>
+      <div class="sort-wrapper">
+        <button class="sort-btn" (click)="isSortOpen = !isSortOpen">Sắp xếp theo: {{ getSortLabel() }}</button>
+        <div class="sort-dropdown" *ngIf="isSortOpen">
+          <div class="sort-option" *ngFor="let opt of sortOptions" (click)="selectSort(opt.value)">
+            {{ opt.label }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content">
+      <aside class="sidebar">
+        <div class="search-box">
+          <input placeholder="Tìm kiếm theo tên sản phẩm..." [(ngModel)]="searchText" (input)="applyFilters()" />
+        </div>
+
+        <div class="filter-section">
+          <div class="filter-title">Dịp tặng quà</div>
+          <label class="checkbox"><input type="checkbox" /> <span>Sinh nhật</span></label>
+          <label class="checkbox"><input type="checkbox" /> <span>Ngày kỷ niệm</span></label>
+          <label class="checkbox"><input type="checkbox" /> <span>Dịp khác</span></label>
+          <label class="checkbox"><input type="checkbox" /> <span>Noel</span></label>
+        </div>
+
+        <div class="filter-section">
+          <div class="filter-title">Lọc theo giá</div>
+          <ul class="price-list">
+            <li class="radio"><input type="radio" name="price" [(ngModel)]="selectedPriceRange" value="0-99999" (change)="applyPriceFilter()" /> <span>< 100.000đ</span></li>
+            <li class="radio"><input type="radio" name="price" [(ngModel)]="selectedPriceRange" value="100000-300000" (change)="applyPriceFilter()" /> <span>100.000đ - 300.000đ</span></li>
+            <li class="radio"><input type="radio" name="price" [(ngModel)]="selectedPriceRange" value="300000-500000" (change)="applyPriceFilter()" /> <span>300.000đ - 500.000đ</span></li>
+            <li class="radio"><input type="radio" name="price" [(ngModel)]="selectedPriceRange" value="500000-1000000" (change)="applyPriceFilter()" /> <span>500.000đ - 1.000.000đ</span></li>
+            <li class="radio"><input type="radio" name="price" [(ngModel)]="selectedPriceRange" value="1000000-" (change)="applyPriceFilter()" /> <span>> 1.000.000đ</span></li>
+          </ul>
+          <div class="filter-actions">
+            <button class="clear-btn" (click)="clearFilters()">Xóa lọc</button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div class="grid">
+          <div class="card" *ngFor="let g of giftboxes" [routerLink]="['/product', g.id]" style="cursor: pointer;">
+            <div class="card-img">
+              <img *ngIf="g.image" [src]="g.image" [alt]="g.name" />
+              <div *ngIf="!g.image" class="no-img">No image</div>
+            </div>
+            <div class="card-body">
+              <div class="name">{{ g.name }}</div>
+              <div class="stars" *ngIf="g.rating">
+                <span class="star" *ngFor="let s of [1,2,3,4,5]" [class.filled]="s <= Math.round(g.rating || 5)">★</span>
+              </div>
+              <div class="price-row">
+                <span class="price-current">{{ getFinalPrice(g) | number }} Đ</span>
+                <span class="price-original" *ngIf="g.discountPercent">{{ g.price | number }} Đ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>
+
+
