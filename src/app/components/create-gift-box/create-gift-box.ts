@@ -200,6 +200,10 @@ export class CreateGiftBox implements OnInit {
       .filter(x => !!x.product);
   }
 
+  hasSelectedItems() {
+    return this.getSelectedItems().length > 0;
+  }
+
   getSubtotal() {
     let total = this.getSelectedItems().reduce((sum, it) => sum + (it.product.price * it.quantity), 0);
     if (this.selectedBox?.price) {

@@ -126,7 +126,7 @@
           </div>
           <div class="summary">
             <div class="total">Tổng tiền: {{ getSubtotal() | number }} ₫</div>
-            <button class="btn btn-primary" (click)="nextStep()">Hoàn thành hộp quà</button>
+            <button class="btn btn-primary" (click)="nextStep()" [disabled]="!hasSelectedItems()">Hoàn thành hộp quà</button>
           </div>
         </div>
       </div>
