@@ -25,9 +25,8 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_POLITE_ROCK_0D204ED00 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
-          action:
-            'upload'
-            # Thay "/" bằng đường dẫn tới thư mục Angular
+          action: 'upload'
+          # Thay "/" bằng đường dẫn tới thư mục Angular
           app_location: 'KindlyYoursFE'
           # Nếu bạn không dùng Azure Functions làm API, để trống hoặc xóa luôn
           api_location: ''
