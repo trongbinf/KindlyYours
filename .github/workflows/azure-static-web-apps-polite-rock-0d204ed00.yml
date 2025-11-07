@@ -40,6 +40,8 @@ jobs:
           api_location: ''
           # Thư mục build ra, tương đối với app_location
           output_location: 'dist/KindlyYoursFE/browser'
+          # Skip build trong Azure vì đã build trong GitHub Actions
+          skip_app_build: true
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
