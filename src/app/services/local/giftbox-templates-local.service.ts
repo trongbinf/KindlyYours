@@ -45,7 +45,21 @@ export class GiftBoxTemplatesLocalService {
   }
 
   async getCardOptionsForProduct(product: GiftBoxTemplate): Promise<CardOption[]> {
-    // Always use all common cards for all products
+    if (product.cardOptions && product.cardOptions.length > 0) {
+      const common = await this.getCommonCards();
+      return product.cardOptions.map((card) => {
+        if (typeof card === 'string') {
+          const found = common.find(c => c.name === card);
+          return { name: card, image: found?.image };
+        }
+        // If card is already an object, prefer its image; if missing, try enrich from common list
+        if (!card.image) {
+          const found = common.find(c => c.name === card.name);
+          return { name: card.name, image: found?.image };
+        }
+        return card;
+      });
+    }
     return await this.getCommonCards();
   }
 }

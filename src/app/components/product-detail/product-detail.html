@@ -55,9 +55,18 @@
               class="card-option"
               [class.selected]="selectedCard === card.id"
               (click)="selectCard(card.id)">
-              <span class="card-icon">{{ card.icon }}</span>
+              <ng-container *ngIf="card.image; else cardIcon">
+                <img [src]="card.image" [alt]="card.name" class="card-image" />
+              </ng-container>
+              <ng-template #cardIcon>
+                <span class="card-icon">{{ card.icon }}</span>
+              </ng-template>
               <span class="card-name">{{ card.name }}</span>
             </button>
+          </div>
+          <div class="card-preview" *ngIf="selectedCardImage">
+            <img [src]="selectedCardImage" alt="Thiệp đã chọn" />
+            <span class="card-preview-label">Thiệp đã chọn</span>
           </div>
         </div>
 
@@ -71,14 +80,27 @@
           </div>
         </div>
 
-        <!-- Personalization -->
+        <!-- Message on card -->
         <div class="option-section">
-          <label class="option-label">Cá nhân hóa:</label>
-          <button class="personalize-btn">
-            <span class="personalize-icon">✏️</span>
-            <span>Khắc tên</span>
-          </button>
+          <label class="option-label">Chọn mẫu lời nhắn:</label>
+          <select class="w-full input" [(ngModel)]="selectedMessageTemplate" (change)="onTemplateChange()">
+            <option value="" disabled>Chọn mẫu lời nhắn...</option>
+            <option *ngFor="let t of messageTemplates" [value]="t">{{ t }}</option>
+          </select>
         </div>
+
+        <div class="option-section">
+          <label class="option-label">Lời nhắn ghi trên thiệp:</label>
+          <textarea
+            class="w-full input"
+            rows="4"
+            [(ngModel)]="messageText"
+            [attr.maxlength]="messageCharLimit"
+            placeholder="Ghi chú cho Kindly Yours..."></textarea>
+          <div class="helper-text">{{ messageText.length }}/{{ messageCharLimit }}</div>
+        </div>
+
+        
 
         <!-- Action Buttons -->
         <div class="action-buttons">

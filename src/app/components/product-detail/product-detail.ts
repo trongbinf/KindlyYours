@@ -20,6 +20,16 @@ export class ProductDetail implements OnInit {
   selectedCard = '';
   quantity = 1;
   activeTab = 'description';
+  // Message on card
+  messageTemplates: string[] = [
+    'Chúc bạn một ngày thật vui vẻ!',
+    'Chúc mừng sinh nhật! Mong bạn luôn hạnh phúc.',
+    'Chúc bạn mau khỏe! Luôn vững vàng nhé.',
+    'Cảm ơn bạn vì tất cả!'
+  ];
+  selectedMessageTemplate = '';
+  messageText = '';
+  messageCharLimit = 300;
   
   cardOptionsMap: { [key: string]: { icon: string } } = {
     'Thiệp động viên': { icon: '💪' },
@@ -97,12 +107,16 @@ export class ProductDetail implements OnInit {
           const defaultCard = this.cardOptionsList[0];
           if (defaultCard && defaultCard.image) {
             this.selectedCardImage = defaultCard.image;
-            if (this.productImages.length > 0) {
-              this.productImages[0] = defaultCard.image;
-            } else {
-              this.productImages = [defaultCard.image];
+            // Keep original product image as main, add card image as secondary
+            if (this.productImages.length === 0 && this.originalProductImage) {
+              this.productImages = [this.originalProductImage];
             }
-            this.currentImageIndex = 0;
+            if (this.productImages.length > 1) {
+              this.productImages[1] = defaultCard.image;
+            } else {
+              this.productImages.push(defaultCard.image);
+            }
+            // Do not change currentImageIndex so main remains the product image
           }
         }
         
@@ -136,24 +150,25 @@ export class ProductDetail implements OnInit {
     const selectedCardOption = this.cardOptionsList.find(card => card.id === cardId);
     if (selectedCardOption && selectedCardOption.image) {
       this.selectedCardImage = selectedCardOption.image;
-      // If card has image, show it as the main product image
-      if (this.productImages.length > 0) {
-        // Replace first image with card image
-        this.productImages[0] = selectedCardOption.image;
-      } else {
-        this.productImages = [selectedCardOption.image];
+      // Keep original product image as main; add/update card image as secondary
+      if (!this.originalProductImage && this.product?.image) {
+        this.originalProductImage = this.product.image;
       }
-      this.currentImageIndex = 0;
+      if (this.productImages.length === 0 && this.originalProductImage) {
+        this.productImages = [this.originalProductImage];
+      }
+      if (this.productImages.length > 1) {
+        this.productImages[1] = selectedCardOption.image;
+      } else {
+        this.productImages.push(selectedCardOption.image);
+      }
+      // Do not change currentImageIndex to avoid overriding user's current view
     } else {
       // If no card image, revert to original product image
       this.selectedCardImage = '';
       if (this.originalProductImage) {
-        if (this.productImages.length > 0) {
-          this.productImages[0] = this.originalProductImage;
-        } else {
-          this.productImages = [this.originalProductImage];
-        }
-        this.currentImageIndex = 0;
+        // Remove secondary card image if exists, keep only the original product image
+        this.productImages = [this.originalProductImage];
       }
     }
   }
@@ -178,7 +193,9 @@ export class ProductDetail implements OnInit {
     console.log('Buy now:', {
       product: this.product,
       quantity: this.quantity,
-      card: this.selectedCard
+      card: this.selectedCard,
+      messageTemplate: this.selectedMessageTemplate,
+      messageText: this.messageText
     });
     // TODO: Implement checkout logic
     alert('Chuyển đến trang thanh toán!');
@@ -186,6 +203,12 @@ export class ProductDetail implements OnInit {
 
   selectImage(index: number) {
     this.currentImageIndex = index;
+  }
+
+  onTemplateChange() {
+    if (this.selectedMessageTemplate) {
+      this.messageText = this.selectedMessageTemplate;
+    }
   }
 }
 
