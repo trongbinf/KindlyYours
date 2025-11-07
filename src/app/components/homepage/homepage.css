@@ -301,6 +301,12 @@ app-header {
   box-shadow: 0 8px 24px rgba(17, 24, 39, 0.08);
   min-height: auto;
   overflow: hidden; /* ensure image touches border without overflow */
+  transition: all 0.3s ease;
+}
+
+.gift-grid .gift-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(17, 24, 39, 0.15);
 }
 
 .gift-image {

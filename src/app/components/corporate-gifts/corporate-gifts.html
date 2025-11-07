@@ -42,7 +42,8 @@
     <section class="section">
       <h2 class="section-title">Quà tặng đối tác</h2>
       <div class="gift-grid">
-        <div class="gift-card" *ngFor="let g of corporateGiftboxes">
+        <div class="gift-card" *ngFor="let g of corporateGiftboxes" 
+             [routerLink]="['/product', g.id]" style="cursor:pointer">
           <div class="gift-image">
             <img *ngIf="g.image" [src]="g.image" [alt]="g.name" />
             <div *ngIf="!g.image" class="no-img">No image</div>

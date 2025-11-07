@@ -96,7 +96,8 @@
         <!-- Gift Boxes from giftboxes.json (one per type) -->
         <section class="categories-section" *ngIf="giftBoxesOnHome.length">
           <div class="categories-grid gift-grid">
-            <div class="category-item gift-card" *ngFor="let g of giftBoxesOnHome">
+            <div class="category-item gift-card" *ngFor="let g of giftBoxesOnHome" 
+                 [routerLink]="['/product', g.id]" style="cursor:pointer">
               <img *ngIf="g.image" [src]="g.image" [alt]="g.name" class="gift-image" />
               <div *ngIf="!g.image" class="gift-image flex items-center justify-center bg-gray-100 text-[#B4232C] font-semibold">
                 {{ g.name.charAt(0) }}
@@ -146,7 +147,8 @@
             <p class="section-subtitle">Gợi ý hộp quà cho doanh nghiệp</p>
           </div>
           <div class="categories-grid gift-grid">
-            <div class="category-item gift-card" *ngFor="let g of corporateGiftboxes">
+            <div class="category-item gift-card" *ngFor="let g of corporateGiftboxes" 
+                 [routerLink]="['/product', g.id]" style="cursor:pointer">
               <img *ngIf="g.image" [src]="g.image" [alt]="g.name" class="gift-image" />
               <div *ngIf="!g.image" class="gift-image flex items-center justify-center bg-gray-100 text-[#B4232C] font-semibold">
                 {{ g.name.charAt(0) }}
