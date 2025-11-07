@@ -3,7 +3,7 @@
 .banner { background: #F3F4F6; border-radius: 28px; overflow: hidden; margin-bottom: 12px; }
 .banner img { width: 100%; height: auto; display: block; }
 
-.breadcrumb { display: flex; align-items: center; gap: 8px; color: #1F2A44; font-weight: 600; margin: 8px 0 32px; }
+.breadcrumb { display: flex; align-items: center; gap: 8px; color: #1F2A44; font-weight: 600; margin: 24px 0 32px; }
 .breadcrumb .crumb { color: #1F2A44; text-decoration: none; }
 .breadcrumb .crumb:hover { text-decoration: none; }
 .breadcrumb .crumb.current { color: #6B7280; font-weight: 500; }

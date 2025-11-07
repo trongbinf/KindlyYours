@@ -17,7 +17,7 @@ export class ProductDetail implements OnInit {
   product: GiftBoxTemplate | null = null;
   readonly Math = Math;
   
-  selectedCard = '';
+  selectedCard: string | null = null;
   quantity = 1;
   activeTab = 'description';
   // Message on card
@@ -97,28 +97,8 @@ export class ProductDetail implements OnInit {
         if (this.originalProductImage) {
           this.productImages = [this.originalProductImage];
         }
-        // Load card options
+        // Load card options (không tự chọn mặc định)
         this.cardOptionsList = await this.loadCardOptions();
-        
-        // Set default card option
-        if (this.cardOptionsList && this.cardOptionsList.length > 0) {
-          this.selectedCard = this.cardOptionsList[0].id;
-          // If default card has image, show it
-          const defaultCard = this.cardOptionsList[0];
-          if (defaultCard && defaultCard.image) {
-            this.selectedCardImage = defaultCard.image;
-            // Keep original product image as main, add card image as secondary
-            if (this.productImages.length === 0 && this.originalProductImage) {
-              this.productImages = [this.originalProductImage];
-            }
-            if (this.productImages.length > 1) {
-              this.productImages[1] = defaultCard.image;
-            } else {
-              this.productImages.push(defaultCard.image);
-            }
-            // Do not change currentImageIndex so main remains the product image
-          }
-        }
         
         // Load recently viewed (first 4 products excluding current)
         this.recentlyViewed = allTemplates
@@ -146,6 +126,8 @@ export class ProductDetail implements OnInit {
 
   selectCard(cardId: string) {
     this.selectedCard = cardId;
+    this.selectedMessageTemplate = '';
+    this.messageText = '';
     // Find the selected card and get its image
     const selectedCardOption = this.cardOptionsList.find(card => card.id === cardId);
     if (selectedCardOption && selectedCardOption.image) {
@@ -179,6 +161,10 @@ export class ProductDetail implements OnInit {
 
   addToCart() {
     if (!this.product) return;
+    if (!this.selectedCard) {
+      alert('Vui lòng chọn một mẫu thiệp trước khi thêm vào giỏ.');
+      return;
+    }
     console.log('Add to cart:', {
       product: this.product,
       quantity: this.quantity,
@@ -190,6 +176,10 @@ export class ProductDetail implements OnInit {
 
   buyNow() {
     if (!this.product) return;
+    if (!this.selectedCard) {
+      alert('Vui lòng chọn một mẫu thiệp trước khi thanh toán.');
+      return;
+    }
     console.log('Buy now:', {
       product: this.product,
       quantity: this.quantity,

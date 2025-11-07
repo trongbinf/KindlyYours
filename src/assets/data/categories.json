@@ -1,5 +1,4 @@
 [
-  { "id": "gift-box", "name": "Gift Box", "slug": "gift-box" },
   { "id": "cards", "name": "Thiệp", "slug": "cards" },
   { "id": "food-drinks", "name": "Đồ ăn & thức uống", "slug": "food-drinks", "imageUrl": "" },
   { "id": "home-accessories", "name": "Đồ dùng & phụ kiện sinh hoạt", "slug": "home-accessories", "imageUrl": "" },

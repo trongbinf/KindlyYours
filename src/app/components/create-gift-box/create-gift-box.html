@@ -1,0 +1,280 @@
+<div class="bg-white flex flex-col min-h-screen">
+  <app-header></app-header>
+
+  <div class="flex-1">
+    <div class="create-gift-box-section">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">
+        <a routerLink="/" class="crumb">Trang chủ</a>
+        <span class="sep">></span>
+        <span class="crumb current">Tự làm hộp quà</span>
+      </nav>
+
+      <!-- Progress Steps -->
+      <div class="progress-steps">
+        <div class="step" [class.active]="currentStep === 1">1. Chọn mẫu hộp quà</div>
+        <div class="step" [class.active]="currentStep === 2">2. Chọn vật phẩm hộp quà</div>
+        <div class="step" [class.active]="currentStep === 3">3. Chọn thiệp & lời nhắn</div>
+        <div class="step" [class.active]="currentStep === 4">4. Hoàn thành hộp quà</div>
+      </div>
+
+      <!-- Step 1: Choose Gift Box -->
+      <div *ngIf="currentStep === 1">
+        <h2 class="section-title">Chọn một hộp quà mà bạn thích</h2>
+        <div class="gift-boxes-grid">
+          <div *ngFor="let box of giftBoxes"
+               (click)="selectBox(box)"
+               [attr.data-box-id]="box.id"
+               class="gift-box-card"
+               [class.selected]="selectedBox?.id === box.id">
+            <div style="position: relative;">
+              <img [src]="box.image" [alt]="box.name" class="gift-box-image">
+              <div class="selection-indicator" *ngIf="selectedBox?.id === box.id">✓</div>
+            </div>
+            <div class="gift-box-info">
+              <h3 class="gift-box-name">{{box.name}}</h3>
+              <p class="gift-box-dimensions">{{box.dimensions}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Choose items -->
+      <div *ngIf="currentStep === 2">
+        <h2 class="section-title">Chọn vật phẩm cho hộp quà</h2>
+
+        <div class="page-header">
+          <div class="title">Bộ lọc</div>
+          <div class="title products">Sản phẩm</div>
+          <div class="sort-wrapper">
+            <button class="sort-btn" (click)="isSortOpen = !isSortOpen">Sắp xếp theo: {{ getSortLabel() }}</button>
+            <div class="sort-dropdown" *ngIf="isSortOpen">
+              <div class="sort-option" *ngFor="let opt of sortOptions" (click)="selectSort(opt.value)">{{ opt.label }}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-content">
+          <aside class="sidebar">
+            <div class="search-box">
+              <input placeholder="Tìm kiếm theo tên sản phẩm..." [(ngModel)]="searchText" (input)="applyFilters()" />
+            </div>
+
+            <div class="filter-section">
+              <div class="filter-title">Danh mục</div>
+              <label class="checkbox" *ngFor="let c of categories">
+                <input type="checkbox" [checked]="selectedCategoryIds.has(c.id)" (change)="toggleCategory(c.id, $any($event.target).checked)" />
+                <span>{{ c.name }}</span>
+              </label>
+            </div>
+
+            <div class="filter-section">
+              <div class="filter-title">Lọc theo giá</div>
+              <ul class="price-list">
+                <li class="radio"><input type="radio" name="price2" [(ngModel)]="selectedPriceRange" value="0-99999" (change)="applyPriceFilter()" /> <span>< 100.000đ</span></li>
+                <li class="radio"><input type="radio" name="price2" [(ngModel)]="selectedPriceRange" value="100000-300000" (change)="applyPriceFilter()" /> <span>100.000đ - 300.000đ</span></li>
+                <li class="radio"><input type="radio" name="price2" [(ngModel)]="selectedPriceRange" value="300000-500000" (change)="applyPriceFilter()" /> <span>300.000đ - 500.000đ</span></li>
+                <li class="radio"><input type="radio" name="price2" [(ngModel)]="selectedPriceRange" value="500000-1000000" (change)="applyPriceFilter()" /> <span>500.000đ - 1.000.000đ</span></li>
+                <li class="radio"><input type="radio" name="price2" [(ngModel)]="selectedPriceRange" value="1000000-" (change)="applyPriceFilter()" /> <span>> 1.000.000đ</span></li>
+              </ul>
+              <div class="filter-actions">
+                <button class="clear-btn" (click)="clearFilters()">Xóa lọc</button>
+              </div>
+            </div>
+          </aside>
+
+          <section class="content">
+            <div class="grid grid-4" *ngIf="paginatedProducts.length > 0; else noItems">
+              <div class="card" *ngFor="let p of paginatedProducts">
+            <div class="card-img">
+              <img [src]="(p.images && p.images[0]) || 'assets/images/logo/placeholder.png'" [alt]="p.name" />
+            </div>
+            <div class="card-body">
+              <div class="name">{{ p.name }}</div>
+              <div class="price-row">
+                <span class="price-current">{{ p.price | number }} ₫</span>
+              </div>
+              <div class="quantity-selector">
+                <button class="qty-btn" (click)="decItem(p.id)">—</button>
+                <span class="qty-value">{{ selectedItems[p.id] || 0 }}</span>
+                <button class="qty-btn" (click)="incItem(p.id)">+</button>
+              </div>
+            </div>
+          </div>
+            </div>
+            <ng-template #noItems>
+              <div class="no-items">Không tìm thấy sản phẩm phù hợp.</div>
+            </ng-template>
+            <div class="pagination" *ngIf="totalPages > 1">
+              <button class="page-btn" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">←</button>
+              <button class="page-btn" *ngFor="let page of pageNumbers" (click)="goToPage(page)" [class.active]="page === currentPage">{{ page }}</button>
+              <button class="page-btn" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">→</button>
+            </div>
+          </section>
+        </div>
+        <div class="navigation-buttons">
+          <button class="btn btn-outline" (click)="prevStep()">← Quay lại</button>
+          <button class="btn btn-primary" (click)="nextStep()">Tiếp tục →</button>
+        </div>
+        <div class="selection-bar" *ngIf="getSelectedThumbs().length > 0">
+          <div class="thumbs">
+            <div class="thumb" *ngFor="let t of getSelectedThumbs()">
+              <img [src]="t.image || 'assets/images/logo/placeholder.png'" [alt]="t.name">
+              <button class="remove" (click)="handleThumbAction(t)" title="Xóa">×</button>
+            </div>
+            <div class="thumb add">+</div>
+          </div>
+          <div class="summary">
+            <div class="total">Tổng tiền: {{ getSubtotal() | number }} ₫</div>
+            <button class="btn btn-primary" (click)="handleCompleteClick()" [disabled]="!selectedCard">Hoàn thành hộp quà</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Card & message -->
+      <div *ngIf="currentStep === 3">
+        <h2 class="section-title">Thiệp & Lời nhắn</h2>
+
+        <div class="selection-bar selection-bar--light" *ngIf="getSelectedThumbs().length > 0">
+          <div class="previous-step" (click)="prevStep()">‹ Bước trước</div>
+          <div class="thumbs">
+            <div class="thumb" *ngFor="let t of getSelectedThumbs()">
+              <img [src]="t.image || 'assets/images/logo/placeholder.png'" [alt]="t.name">
+              <button class="remove" (click)="handleThumbAction(t)" title="Xóa">×</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabs-header">
+          <button class="tab-btn" [class.active]="activeCardTab === 'choose'" (click)="activeCardTab = 'choose'">Chọn thiệp</button>
+          <button class="tab-btn" [class.active]="activeCardTab === 'write'" (click)="activeCardTab = 'write'" [disabled]="!selectedCard">Viết thiệp</button>
+        </div>
+
+        <div class="tabs-content">
+          <div class="tab-panel" *ngIf="activeCardTab === 'choose'">
+            <div class="gift-boxes-grid">
+              <div *ngFor="let c of cards"
+                   class="gift-box-card"
+                   [class.selected]="selectedCard?.name === c.name"
+                   (click)="chooseCard(c)">
+                <div style="position: relative;">
+                  <img [src]="c.image" [alt]="c.name" class="gift-box-image">
+                  <div class="selection-indicator" *ngIf="selectedCard?.name === c.name">✓</div>
+                </div>
+                <div class="gift-box-info">
+                  <h3 class="gift-box-name">{{ c.name }}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" *ngIf="activeCardTab === 'write'">
+            <div class="card-write-layout">
+              <div class="card-write-main">
+                <div class="card-write-hero">
+                  <div class="hero-image" *ngIf="selectedCard?.image">
+                    <img [src]="selectedCard?.image" alt="selected card" />
+                  </div>
+                  <div class="hero-text">
+                    <p>Một tấm thiệp vào dịp này sẽ giúp món quà trở nên hoàn hảo hơn.<br/>Chúng mình sẽ viết tay từng ghi chú để giữ cho món quà của bạn mang tính cá nhân.</p>
+                    <button class="link-button" type="button" (click)="activeCardTab = 'choose'">Chọn thiệp khác</button>
+                  </div>
+                </div>
+
+                <div class="message-form">
+                  <h3>Thông tin viết trên thiệp</h3>
+                  <div class="option-section">
+                    <label class="option-label">Chọn mẫu lời nhắn:</label>
+                    <select class="w-full input" (change)="onTemplateChange($any($event.target).value)" [disabled]="leaveCardBlank">
+                      <option value="">Chọn mẫu lời nhắn...</option>
+                      <option *ngFor="let t of messageTemplates" [value]="t">{{ t }}</option>
+                    </select>
+                  </div>
+                  <div class="option-section">
+                    <label class="option-label">Lời nhắn ghi trên thiệp:</label>
+                    <textarea class="w-full input" rows="4" [(ngModel)]="messageText" [attr.maxlength]="messageCharLimit" placeholder="Ghi chú cho Kindly Yours..." [disabled]="leaveCardBlank"></textarea>
+                    <div class="helper-text">{{ messageText.length }}/{{ messageCharLimit }}</div>
+                  </div>
+                  <label class="leave-blank">
+                    <input type="checkbox" [checked]="leaveCardBlank" (change)="toggleLeaveCardBlank($any($event.target).checked)" />
+                    Để trống, không ghi lời nhắn trên thiệp
+                  </label>
+                </div>
+              </div>
+
+              <aside class="card-summary">
+                <h3>Hộp quà bao gồm</h3>
+                <ul>
+                  <li *ngIf="selectedBox">
+                    <div>
+                      <span class="item-name">{{ selectedBox.name }}</span>
+                    </div>
+                    <div class="item-meta">
+                      <span *ngIf="selectedBox.price">{{ selectedBox.price | number }} ₫</span>
+                      <button class="remove" type="button" (click)="removeSelectedBox()">🗑</button>
+                    </div>
+                  </li>
+                  <li *ngIf="selectedCard">
+                    <div>
+                      <span class="item-name">{{ selectedCard.name }}</span>
+                    </div>
+                    <div class="item-meta">
+                      <span *ngIf="leaveCardBlank" class="item-qty">(không nhắn)</span>
+                      <button class="remove" type="button" (click)="removeSelectedCard()">🗑</button>
+                    </div>
+                  </li>
+                  <li *ngFor="let it of getSelectedItems()">
+                    <div>
+                      <span class="item-name">{{ it.product.name }}</span>
+                      <span class="item-qty">x{{ it.quantity }}</span>
+                    </div>
+                    <div class="item-meta">
+                      <span>{{ (it.product.price * it.quantity) | number }} ₫</span>
+                      <button class="remove" type="button" (click)="removeSelectedItem(it.product.id)">🗑</button>
+                    </div>
+                  </li>
+                </ul>
+                <div class="total">Tổng tiền: {{ getSubtotal() | number }} ₫</div>
+                <button class="btn btn-primary" type="button" (click)="handleCompleteClick()" [disabled]="!selectedCard">Hoàn thành hộp quà</button>
+              </aside>
+            </div>
+          </div>
+        </div>
+        <div class="navigation-buttons">
+          <button class="btn btn-outline" (click)="prevStep()">← Quay lại</button>
+          <button class="btn btn-primary" (click)="handleCompleteClick()" [disabled]="!selectedCard">Tiếp tục →</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Review -->
+      <div *ngIf="currentStep === 4">
+        <h2 class="section-title">Xem lại & hoàn tất</h2>
+        <div class="summary">
+          <p><strong>Hộp:</strong> {{ selectedBox?.name }} {{ selectedBox?.dimensions }}</p>
+          <div class="summary-items">
+            <div *ngFor="let it of getSelectedItems()" class="summary-item">
+              <span>{{ it.product.name }}</span>
+              <span>x {{ it.quantity }}</span>
+              <span>{{ (it.product.price * it.quantity) | number }} ₫</span>
+            </div>
+          </div>
+          <p><strong>Thiệp:</strong> {{ selectedCard?.name || 'Không chọn' }}</p>
+          <p><strong>Lời nhắn:</strong> {{ leaveCardBlank ? 'Không ghi lời nhắn' : (messageText || '—') }}</p>
+          <p><strong>Tạm tính:</strong> {{ getSubtotal() | number }} ₫</p>
+        </div>
+        <div class="navigation-buttons">
+          <button class="btn btn-outline" (click)="prevStep()">← Quay lại</button>
+          <button class="btn btn-primary" (click)="createGiftBox()" [disabled]="!selectedCard">Tạo hộp quà</button>
+        </div>
+      </div>
+
+      <!-- Navigation for Step 1 only -->
+      <div class="navigation-buttons" *ngIf="currentStep === 1">
+        <button class="btn btn-outline" disabled>← Quay lại</button>
+        <button class="btn btn-primary" [disabled]="!selectedBox" (click)="nextStep()">Tiếp tục →</button>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>

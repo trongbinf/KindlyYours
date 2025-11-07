@@ -68,6 +68,9 @@
             <img [src]="selectedCardImage" alt="Thiệp đã chọn" />
             <span class="card-preview-label">Thiệp đã chọn</span>
           </div>
+        <div class="message-placeholder" *ngIf="cardOptionsList.length && !selectedCard">
+          Vui lòng chọn thiệp để nhập lời nhắn.
+        </div>
         </div>
 
         <!-- Quantity -->
@@ -81,18 +84,18 @@
         </div>
 
         <!-- Message on card -->
-        <div class="option-section">
+        <div class="option-section message-form" *ngIf="selectedCard">
           <label class="option-label">Chọn mẫu lời nhắn:</label>
-          <select class="w-full input" [(ngModel)]="selectedMessageTemplate" (change)="onTemplateChange()">
+          <select class="message-input" [(ngModel)]="selectedMessageTemplate" (change)="onTemplateChange()">
             <option value="" disabled>Chọn mẫu lời nhắn...</option>
             <option *ngFor="let t of messageTemplates" [value]="t">{{ t }}</option>
           </select>
         </div>
 
-        <div class="option-section">
+        <div class="option-section message-form" *ngIf="selectedCard">
           <label class="option-label">Lời nhắn ghi trên thiệp:</label>
           <textarea
-            class="w-full input"
+            class="message-input textarea"
             rows="4"
             [(ngModel)]="messageText"
             [attr.maxlength]="messageCharLimit"

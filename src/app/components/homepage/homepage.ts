@@ -84,15 +84,17 @@ export class Homepage implements AfterViewInit, OnInit {
     }
   ];
 
-  partnerBrands = [
-    'https://api.teamogift.com/uploads/LOGO___I_T_C__KHDN/1726802012943.jpg',
-    'https://api.teamogift.com/uploads/LOGO___I_T_C__KHDN/1726801948111.jpg',
-    'https://api.teamogift.com/uploads/LOGO___I_T_C__KHDN/1726802011145.jpg',
-    'https://api.teamogift.com/uploads/LOGO___I_T_C__KHDN/1726801948110.jpg',
-    'https://api.teamogift.com/uploads/LOGO___I_T_C__KHDN/1726802009598.jpg',
-    'https://api.teamogift.com/uploads/LOGO___I_T_C__KHDN/1726801948115.jpg'
+partnerBrands = [
+    'https://res.cloudinary.com/dlci8havj/image/upload/v1762508596/uc_gzrhbh.png',
+    'https://res.cloudinary.com/dlci8havj/image/upload/v1762508626/uc_h6smp8.avif',
+    'https://res.cloudinary.com/dlci8havj/image/upload/v1762508630/uc_mv0sga.png',
+    'https://res.cloudinary.com/dlci8havj/image/upload/v1762508699/uc_i0z9tk.png',
+    'https://res.cloudinary.com/dlci8havj/image/upload/v1762508713/uc_d0dfpg.avif',
+    'https://res.cloudinary.com/dlci8havj/image/upload/v1762508757/uc_jixfsq.jpg',
+    'https://res.cloudinary.com/dlci8havj/image/upload/v1762508769/uc_uhz3ej.jpg',
+    'https://res.cloudinary.com/dlci8havj/image/upload/v1762508798/uc_lbbg9o.jpg',
+    'https://res.cloudinary.com/dlci8havj/image/upload/v1762508816/uc_ei2mg4.jpg'
   ];
-
   heroBanners = [
     {
       desktopImage: 'https://res.cloudinary.com/dafzz2c9j/image/upload/v1762180608/banner_19_11_mwfnpz.png',

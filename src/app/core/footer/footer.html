@@ -58,6 +58,16 @@
               <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
             </svg>
           </a>
+          <a [href]="socialMedia.messenger" target="_blank" rel="noopener noreferrer" class="social-icon messenger-icon" aria-label="Messenger">
+            <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
+              <path d="M12 2C6.477 2 2 6.145 2 11.236c0 2.888 1.294 5.466 3.317 7.155v3.61l3.448-1.725C10.14 20.84 11.029 21 12 21c5.523 0 10-4.145 10-9.236S17.523 2 12 2zm1.064 12.455l-2.564-2.736L6 14.455l4.765-5.091 2.564 2.736L18 9.545l-4.936 4.91z"/>
+            </svg>
+          </a>
+          <a [href]="socialMedia.zalo" target="_blank" rel="noopener noreferrer" class="social-icon zalo-icon" aria-label="Zalo">
+            <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
+              <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-.5 6a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm.5 9.5c-3.584 0-6.5-2.916-6.5-6.5 0-.553.447-1 1-1s1 .447 1 1c0 2.481 2.019 4.5 4.5 4.5s4.5-2.019 4.5-4.5c0-.553.447-1 1-1s1 .447 1 1c0 3.584-2.916 6.5-6.5 6.5z"/>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
@@ -65,14 +75,14 @@
 
   <!-- Floating Chat Icons -->
   <div class="floating-chat-icons">
-    <a href="#" class="floating-icon chatbot-icon" aria-label="Chatbot" (click)="openChatbot($event)">
-      <img src="https://res.cloudinary.com/dlzade3q0/image/upload/v1762455629/logo_firetw.jpg" alt="Chatbot" />
-    </a>
     <a [href]="'https://zalo.me/' + zalo" target="_blank" rel="noopener noreferrer" class="floating-icon zalo-icon" aria-label="Zalo">
-      <span class="zalo-text">Zalo</span>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Icon_of_Zalo.svg/1200px-Icon_of_Zalo.svg.png" alt="Zalo" width="24" height="24" style="display:block; width:24px; height:24px; border-radius: 50%;"/>
     </a>
     <a [href]="'https://m.me/' + messengerId" target="_blank" rel="noopener noreferrer" class="floating-icon messenger-icon" aria-label="Messenger">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Facebook_Messenger_logo_2020.svg/1024px-Facebook_Messenger_logo_2020.svg.png" alt="Messenger" width="24" height="24" style="display:block; width:24px; height:24px;"/>
     </a>
   </div>
+
+  <!-- Chatbot Widget -->
+  <app-chatbot></app-chatbot>
 </footer>

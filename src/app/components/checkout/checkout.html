@@ -1,0 +1,120 @@
+<div class="bg-white flex flex-col min-h-screen">
+  <app-header></app-header>
+
+  <div class="checkout-container">
+    <nav class="breadcrumb">
+      <a routerLink="/" class="crumb">Trang chủ</a>
+      <span class="sep">></span>
+      <span class="crumb current">Thanh toán</span>
+    </nav>
+
+    <h1 class="page-title">Thanh toán</h1>
+
+    <div class="checkout-grid">
+      <section class="checkout-panel">
+        <h2 class="panel-title">Thông tin giao hàng</h2>
+
+        <form class="checkout-form">
+          <div class="form-row">
+            <label>Họ và tên *</label>
+            <input [(ngModel)]="customer.name" name="name" placeholder="Họ và tên người nhận..." />
+          </div>
+          <div class="form-row">
+            <label>Số điện thoại *</label>
+            <input [(ngModel)]="customer.phone" name="phone" placeholder="Số điện thoại..." />
+          </div>
+          <div class="form-row">
+            <label>Email</label>
+            <input [(ngModel)]="customer.email" name="email" placeholder="Email..." />
+          </div>
+
+          <div class="form-row">
+            <label>Địa chỉ giao hàng *</label>
+            <input [(ngModel)]="customer.address" name="address" placeholder="Địa chỉ giao hàng..." />
+          </div>
+
+          <div class="form-group inline">
+            <div class="form-row">
+              <label>Tỉnh/Thành phố *</label>
+              <input [(ngModel)]="customer.province" name="province" placeholder="Chọn tỉnh/thành phố" />
+            </div>
+            <div class="form-row">
+              <label>Quận/Huyện *</label>
+              <input [(ngModel)]="customer.district" name="district" placeholder="Chọn quận/huyện" />
+            </div>
+            <div class="form-row">
+              <label>Xã/Phường *</label>
+              <input [(ngModel)]="customer.ward" name="ward" placeholder="Chọn xã/phường" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label>Ghi chú</label>
+            <textarea [(ngModel)]="customer.note" name="note" rows="3" placeholder="Ghi chú cho Kindly Yours..."></textarea>
+          </div>
+
+          <div class="form-row">
+            <label>Phương thức thanh toán</label>
+            <div class="payment-options">
+              <label class="payment-option">
+                <input type="radio" name="payment" checked />
+                <span>Thanh toán chuyển khoản (QR Code)</span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" />
+                <span>Thanh toán khi nhận hàng</span>
+              </label>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <aside class="summary-panel">
+        <h2 class="panel-title">Thông tin đơn hàng</h2>
+        <div class="selected-items">
+          <div class="selected-item" *ngFor="let item of items">
+            <div class="item-thumb" *ngIf="item.image; else noImg">
+              <img [src]="item.image" [alt]="item.name" />
+            </div>
+            <ng-template #noImg>
+              <div class="item-thumb placeholder">No image</div>
+            </ng-template>
+            <div class="item-info">
+              <div class="item-name">{{ item.name }}</div>
+              <div class="item-meta">x{{ item.quantity }}</div>
+            </div>
+            <div class="item-price">{{ (item.price * item.quantity) | number }} ₫</div>
+          </div>
+        </div>
+
+        <div class="summary-line">
+          <span>Tổng tiền sản phẩm:</span>
+          <span>{{ subtotal | number }} ₫</span>
+        </div>
+        <div class="summary-line">
+          <span>Phí giao hàng:</span>
+          <span>{{ shippingFee | number }} ₫</span>
+        </div>
+        <div class="summary-line" *ngIf="checkoutData.card">
+          <span>Thiệp:</span>
+          <span>{{ checkoutData.card.name }}</span>
+        </div>
+        <div class="message-preview" *ngIf="checkoutData.card && checkoutData.leaveCardBlank">
+          Không ghi lời nhắn trên thiệp
+        </div>
+        <div class="message-preview" *ngIf="checkoutData.card && !checkoutData.leaveCardBlank && checkoutData.message">
+          “{{ checkoutData.message }}”
+        </div>
+        <div class="summary-line total">
+          <span>Tổng tiền:</span>
+          <span>{{ total | number }} ₫</span>
+        </div>
+
+        <button class="btn-primary" (click)="placeOrder()">Hoàn thành đơn hàng</button>
+      </aside>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>
+

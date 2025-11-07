@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Chatbot } from '../../components/chatbot/chatbot';
 
 @Component({
   selector: 'app-footer',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, Chatbot],
   templateUrl: './footer.html',
   styleUrl: './footer.css',
 })
@@ -16,13 +17,15 @@ export class Footer {
   email = 'kindlyyours.official@gmail.com';
   
   socialMedia = {
-    facebook: 'https://www.facebook.com/kindlyyours.official',
+    facebook: 'https://www.facebook.com/profile.php?id=61582666884768',
     instagram: 'https://www.instagram.com/kindlyyours.official',
-    tiktok: 'https://www.tiktok.com/@kindlyyours.official'
+    tiktok: 'https://www.tiktok.com/@kindlyyours.official',
+    messenger: 'https://m.me/836206576242335',
+    zalo: 'https://zalo.me/0395414344'
   };
 
   zalo = '0395414344';
-  messengerId = 'kindlyyours.official';
+  messengerId = '836206576242335';
 
   quickLinks = [
     { href: '/', label: 'Trang chủ' },
@@ -32,11 +35,4 @@ export class Footer {
     { href: '/corporate-gifts', label: 'Quà tặng doanh nghiệp' },
     { href: '/about', label: 'Giới thiệu' }
   ];
-
-  openChatbot(event: Event) {
-    event.preventDefault();
-    // TODO: Implement chatbot opening logic
-    // For now, you can add your chatbot widget initialization here
-    console.log('Chatbot clicked');
-  }
 }

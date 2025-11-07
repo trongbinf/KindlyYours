@@ -19,9 +19,11 @@ export class Header {
   address = '125 Hoàng Ngân, Thanh Xuân, Hà Nội, Vietnam';
   
   socialMedia = {
-    facebook: 'https://www.facebook.com/kindlyyours.official',
+    facebook: 'https://www.facebook.com/profile.php?id=61582666884768',
     instagram: 'https://www.instagram.com/kindlyyours.official',
-    tiktok: 'https://www.tiktok.com/@kindlyyours.official'
+    tiktok: 'https://www.tiktok.com/@kindlyyours.official',
+    messenger: 'https://m.me/836206576242335',
+    zalo: 'https://zalo.me/0395414344'
   };
 
   navLinks = [

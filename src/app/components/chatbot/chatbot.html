@@ -1,0 +1,97 @@
+<div class="chatbot-widget" [class.open]="isOpen">
+  <!-- Chat Button -->
+  <button class="chatbot-toggle" (click)="toggleChatbot()" [class.active]="isOpen">
+    <span *ngIf="!isOpen" class="chatbot-icon">AI</span>
+    <svg *ngIf="isOpen" class="close-icon" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+    </svg>
+  </button>
+
+  <!-- Chat Window -->
+  <div class="chatbot-window" [class.visible]="isOpen">
+    <!-- Header -->
+    <div class="chatbot-header">
+      <div class="header-info">
+        <div class="bot-avatar">Bot</div>
+        <div class="header-text">
+          <h3>Kindly Yours Bot</h3>
+          <p>Trợ lý ảo • Online</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="action-btn" (click)="toggleChatbot()" title="Đóng chat">
+          <svg fill="currentColor" viewBox="0 0 20 20" width="16" height="16">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Messages Container -->
+    <div class="chatbot-messages" #messagesContainer>
+      <div *ngFor="let message of messages; trackBy: trackByMessageId" 
+           class="message" 
+           [class.user-message]="message.isUser"
+           [class.bot-message]="!message.isUser">
+        
+        <div class="message-content">
+          <div class="message-bubble">
+            <p [innerHTML]="message.text | nl2br"></p>
+            <span class="message-time">{{ formatTime(message.timestamp) }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Typing Indicator -->
+      <div *ngIf="isTyping" class="message bot-message typing-indicator">
+        <div class="message-content">
+          <div class="message-bubble typing">
+            <div class="typing-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Suggestions -->
+    <div class="suggestions-container" *ngIf="suggestions.length > 0">
+      <div class="suggestions">
+        <button *ngFor="let suggestion of suggestions" 
+                class="suggestion-chip"
+                (click)="sendSuggestion(suggestion)">
+          {{ suggestion }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="chatbot-input-area">
+      <div class="input-container">
+        <input 
+          type="text" 
+          [(ngModel)]="currentInput"
+          (keypress)="onKeyPress($event)"
+          placeholder="Nhập tin nhắn..."
+          class="message-input"
+          [disabled]="isTyping">
+        
+        <button 
+          class="send-button"
+          (click)="sendMessage()"
+          [disabled]="!currentInput.trim() || isTyping">
+          <svg fill="currentColor" viewBox="0 0 20 20" width="20" height="20">
+            <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Powered by -->
+    <div class="chatbot-footer">
+      <p>Được hỗ trợ bởi <strong>Kindly Yours AI</strong></p>
+    </div>
+  </div>
+</div>

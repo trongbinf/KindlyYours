@@ -81,7 +81,7 @@
               <img src="https://res.cloudinary.com/dafzz2c9j/image/upload/v1762137076/hopquacosan_v3tl4o.png" alt="Hộp quà có sẵn" class="category-icon">
               <span class="category-name">Hộp quà có sẵn</span>
             </div>
-            <div class="category-item" routerLink="/collections/giftboxes" style="cursor:pointer">
+            <div class="category-item" routerLink="/create-gift-box" style="cursor:pointer">
               <img src="https://res.cloudinary.com/dafzz2c9j/image/upload/v1762137075/tulamhopqua_vtlvrr.png" alt="Tự làm hộp quà" class="category-icon">
               <span class="category-name">Tự làm hộp quà</span>
             </div>
@@ -108,7 +108,7 @@
                   <span class="star" *ngFor="let s of [1,2,3,4,5]" [class.filled]="s <= Math.round(g.rating || 5)">★</span>
                 </div>
                 <div class="price-row">
-                  <span class="price-current">{{ (g.price * (1 - (g.discountPercent || 0))) | number }} đ</span>
+                  <span class="price-current">{{ getFinalPrice(g) | number }} đ</span>
                   <span class="price-original" *ngIf="g.discountPercent">{{ g.price | number }} đ</span>
                   <span class="price-discount" *ngIf="g.discountPercent">-{{ (g.discountPercent * 100) | number:'1.0-0' }}%</span>
                 </div>

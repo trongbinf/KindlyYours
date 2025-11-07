@@ -1,0 +1,40 @@
+{
+  "giftBoxes": [
+    {
+      "id": "happy-to-see-you-blue",
+      "name": "Hộp Happy To See You Blue",
+      "image": "https://res.cloudinary.com/dlci8havj/image/upload/v1762511757/uc_ry8dvh.jpg",
+      "dimensions": "(24x19x10cm)",
+      "price": 0,
+      "description": "Hộp quà màu xanh dương tươi sáng",
+      "type": "happy"
+    },
+    {
+      "id": "happy-to-see-you-light-blue",
+      "name": "Hộp Happy To See You Light Blue",
+      "image": "https://res.cloudinary.com/dlci8havj/image/upload/v1762511658/uc_nhfqci.jpg",
+      "dimensions": "(24x19x10cm)",
+      "price": 30000,
+      "description": "Hộp quà màu xanh dương nhạt thanh lịch",
+      "type": "happy"
+    },
+    {
+      "id": "your-day-yellow",
+      "name": "Hộp Your Day Yellow",
+      "image": "https://res.cloudinary.com/dlci8havj/image/upload/v1762511685/uc_x89339.jpg",
+      "dimensions": "(24x19x10cm)",
+      "price": 0,
+      "description": "Hộp quà màu vàng tươi sáng",
+      "type": "celebration"
+    },
+    {
+      "id": "your-day-pink",
+      "name": "Hộp Your Day Pink",
+      "image": "https://res.cloudinary.com/dlci8havj/image/upload/v1762511701/uc_sdg4zf.jpg",
+      "dimensions": "(24x19x10cm)",
+      "price": 0,
+      "description": "Hộp quà màu hồng ngọt ngào",
+      "type": "celebration"
+    }
+  ]
+}
