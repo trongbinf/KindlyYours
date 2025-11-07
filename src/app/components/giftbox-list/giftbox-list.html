@@ -55,7 +55,7 @@
 
       <section class="content">
         <div class="grid">
-          <div class="card" *ngFor="let g of giftboxes" [routerLink]="['/product', g.id]" style="cursor: pointer;">
+          <div class="card" *ngFor="let g of displayedGiftboxes" [routerLink]="['/product', g.id]" style="cursor: pointer;">
             <div class="card-img">
               <img *ngIf="g.image" [src]="g.image" [alt]="g.name" />
               <div *ngIf="!g.image" class="no-img">No image</div>
@@ -67,10 +67,39 @@
               </div>
               <div class="price-row">
                 <span class="price-current">{{ getFinalPrice(g) | number }} Đ</span>
-                <span class="price-original" *ngIf="g.discountPercent">{{ g.price | number }} Đ</span>
+                <span class="price-original" *ngIf="g.discountPercent">{{ getOriginalPrice(g) | number }} Đ</span>
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" *ngIf="totalPages > 1">
+          <button 
+            class="pagination-btn" 
+            [class.disabled]="currentPage === 1"
+            (click)="goToPage(currentPage - 1)"
+            [disabled]="currentPage === 1">
+            ← Trước
+          </button>
+          
+          <div class="pagination-numbers">
+            <button 
+              *ngFor="let page of getPageNumbers()"
+              class="pagination-number"
+              [class.active]="page === currentPage"
+              (click)="goToPage(page)">
+              {{ page }}
+            </button>
+          </div>
+          
+          <button 
+            class="pagination-btn" 
+            [class.disabled]="currentPage === totalPages"
+            (click)="goToPage(currentPage + 1)"
+            [disabled]="currentPage === totalPages">
+            Sau →
+          </button>
         </div>
       </section>
     </div>

@@ -55,7 +55,7 @@
             </div>
             <div class="price-row">
               <span class="price-current">{{ getFinalPrice(g) | number }} Đ</span>
-              <span class="price-original" *ngIf="g.discountPercent">{{ g.price | number }} Đ</span>
+              <span class="price-original" *ngIf="g.discountPercent">{{ getOriginalPrice(g) | number }} Đ</span>
             </div>
           </div>
         </div>

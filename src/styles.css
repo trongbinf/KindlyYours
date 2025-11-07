@@ -1,6 +1,7 @@
 @import 'swiper/css';
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';
+@import 'sweetalert2/dist/sweetalert2.min.css';
 
 * {
   margin: 0;

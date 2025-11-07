@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { Header } from '../../core/header/header';
 import { Footer } from '../../core/footer/footer';
 import { GiftBoxTemplatesLocalService, GiftBoxTemplate } from '../../services/local/giftbox-templates-local.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-corporate-gifts',
@@ -48,13 +49,105 @@ export class CorporateGifts implements OnInit {
 
   getFinalPrice(g: GiftBoxTemplate): number {
     const discount = g.discountPercent || 0;
-    return Math.round(g.price * (1 - discount));
+    const basePrice = g.promoPrice ?? g.price;
+    return Math.round(basePrice * (1 - discount));
+  }
+
+  getOriginalPrice(g: GiftBoxTemplate): number {
+    return g.promoPrice ?? g.price;
   }
 
   submitForm() {
-    // Handle form submission
+    // Validate form - check all required fields
+    if (!this.formData.customerName || !this.formData.customerName.trim()) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Thiếu thông tin',
+        text: 'Vui lòng nhập tên khách hàng.',
+        confirmButtonText: 'Đã hiểu',
+        confirmButtonColor: '#B4232C'
+      });
+      return;
+    }
+
+    if (!this.formData.email || !this.formData.email.trim()) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Thiếu thông tin',
+        text: 'Vui lòng nhập email.',
+        confirmButtonText: 'Đã hiểu',
+        confirmButtonColor: '#B4232C'
+      });
+      return;
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(this.formData.email)) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Email không hợp lệ',
+        text: 'Vui lòng nhập địa chỉ email hợp lệ.',
+        confirmButtonText: 'Đã hiểu',
+        confirmButtonColor: '#B4232C'
+      });
+      return;
+    }
+
+    if (!this.formData.phone || !this.formData.phone.trim()) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Thiếu thông tin',
+        text: 'Vui lòng nhập số điện thoại.',
+        confirmButtonText: 'Đã hiểu',
+        confirmButtonColor: '#B4232C'
+      });
+      return;
+    }
+
+    if (!this.formData.company || !this.formData.company.trim()) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Thiếu thông tin',
+        text: 'Vui lòng nhập tên công ty/tổ chức.',
+        confirmButtonText: 'Đã hiểu',
+        confirmButtonColor: '#B4232C'
+      });
+      return;
+    }
+
+    if (!this.formData.quantity || !this.formData.quantity.trim()) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Thiếu thông tin',
+        text: 'Vui lòng chọn số lượng set quà.',
+        confirmButtonText: 'Đã hiểu',
+        confirmButtonColor: '#B4232C'
+      });
+      return;
+    }
+
+    if (!this.formData.needs || !this.formData.needs.trim()) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Thiếu thông tin',
+        text: 'Vui lòng nhập nhu cầu của doanh nghiệp.',
+        confirmButtonText: 'Đã hiểu',
+        confirmButtonColor: '#B4232C'
+      });
+      return;
+    }
+
+    // All validations passed
     console.log('Form submitted:', this.formData);
-    alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.');
+    Swal.fire({
+      icon: 'success',
+      title: 'Gửi yêu cầu thành công!',
+      text: 'Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.',
+      confirmButtonText: 'Đã hiểu',
+      confirmButtonColor: '#B4232C'
+    });
+    
     // Reset form
     this.formData = {
       customerName: '',

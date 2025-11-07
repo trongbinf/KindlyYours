@@ -20,21 +20,21 @@
 
       <!-- Step 1: Choose Gift Box -->
       <div *ngIf="currentStep === 1">
-        <h2 class="section-title">Chọn một hộp quà mà bạn thích</h2>
-        <div class="gift-boxes-grid">
-          <div *ngFor="let box of giftBoxes"
-               (click)="selectBox(box)"
-               [attr.data-box-id]="box.id"
-               class="gift-box-card"
-               [class.selected]="selectedBox?.id === box.id">
-            <div style="position: relative;">
+      <h2 class="section-title">Chọn một hộp quà mà bạn thích</h2>
+      <div class="gift-boxes-grid">
+        <div *ngFor="let box of giftBoxes"
+             (click)="selectBox(box)"
+             [attr.data-box-id]="box.id"
+             class="gift-box-card"
+             [class.selected]="selectedBox?.id === box.id">
+          <div style="position: relative;">
               <img [src]="box.image" [alt]="box.name" class="gift-box-image">
               <div class="selection-indicator" *ngIf="selectedBox?.id === box.id">✓</div>
-            </div>
-            <div class="gift-box-info">
-              <h3 class="gift-box-name">{{box.name}}</h3>
-              <p class="gift-box-dimensions">{{box.dimensions}}</p>
-            </div>
+          </div>
+          <div class="gift-box-info">
+            <h3 class="gift-box-name">{{box.name}}</h3>
+            <p class="gift-box-dimensions">{{box.dimensions}}</p>
+          </div>
           </div>
         </div>
       </div>
@@ -126,7 +126,7 @@
           </div>
           <div class="summary">
             <div class="total">Tổng tiền: {{ getSubtotal() | number }} ₫</div>
-            <button class="btn btn-primary" (click)="handleCompleteClick()" [disabled]="!selectedCard">Hoàn thành hộp quà</button>
+            <button class="btn btn-primary" (click)="nextStep()">Hoàn thành hộp quà</button>
           </div>
         </div>
       </div>
@@ -242,27 +242,63 @@
         </div>
         <div class="navigation-buttons">
           <button class="btn btn-outline" (click)="prevStep()">← Quay lại</button>
-          <button class="btn btn-primary" (click)="handleCompleteClick()" [disabled]="!selectedCard">Tiếp tục →</button>
+          <button class="btn btn-primary" (click)="nextStep()" [disabled]="!selectedCard">Tiếp tục →</button>
         </div>
       </div>
 
       <!-- Step 4: Review -->
       <div *ngIf="currentStep === 4">
         <h2 class="section-title">Xem lại & hoàn tất</h2>
-        <div class="summary">
-          <p><strong>Hộp:</strong> {{ selectedBox?.name }} {{ selectedBox?.dimensions }}</p>
-          <div class="summary-items">
-            <div *ngFor="let it of getSelectedItems()" class="summary-item">
-              <span>{{ it.product.name }}</span>
-              <span>x {{ it.quantity }}</span>
-              <span>{{ (it.product.price * it.quantity) | number }} ₫</span>
+        <div class="review-container">
+          <div class="review-summary">
+            <!-- Box -->
+            <div class="review-item" *ngIf="selectedBox">
+              <div class="review-item-image">
+                <img [src]="selectedBox.image" [alt]="selectedBox.name" />
+              </div>
+              <div class="review-item-info">
+                <h3>Hộp quà</h3>
+                <p class="review-item-name">{{ selectedBox.name }}</p>
+                <p class="review-item-meta">{{ selectedBox.dimensions }}</p>
+              </div>
+            </div>
+
+            <!-- Items -->
+            <div class="review-item" *ngFor="let it of getSelectedItems()">
+              <div class="review-item-image">
+                <img [src]="(it.product.images && it.product.images[0]) || 'assets/images/logo/placeholder.png'" [alt]="it.product.name" />
+              </div>
+              <div class="review-item-info">
+                <h3>Sản phẩm</h3>
+                <p class="review-item-name">{{ it.product.name }}</p>
+                <p class="review-item-meta">Số lượng: x{{ it.quantity }}</p>
+                <p class="review-item-price">{{ (it.product.price * it.quantity) | number }} ₫</p>
+              </div>
+            </div>
+
+            <!-- Card -->
+            <div class="review-item" *ngIf="selectedCard">
+              <div class="review-item-image">
+                <img [src]="selectedCard.image || 'assets/images/logo/placeholder.png'" [alt]="selectedCard.name" />
+              </div>
+              <div class="review-item-info">
+                <h3>Thiệp</h3>
+                <p class="review-item-name">{{ selectedCard.name }}</p>
+                <p class="review-item-meta" *ngIf="leaveCardBlank">(không nhắn)</p>
+                <p class="review-item-message" *ngIf="!leaveCardBlank && messageText">"{{ messageText }}"</p>
+        </div>
+      </div>
+
+            <!-- Total -->
+            <div class="review-total">
+              <div class="total-line">
+                <span>Tạm tính:</span>
+                <span class="total-amount">{{ getSubtotal() | number }} ₫</span>
+              </div>
             </div>
           </div>
-          <p><strong>Thiệp:</strong> {{ selectedCard?.name || 'Không chọn' }}</p>
-          <p><strong>Lời nhắn:</strong> {{ leaveCardBlank ? 'Không ghi lời nhắn' : (messageText || '—') }}</p>
-          <p><strong>Tạm tính:</strong> {{ getSubtotal() | number }} ₫</p>
         </div>
-        <div class="navigation-buttons">
+      <div class="navigation-buttons">
           <button class="btn btn-outline" (click)="prevStep()">← Quay lại</button>
           <button class="btn btn-primary" (click)="createGiftBox()" [disabled]="!selectedCard">Tạo hộp quà</button>
         </div>

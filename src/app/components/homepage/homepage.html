@@ -109,7 +109,7 @@
                 </div>
                 <div class="price-row">
                   <span class="price-current">{{ getFinalPrice(g) | number }} đ</span>
-                  <span class="price-original" *ngIf="g.discountPercent">{{ g.price | number }} đ</span>
+                  <span class="price-original" *ngIf="g.discountPercent">{{ getOriginalPrice(g) | number }} đ</span>
                   <span class="price-discount" *ngIf="g.discountPercent">-{{ (g.discountPercent * 100) | number:'1.0-0' }}%</span>
                 </div>
                 <div class="sold-row" *ngIf="g.sold">Đã bán {{ g.sold | number }}</div>
@@ -160,7 +160,7 @@
                 </div>
                 <div class="price-row">
                   <span class="price-current">{{ getFinalPrice(g) | number }} đ</span>
-                  <span class="price-original" *ngIf="g.discountPercent">{{ g.price | number }} đ</span>
+                  <span class="price-original" *ngIf="g.discountPercent">{{ getOriginalPrice(g) | number }} đ</span>
                   <span class="price-discount" *ngIf="g.discountPercent">-{{ (g.discountPercent * 100) | number:'1.0-0' }}%</span>
                 </div>
                 <div class="sold-row" *ngIf="g.sold">Đã bán {{ g.sold | number }}</div>

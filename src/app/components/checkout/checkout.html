@@ -36,15 +36,24 @@
           <div class="form-group inline">
             <div class="form-row">
               <label>Tỉnh/Thành phố *</label>
-              <input [(ngModel)]="customer.province" name="province" placeholder="Chọn tỉnh/thành phố" />
+              <select [(ngModel)]="customer.province" name="province" (change)="onProvinceChange()">
+                <option value="">Chọn tỉnh/thành phố</option>
+                <option *ngFor="let p of provinces" [value]="p.name">{{ p.name }}</option>
+              </select>
             </div>
             <div class="form-row">
               <label>Quận/Huyện *</label>
-              <input [(ngModel)]="customer.district" name="district" placeholder="Chọn quận/huyện" />
+              <select [(ngModel)]="customer.district" name="district" (change)="onDistrictChange()" [disabled]="!selectedProvinceCode">
+                <option value="">Chọn quận/huyện</option>
+                <option *ngFor="let d of districts" [value]="d.name">{{ d.name }}</option>
+              </select>
             </div>
             <div class="form-row">
               <label>Xã/Phường *</label>
-              <input [(ngModel)]="customer.ward" name="ward" placeholder="Chọn xã/phường" />
+              <select [(ngModel)]="customer.ward" name="ward" [disabled]="!selectedDistrictCode">
+                <option value="">Chọn xã/phường</option>
+                <option *ngFor="let w of wards" [value]="w.name">{{ w.name }}</option>
+              </select>
             </div>
           </div>
 

@@ -64,19 +64,29 @@
 }
 
 .form-row input,
-.form-row textarea {
+.form-row textarea,
+.form-row select {
   border: 1px solid #D1D5DB;
   border-radius: 12px;
   padding: 12px 16px;
   font-size: 16px;
   transition: border 0.2s ease, box-shadow 0.2s ease;
+  background: white;
+  color: #1F2A44;
 }
 
 .form-row input:focus,
-.form-row textarea:focus {
+.form-row textarea:focus,
+.form-row select:focus {
   outline: none;
   border-color: #B4232C;
   box-shadow: 0 0 0 3px rgba(180, 35, 44, 0.15);
+}
+
+.form-row select:disabled {
+  background: #F3F4F6;
+  color: #9CA3AF;
+  cursor: not-allowed;
 }
 
 .form-group.inline {

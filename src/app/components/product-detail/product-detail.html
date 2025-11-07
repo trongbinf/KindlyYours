@@ -36,7 +36,7 @@
         
         <div class="price-section">
           <span class="price-current">{{ getFinalPrice() | number }} ₫</span>
-          <span class="price-original" *ngIf="product.discountPercent">{{ product.price | number }} ₫</span>
+          <span class="price-original" *ngIf="product.discountPercent">{{ getOriginalPrice() | number }} ₫</span>
         </div>
 
         <div class="rating-section" *ngIf="product.rating">
@@ -70,7 +70,7 @@
           </div>
         <div class="message-placeholder" *ngIf="cardOptionsList.length && !selectedCard">
           Vui lòng chọn thiệp để nhập lời nhắn.
-        </div>
+          </div>
         </div>
 
         <!-- Quantity -->

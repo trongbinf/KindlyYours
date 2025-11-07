@@ -5,6 +5,7 @@ import { Header } from '../../core/header/header';
 import { Footer } from '../../core/footer/footer';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 interface GiftBox {
   id: string;
@@ -139,11 +140,17 @@ export class CreateGiftBox implements OnInit {
 
   nextStep() {
     if (this.currentStep === 1 && !this.selectedBox) return;
-    if (this.currentStep < 4) this.currentStep++;
+    if (this.currentStep < 4) {
+      this.currentStep++;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 
   prevStep() {
-    if (this.currentStep > 1) this.currentStep--;
+    if (this.currentStep > 1) {
+      this.currentStep--;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 
   // Data loads

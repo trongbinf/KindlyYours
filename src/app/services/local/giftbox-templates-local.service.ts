@@ -14,6 +14,7 @@ export interface GiftBoxTemplate {
   price: number;
   rating?: number;
   discountPercent?: number;
+  promoPrice?: number; // Giá sau khi khuyến mãi tăng (trước khi discount)
   sold?: number;
   image?: string;
   description?: string;

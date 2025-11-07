@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Header } from '../../core/header/header';
 import { Footer } from '../../core/footer/footer';
 import { GiftBoxTemplatesLocalService, GiftBoxTemplate } from '../../services/local/giftbox-templates-local.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-detail',
@@ -111,7 +112,13 @@ export class ProductDetail implements OnInit {
   getFinalPrice(): number {
     if (!this.product) return 0;
     const discount = this.product.discountPercent || 0;
-    return Math.round(this.product.price * (1 - discount));
+    const basePrice = this.product.promoPrice ?? this.product.price;
+    return Math.round(basePrice * (1 - discount));
+  }
+
+  getOriginalPrice(): number {
+    if (!this.product) return 0;
+    return this.product.promoPrice ?? this.product.price;
   }
 
   incrementQuantity() {
@@ -150,7 +157,7 @@ export class ProductDetail implements OnInit {
       this.selectedCardImage = '';
       if (this.originalProductImage) {
         // Remove secondary card image if exists, keep only the original product image
-        this.productImages = [this.originalProductImage];
+          this.productImages = [this.originalProductImage];
       }
     }
   }
@@ -162,7 +169,13 @@ export class ProductDetail implements OnInit {
   addToCart() {
     if (!this.product) return;
     if (!this.selectedCard) {
-      alert('Vui lòng chọn một mẫu thiệp trước khi thêm vào giỏ.');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Chưa chọn thiệp',
+        text: 'Vui lòng chọn một mẫu thiệp trước khi thêm vào giỏ.',
+        confirmButtonText: 'Đã hiểu',
+        confirmButtonColor: '#B4232C'
+      });
       return;
     }
     console.log('Add to cart:', {
@@ -171,13 +184,25 @@ export class ProductDetail implements OnInit {
       card: this.selectedCard
     });
     // TODO: Implement cart logic
-    alert('Đã thêm vào giỏ hàng!');
+    Swal.fire({
+      icon: 'success',
+      title: 'Đã thêm vào giỏ hàng!',
+      text: 'Sản phẩm đã được thêm vào giỏ hàng của bạn.',
+      confirmButtonText: 'Đã hiểu',
+      confirmButtonColor: '#B4232C'
+    });
   }
 
   buyNow() {
     if (!this.product) return;
     if (!this.selectedCard) {
-      alert('Vui lòng chọn một mẫu thiệp trước khi thanh toán.');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Chưa chọn thiệp',
+        text: 'Vui lòng chọn một mẫu thiệp trước khi thanh toán.',
+        confirmButtonText: 'Đã hiểu',
+        confirmButtonColor: '#B4232C'
+      });
       return;
     }
     console.log('Buy now:', {
@@ -188,7 +213,13 @@ export class ProductDetail implements OnInit {
       messageText: this.messageText
     });
     // TODO: Implement checkout logic
-    alert('Chuyển đến trang thanh toán!');
+    Swal.fire({
+      icon: 'info',
+      title: 'Chuyển đến trang thanh toán',
+      text: 'Đang chuyển đến trang thanh toán...',
+      confirmButtonText: 'Đã hiểu',
+      confirmButtonColor: '#B4232C'
+    });
   }
 
   selectImage(index: number) {

@@ -258,7 +258,12 @@ partnerBrands = [
 
   getFinalPrice(g: GiftBoxTemplate): number {
     const discount = g.discountPercent || 0;
-    return Math.round(g.price * (1 - discount));
+    const basePrice = g.promoPrice ?? g.price;
+    return Math.round(basePrice * (1 - discount));
+  }
+
+  getOriginalPrice(g: GiftBoxTemplate): number {
+    return g.promoPrice ?? g.price;
   }
 
   ngAfterViewInit() {
