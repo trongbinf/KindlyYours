@@ -24,13 +24,9 @@ jobs:
         with:
           node-version: '18'
       - name: Install dependencies
-        run: |
-          cd KindlyYoursFE
-          npm ci
+        run: npm ci
       - name: Build Angular app
-        run: |
-          cd KindlyYoursFE
-          npm run build
+        run: npm run build
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -39,7 +35,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: 'upload'
           # Thay "/" bằng đường dẫn tới thư mục Angular
-          app_location: 'KindlyYoursFE'
+          app_location: '/'
           # Nếu bạn không dùng Azure Functions làm API, để trống hoặc xóa luôn
           api_location: ''
           # Thư mục build ra, tương đối với app_location
