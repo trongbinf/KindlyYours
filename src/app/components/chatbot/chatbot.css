@@ -1,7 +1,7 @@
 /* Chatbot Widget Container */
 .chatbot-widget {
   position: fixed;
-  bottom: 100px;
+  bottom: 180px;
   right: 20px;
   z-index: 1000;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -405,7 +405,7 @@
   
   .chatbot-widget {
     right: 10px;
-    bottom: 80px;
+    bottom: 160px;
   }
 }
 
