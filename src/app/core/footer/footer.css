@@ -271,3 +271,18 @@
     font-size: 12px;
   }
 }
+
+/* Footer Bottom - Credit */
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid #E5E7EB;
+  text-align: center;
+}
+
+.footer-credit {
+  font-size: 14px;
+  color: #6B7280;
+  margin: 0;
+  font-weight: 500;
+}
