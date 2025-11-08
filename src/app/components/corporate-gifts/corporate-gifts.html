@@ -4,7 +4,7 @@
   <div class="flex-1 app-container py-6">
     <!-- Banner -->
     <div class="banner">
-      <img src="https://api.teamogift.com/uploads/KHUNG__NH___CH_T_L__NG_CAO/1758554089992_0.jpg" alt="Corporate gifts banner" />
+      <img src="https://res.cloudinary.com/dvjknvfiz/image/upload/v1762600517/A%CC%89nh_ma%CC%80n_hi%CC%80nh_2025-11-08_lu%CC%81c_18_12_14-Picsart-AiImageEnhancer_bvxcjl.png" alt="Corporate gifts banner" />
     </div>
     
     <!-- Breadcrumb -->
@@ -39,24 +39,29 @@
     </section>
 
     <!-- Quà tặng đối tác Section -->
-    <section class="section">
-      <h2 class="section-title">Quà tặng đối tác</h2>
-      <div class="gift-grid">
-        <div class="gift-card" *ngFor="let g of corporateGiftboxes" 
+    <section class="categories-section" *ngIf="corporateGiftboxes.length">
+      <div class="section-header">
+        <h2 class="section-title">QUÀ TẶNG ĐỐI TÁC</h2>
+        <p class="section-subtitle">Gợi ý hộp quà cho đối tác</p>
+      </div>
+      <div class="categories-grid gift-grid">
+        <div class="category-item gift-card" *ngFor="let g of corporateGiftboxes" 
              [routerLink]="['/product', g.id]" style="cursor:pointer">
-          <div class="gift-image">
-            <img *ngIf="g.image" [src]="g.image" [alt]="g.name" />
-            <div *ngIf="!g.image" class="no-img">No image</div>
+          <img *ngIf="g.image" [src]="g.image" [alt]="g.name" class="gift-image" />
+          <div *ngIf="!g.image" class="gift-image flex items-center justify-center bg-gray-100 text-[#B4232C] font-semibold">
+            {{ g.name.charAt(0) }}
           </div>
-          <div class="gift-info">
-            <div class="gift-name">{{ g.name }}</div>
-            <div class="stars" *ngIf="g.rating">
+          <div class="gift-content">
+            <span class="category-name">{{ g.name }}</span>
+            <div class="stars-row" *ngIf="g.rating">
               <span class="star" *ngFor="let s of [1,2,3,4,5]" [class.filled]="s <= Math.round(g.rating || 5)">★</span>
             </div>
             <div class="price-row">
-              <span class="price-current">{{ getFinalPrice(g) | number }} Đ</span>
-              <span class="price-original" *ngIf="g.discountPercent">{{ getOriginalPrice(g) | number }} Đ</span>
+              <span class="price-current">{{ getFinalPrice(g) | number }} đ</span>
+              <span class="price-original" *ngIf="g.discountPercent">{{ getOriginalPrice(g) | number }} đ</span>
+              <span class="price-discount" *ngIf="g.discountPercent">-{{ (g.discountPercent * 100) | number:'1.0-0' }}%</span>
             </div>
+            <div class="sold-row" *ngIf="g.sold">Đã bán {{ g.sold | number }}</div>
           </div>
         </div>
       </div>

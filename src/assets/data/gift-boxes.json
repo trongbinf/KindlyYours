@@ -1,38 +1,74 @@
 {
   "giftBoxes": [
     {
-      "id": "happy-to-see-you-blue",
+      "id": "happy-to-see-you-blue-1",
       "name": "Hộp Happy To See You Blue",
       "image": "https://res.cloudinary.com/dlci8havj/image/upload/v1762511757/uc_ry8dvh.jpg",
-      "dimensions": "(24x19x10cm)",
-      "price": 0,
+      "dimensions": "(30x20x10cm)",
+      "price": 120000,
       "description": "Hộp quà màu xanh dương tươi sáng",
       "type": "happy"
     },
     {
-      "id": "happy-to-see-you-light-blue",
+      "id": "happy-to-see-you-blue-2",
+      "name": "Hộp Happy To See You Blue",
+      "image": "https://res.cloudinary.com/dlci8havj/image/upload/v1762511757/uc_ry8dvh.jpg",
+      "dimensions": "(35x25x7cm)",
+      "price": 140000,
+      "description": "Hộp quà màu xanh dương tươi sáng",
+      "type": "happy"
+    },
+    {
+      "id": "happy-to-see-you-light-blue-1",
       "name": "Hộp Happy To See You Light Blue",
       "image": "https://res.cloudinary.com/dlci8havj/image/upload/v1762511658/uc_nhfqci.jpg",
-      "dimensions": "(24x19x10cm)",
-      "price": 30000,
+      "dimensions": "(30x20x10cm)",
+      "price": 120000,
       "description": "Hộp quà màu xanh dương nhạt thanh lịch",
       "type": "happy"
     },
     {
-      "id": "your-day-yellow",
+      "id": "happy-to-see-you-light-blue-2",
+      "name": "Hộp Happy To See You Light Blue",
+      "image": "https://res.cloudinary.com/dlci8havj/image/upload/v1762511658/uc_nhfqci.jpg",
+      "dimensions": "(35x25x7cm)",
+      "price": 140000,
+      "description": "Hộp quà màu xanh dương nhạt thanh lịch",
+      "type": "happy"
+    },
+    {
+      "id": "your-day-yellow-1",
       "name": "Hộp Your Day Yellow",
       "image": "https://res.cloudinary.com/dlci8havj/image/upload/v1762511685/uc_x89339.jpg",
-      "dimensions": "(24x19x10cm)",
-      "price": 0,
+      "dimensions": "(30x20x10cm)",
+      "price": 120000,
       "description": "Hộp quà màu vàng tươi sáng",
       "type": "celebration"
     },
     {
-      "id": "your-day-pink",
+      "id": "your-day-yellow-2",
+      "name": "Hộp Your Day Yellow",
+      "image": "https://res.cloudinary.com/dlci8havj/image/upload/v1762511685/uc_x89339.jpg",
+      "dimensions": "(35x25x7cm)",
+      "price": 140000,
+      "description": "Hộp quà màu vàng tươi sáng",
+      "type": "celebration"
+    },
+    {
+      "id": "your-day-pink-1",
       "name": "Hộp Your Day Pink",
       "image": "https://res.cloudinary.com/dlci8havj/image/upload/v1762511701/uc_sdg4zf.jpg",
-      "dimensions": "(24x19x10cm)",
-      "price": 0,
+      "dimensions": "(30x20x10cm)",
+      "price": 120000,
+      "description": "Hộp quà màu hồng ngọt ngào",
+      "type": "celebration"
+    },
+    {
+      "id": "your-day-pink-2",
+      "name": "Hộp Your Day Pink",
+      "image": "https://res.cloudinary.com/dlci8havj/image/upload/v1762511701/uc_sdg4zf.jpg",
+      "dimensions": "(35x25x7cm)",
+      "price": 140000,
       "description": "Hộp quà màu hồng ngọt ngào",
       "type": "celebration"
     }

@@ -390,6 +390,11 @@ export class CreateGiftBox implements OnInit {
       alert('Vui lòng chọn thiệp trước khi hoàn thành hộp quà.');
       return;
     }
+    // Validation: Nếu không chọn "để trống", thì phải có nội dung lời nhắn
+    if (!this.leaveCardBlank && !this.messageText.trim()) {
+      alert('Vui lòng nhập lời nhắn trên thiệp hoặc chọn "Để trống, không ghi lời nhắn trên thiệp".');
+      return;
+    }
     this.goToCheckout();
   }
 
@@ -401,6 +406,12 @@ export class CreateGiftBox implements OnInit {
     }
     if (!this.selectedCard) {
       alert('Vui lòng chọn thiệp.');
+      this.currentStep = 3;
+      return;
+    }
+    // Validation: Nếu không chọn "để trống", thì phải có nội dung lời nhắn
+    if (!this.leaveCardBlank && !this.messageText.trim()) {
+      alert('Vui lòng nhập lời nhắn trên thiệp hoặc chọn "Để trống, không ghi lời nhắn trên thiệp".');
       this.currentStep = 3;
       return;
     }

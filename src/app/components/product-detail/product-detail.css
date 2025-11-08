@@ -14,7 +14,7 @@
 }
 
 .breadcrumb .crumb {
-  color: #1F2A44;
+  color: #2f4157;
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -111,7 +111,7 @@
 .product-name {
   font-size: 32px;
   font-weight: 800;
-  color: #1F2A44;
+  color: #2f4157;
   line-height: 1.3;
   margin: 0;
 }
@@ -170,7 +170,7 @@
 .option-label {
   font-size: 16px;
   font-weight: 700;
-  color: #1F2A44;
+  color: #2f4157;
 }
 
 .card-options {
@@ -191,7 +191,7 @@
   transition: all 0.2s ease;
   font-size: 14px;
   font-weight: 600;
-  color: #1F2A44;
+  color: #2f4157;
   position: relative;
 }
 
@@ -284,7 +284,7 @@
 .message-form .option-label {
   font-size: 18px;
   font-weight: 700;
-  color: #1F2A44;
+  color: #2f4157;
   margin-bottom: 8px;
 }
 
@@ -339,7 +339,7 @@
   cursor: pointer;
   font-size: 20px;
   font-weight: 600;
-  color: #1F2A44;
+  color: #2f4157;
   transition: all 0.3s;
   display: flex;
   align-items: center;
@@ -359,7 +359,7 @@
   justify-content: center;
   font-size: 18px;
   font-weight: 700;
-  color: #1F2A44;
+  color: #2f4157;
   background: #fff;
   border-left: 2px solid #E5E7EB;
   border-right: 2px solid #E5E7EB;
@@ -379,7 +379,7 @@
   transition: all 0.3s;
   font-size: 12px;
   font-weight: 600;
-  color: #1F2A44;
+  color: #2f4157;
   width: fit-content;
   min-width: 100px;
   position: relative;
@@ -425,7 +425,7 @@
 
 .btn-add-cart {
   background: #fee0e8;
-  color: #1F2A44;
+  color: #2f4157;
 }
 
 .btn-add-cart:hover {
@@ -435,14 +435,14 @@
 }
 
 .btn-buy-now {
-  background: #B4232C;
+  background: #ffb3c6;
   color: #fff;
 }
 
 .btn-buy-now:hover {
-  background: #9B1E26;
+  background: #ff9bb3;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(255, 179, 198, 0.15);
 }
 
 /* Product Tabs */
@@ -453,7 +453,7 @@
 .tabs-header {
   display: flex;
   gap: 0;
-  background: #1F2A44;
+  background: #ffb3c6;
   border-radius: 12px 12px 0 0;
   overflow: hidden;
 }
@@ -462,7 +462,7 @@
   flex: 1;
   padding: 16px 24px;
   border: none;
-  background: #1F2A44;
+  background: #ffb3c6;
   color: #fff;
   font-size: 16px;
   font-weight: 600;
@@ -472,13 +472,13 @@
 }
 
 .tab-btn:hover {
-  background: #2A3A5A;
+  background: #ff9bb3;
 }
 
 .tab-btn.active {
-  background: #1F2A44;
-  border-bottom-color: #fee0e8;
-  color: #fee0e8;
+  background: #ffb3c6;
+  border-bottom-color: #fff;
+  color: #fff;
 }
 
 .tabs-content {
@@ -507,7 +507,7 @@
 .tab-title {
   font-size: 24px;
   font-weight: 800;
-  color: #1F2A44;
+  color: #2f4157;
   margin-bottom: 16px;
 }
 
@@ -525,7 +525,7 @@
 .includes-title {
   font-size: 20px;
   font-weight: 700;
-  color: #1F2A44;
+  color: #2f4157;
   margin-bottom: 16px;
 }
 
@@ -540,7 +540,7 @@
 
 .includes-list li {
   font-size: 16px;
-  color: #1F2A44;
+  color: #2f4157;
   line-height: 1.6;
   padding-left: 8px;
 }
@@ -559,7 +559,7 @@
 .section-title {
   font-size: 28px;
   font-weight: 800;
-  color: #1F2A44;
+  color: #2f4157;
   margin-bottom: 32px;
 }
 
@@ -607,7 +607,7 @@
 
 .product-name-card {
   font-weight: 800;
-  color: #111827;
+  color: #2f4157;
   font-size: 16px;
   margin-bottom: 6px;
   line-height: 1.3;
@@ -618,7 +618,7 @@
 }
 
 .price-current-card {
-  color: #1F2A44;
+  color: #2f4157;
   font-weight: 800;
   font-size: 18px;
 }

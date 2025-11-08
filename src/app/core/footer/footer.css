@@ -6,6 +6,8 @@
   border-radius: 12px;
   margin-left: 20px;
   margin-right: 20px;
+  border: 1px solid #E5E7EB;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 .footer-container {
@@ -27,10 +29,10 @@
 }
 
 .footer-logo {
-  font-size: 36px;
+  font-size: 26px;
   font-weight: 700;
-  color: #000000; /* brand text black */
-  font-family: 'Georgia', 'Times New Roman', serif;
+  color: #2f4157; /* brand text */
+  font-family: "Poppins Soft", sans-serif;
   letter-spacing: 2px;
 }
 
@@ -45,14 +47,14 @@
   align-items: flex-start;
   gap: 12px;
   font-size: 14px;
-  color: #000000; /* black body text */
+  color: #2f4157; /* body text */
   line-height: 1.6;
 }
 
 .contact-icon {
   width: 18px;
   height: 18px;
-  color: #000000;
+  color: #2f4157;
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -67,7 +69,7 @@
 .footer-column-title {
   font-size: 16px;
   font-weight: 700;
-  color: #000000;
+  color: #2f4157;
   text-transform: uppercase;
   margin: 0;
   letter-spacing: 0.5px;
@@ -87,14 +89,14 @@
 }
 
 .footer-link {
-  color: #000000; /* black link */
+  color: #2f4157; /* black link */
   text-decoration: none;
   font-size: 14px;
   transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-  color: #333333; /* subtle darken */
+  color: #2f4157; /* text color on hover */
 }
 
 /* Column 3: Contact & Social Media */
@@ -106,14 +108,14 @@
 
 .contact-message {
   font-size: 14px;
-  color: #000000;
+  color: #2f4157;
   margin: 0;
   line-height: 1.6;
 }
 
 .online-hours {
   font-size: 14px;
-  color: #000000;
+  color: #2f4157;
   margin: 0;
   line-height: 1.6;
 }
@@ -132,7 +134,7 @@
   height: 36px;
   border-radius: 50%;
   background-color: #ffffff;
-  color: #000000;
+  color: #2f4157;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -145,6 +147,19 @@
 .social-icon svg {
   width: 18px;
   height: 18px;
+}
+
+/* Animation lắc nhẹ cho chat icons */
+@keyframes gentleShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-3px) rotate(-1deg);
+  }
+  75% {
+    transform: translateX(3px) rotate(1deg);
+  }
 }
 
 /* Floating Chat Icons */
@@ -179,6 +194,8 @@
 .zalo-icon {
   background: linear-gradient(135deg, #4a90e2 0%, #5ba3f5 100%);
   color: #ffffff;
+  animation: gentleShake 3s ease-in-out infinite;
+  animation-delay: 0s;
 }
 
 .zalo-text {
@@ -188,8 +205,10 @@
 
 .messenger-icon {
   background: linear-gradient(135deg, #fee0e8 0%, #f6ccd7 50%, #e8b4c4 100%);
-  color: #1F2A44;
+  color: #2f4157;
   border: 2px solid #e8b4c4;
+  animation: gentleShake 3s ease-in-out infinite;
+  animation-delay: 1s;
 }
 
 .messenger-icon svg {

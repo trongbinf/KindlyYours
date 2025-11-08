@@ -19,7 +19,7 @@ export class Footer {
   socialMedia = {
     facebook: 'https://www.facebook.com/profile.php?id=61582666884768',
     instagram: 'https://www.instagram.com/kindlyyours.official',
-    tiktok: 'https://www.tiktok.com/@kindlyyours.official',
+    tiktok: 'https://www.tiktok.com/@kindly_yours?_r=1&_t=ZS-91Dmh4Rnl81',
     messenger: 'https://m.me/836206576242335',
     zalo: 'https://zalo.me/0395414344'
   };

@@ -93,8 +93,45 @@
          
         </section>
 
+        <!-- Service Features Grid (4 images) -->
+        <section class="service-features-section">
+          <div class="service-features-grid">
+            <div class="service-feature-card" *ngFor="let image of productImages">
+              <img [src]="image" [alt]="'Service feature ' + image" class="service-feature-image" />
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Selling & New Products Section -->
+        <section class="best-selling-section">
+          <div class="best-selling-container">
+            <!-- Left: Best Selling Gifts -->
+            <div class="best-selling-left">
+              <div class="section-header-with-line">
+                <h2 class="section-header-title">Quà tặng bán chạy</h2>
+                
+              </div>
+            
+              <div class="best-selling-content">
+                <img [src]="newProductData.desktopImage" alt="Best selling gifts" class="best-selling-image" />
+              </div>
+            </div>
+            <!-- Right: New Products -->
+            <div class="best-selling-right">
+              <h2 class="new-products-title">
+                <span class="new-products-title-line1">SẢN PHẨM</span>
+                <span class="new-products-title-line2">MỚI RA MẮT</span>
+              </h2>
+              <p class="new-products-subtitle">Sản phẩm quà tặng mới nhất dành riêng cho bạn</p>
+              <a routerLink="/collections/giftboxes" class="new-products-btn">Tìm hiểu thêm</a>
+            </div>
+          </div>
+        </section>
+
         <!-- Gift Boxes from giftboxes.json (one per type) -->
         <section class="categories-section" *ngIf="giftBoxesOnHome.length">
+          <!-- Section Header -->
+         
           <div class="categories-grid gift-grid">
             <div class="category-item gift-card" *ngFor="let g of giftBoxesOnHome" 
                  [routerLink]="['/product', g.id]" style="cursor:pointer">
@@ -116,9 +153,6 @@
                 <p class="gift-desc" *ngIf="g.description">{{ g.description }}</p>
               </div>
             </div>
-          </div>
-          <div class="section-ctas">
-            <a routerLink="/collections/giftboxes" class="btn-primary">Xem tất cả sản phẩm</a>
           </div>
         </section>
             

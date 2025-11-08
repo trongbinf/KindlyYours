@@ -91,9 +91,7 @@
             </div>
             <div class="card-body">
               <div class="name">{{ p.name }}</div>
-              <div class="price-row">
-                <span class="price-current">{{ p.price | number }} ₫</span>
-              </div>
+            
               <div class="quantity-selector">
                 <button class="qty-btn" (click)="decItem(p.id)">—</button>
                 <span class="qty-value">{{ selectedItems[p.id] || 0 }}</span>
@@ -210,7 +208,6 @@
                       <span class="item-name">{{ selectedBox.name }}</span>
                     </div>
                     <div class="item-meta">
-                      <span *ngIf="selectedBox.price">{{ selectedBox.price | number }} ₫</span>
                       <button class="remove" type="button" (click)="removeSelectedBox()">🗑</button>
                     </div>
                   </li>
@@ -229,13 +226,12 @@
                       <span class="item-qty">x{{ it.quantity }}</span>
                     </div>
                     <div class="item-meta">
-                      <span>{{ (it.product.price * it.quantity) | number }} ₫</span>
                       <button class="remove" type="button" (click)="removeSelectedItem(it.product.id)">🗑</button>
                     </div>
                   </li>
                 </ul>
                 <div class="total">Tổng tiền: {{ getSubtotal() | number }} ₫</div>
-                <button class="btn btn-primary" type="button" (click)="handleCompleteClick()" [disabled]="!selectedCard">Hoàn thành hộp quà</button>
+                <button class="btn btn-primary" type="button" (click)="handleCompleteClick()" [disabled]="!selectedCard || (!leaveCardBlank && !messageText.trim())">Hoàn thành hộp quà</button>
               </aside>
             </div>
           </div>
@@ -272,7 +268,6 @@
                 <h3>Sản phẩm</h3>
                 <p class="review-item-name">{{ it.product.name }}</p>
                 <p class="review-item-meta">Số lượng: x{{ it.quantity }}</p>
-                <p class="review-item-price">{{ (it.product.price * it.quantity) | number }} ₫</p>
               </div>
             </div>
 
@@ -300,7 +295,7 @@
         </div>
       <div class="navigation-buttons">
           <button class="btn btn-outline" (click)="prevStep()">← Quay lại</button>
-          <button class="btn btn-primary" (click)="createGiftBox()" [disabled]="!selectedCard">Tạo hộp quà</button>
+          <button class="btn btn-primary" (click)="createGiftBox()" [disabled]="!selectedCard || (!leaveCardBlank && !messageText.trim())">Tạo hộp quà</button>
         </div>
       </div>
 

@@ -21,14 +21,14 @@ export class Header {
   socialMedia = {
     facebook: 'https://www.facebook.com/profile.php?id=61582666884768',
     instagram: 'https://www.instagram.com/kindlyyours.official',
-    tiktok: 'https://www.tiktok.com/@kindlyyours.official',
+    tiktok: 'https://www.tiktok.com/@kindly_yours?_r=1&_t=ZS-91Dmh4Rnl81',
     messenger: 'https://m.me/836206576242335',
     zalo: 'https://zalo.me/0395414344'
   };
 
   navLinks = [
     { href: '/', label: 'Trang chủ', hasDropdown: false },
-    { href: '/collection', label: 'GIFT BOX', hasDropdown: true, key: 'giftbox' as const },
+    { href: '/collections/giftboxes', label: 'GIFT BOX', hasDropdown: true, key: 'giftbox' as const },
     { href: '/corporate-gifts', label: 'Quà tặng doanh nghiệp', hasDropdown: true, key: 'corporate' as const },
     { href: '/about', label: 'Giới thiệu', hasDropdown: false },
   ];
@@ -39,25 +39,20 @@ export class Header {
     'Quà tặng cho anh ấy',
     'Quà tặng cho mọi giới tính',
     'Quà tặng cho thanh thiếu niên',
-    'Quà tặng cho trẻ em',
-    'Quà tặng cho các cặp đôi hoặc gia đình',
-    'Dành cho em bé mới sinh'
+    'Quà tặng cho các cặp đôi hoặc gia đình'
   ];
 
   giftboxOccasions: string[] = [
-    'Gói chăm sóc',
-    'Quà tặng sinh nhật',
-    'Quà tặng tang lễ',
-    'Nghĩ về bạn',
-    'Em bé mới sinh',
-    'Quà tặng cho bà mẹ mới và bà mẹ tương lai',
-    'Lễ kỷ niệm',
-    'Lễ cưới',
-    'Dịp kỉ niệm',
-    'Chúc mừng',
-    'Hôn ước',
-    'Nhà mới',
-    'Quà tặng cảm ơn',
+    'Period Care Package',
+    'Healing Box',
+    'Refesh Box',
+    'Season Box (đầu đông)',
+    'First Work Day Box',
+    'Birthday Care Box',
+    'Love & Care Box',
+    'Joy box',
+    'Corporate box',
+    'For Him box'
   ];
 
   corporateLinks: string[] = [

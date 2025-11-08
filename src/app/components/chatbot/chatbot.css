@@ -7,6 +7,19 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+/* Animation lắc nhẹ cho chatbot */
+@keyframes gentleShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-3px) rotate(-1deg);
+  }
+  75% {
+    transform: translateX(3px) rotate(1deg);
+  }
+}
+
 /* Chat Toggle Button */
 .chatbot-toggle {
   width: 60px;
@@ -22,6 +35,8 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
+  animation: gentleShake 3s ease-in-out infinite;
+  animation-delay: 2s;
 }
 
 .chatbot-toggle:hover {

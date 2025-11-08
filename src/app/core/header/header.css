@@ -7,12 +7,13 @@
   z-index: 1000;
   background-color: #fee0e8; /* unified pink background */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 /* Top Bar - Dark Red Background */
 .header-top-bar {
   background-color: #fee0e8;
-  color: #000000; /* black text for contrast */
+  color: #2f4157; /* text color */
   padding: 10px 0;
 }
 
@@ -32,7 +33,7 @@
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: #000000; /* black text */
+  color: #2f4157; /* text color */
   font-weight: 400;
 }
 
@@ -70,7 +71,7 @@
   height: 28px;
   background-color: #ffffff;
   border-radius: 50%;
-  color: #000000; /* icon color black on white circle */
+  color: #2f4157; /* icon color black on white circle */
   text-decoration: none;
   transition: all 0.3s ease;
   flex-shrink: 0;
@@ -123,10 +124,10 @@
 }
 
 .logo-text {
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 700;
-  color: #000000; /* brand text black on pink */
-  font-family: 'Georgia', 'Times New Roman', serif;
+  color: #2f4157; /* brand text black on pink */
+  font-family: "Poppins Soft", sans-serif;
   letter-spacing: 2px;
   line-height: 1.2;
 }
@@ -146,7 +147,7 @@
 
 .nav-link {
   text-decoration: none;
-  color: #000000; /* black nav text */
+  color: #2f4157; /* black nav text */
   font-weight: 500;
   font-size: 15px;
   padding: 8px 0;
@@ -159,11 +160,11 @@
 }
 
 .nav-link:hover {
-  color: #333333; /* subtle darken on hover */
+  color: #2f4157; /* text color on hover */
 }
 
 .nav-link.active {
-  color: #000000;
+  color: #2f4157;
 }
 
 /* Single underline animation under text width */
@@ -325,17 +326,17 @@
   gap: 10px;
   padding: 12px 24px;
   margin-right: 8px;
-  background: #fee0e8; /* solid pink per theme */
+  background: #ffb3c6; /* solid pink per theme */
   border: none;
   border-radius: 28px;
-  color: #000000; /* black text/icon */
+  color: #fff; /* white text/icon */
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 14px rgba(255, 179, 198, 0.2);
   position: relative;
   overflow: hidden;
 }
@@ -357,8 +358,8 @@
 
 .create-gift-btn:hover {
   transform: translateY(-1px);
-  background: #f6ccd7; /* darker pink on hover, no red */
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  background: #ff9bb3; /* darker pink on hover */
+  box-shadow: 0 6px 18px rgba(255, 179, 198, 0.3);
 }
 
 /* Keyboard accessibility */
@@ -589,7 +590,7 @@
 
 .nav-link-mobile {
   text-decoration: none;
-  color: #333;
+  color: #2f4157;
   font-weight: 500;
   font-size: 16px;
   padding: 12px 20px;
@@ -626,7 +627,7 @@
   background: #fee0e8; /* solid pink per theme */
   border: none;
   border-radius: 28px;
-  color: #000000;
+  color: #2f4157;
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;

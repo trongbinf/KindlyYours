@@ -92,18 +92,9 @@
               <div class="item-name">{{ item.name }}</div>
               <div class="item-meta">x{{ item.quantity }}</div>
             </div>
-            <div class="item-price">{{ (item.price * item.quantity) | number }} ₫</div>
           </div>
         </div>
 
-        <div class="summary-line">
-          <span>Tổng tiền sản phẩm:</span>
-          <span>{{ subtotal | number }} ₫</span>
-        </div>
-        <div class="summary-line">
-          <span>Phí giao hàng:</span>
-          <span>{{ shippingFee | number }} ₫</span>
-        </div>
         <div class="summary-line" *ngIf="checkoutData.card">
           <span>Thiệp:</span>
           <span>{{ checkoutData.card.name }}</span>
@@ -112,7 +103,7 @@
           Không ghi lời nhắn trên thiệp
         </div>
         <div class="message-preview" *ngIf="checkoutData.card && !checkoutData.leaveCardBlank && checkoutData.message">
-          “{{ checkoutData.message }}”
+          "{{ checkoutData.message }}"
         </div>
         <div class="summary-line total">
           <span>Tổng tiền:</span>
