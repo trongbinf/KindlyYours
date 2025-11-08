@@ -558,7 +558,7 @@ app-header {
   font-weight: 700;
   color: #2F4157;
   text-align: center;
-  font-family: '__Nunito_eef148', '__Nunito_Fallback_eef148', sans-serif;
+  font-family: -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
 /* Gift boxes grid overrides */
@@ -708,7 +708,11 @@ app-header {
   color: #2d4a62;
   margin-bottom: 16px;
   letter-spacing: 0.5px;
-  font-family: '__Nunito_eef148', '__Nunito_Fallback_eef148', sans-serif;
+  font-family: -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-feature-settings: 'liga' 1, 'calt' 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .section-subtitle {
@@ -926,7 +930,7 @@ app-header {
   color: #2d4a62;
   margin-bottom: 16px;
   letter-spacing: 0.5px;
-  font-family: '__Nunito_eef148', '__Nunito_Fallback_eef148', sans-serif;
+  font-family: -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
 .testimonials-quote {
@@ -1065,7 +1069,7 @@ app-header {
   color: #2f4157;
   text-align: left;
   white-space: nowrap;
-  font-family: '__Nunito_eef148', '__Nunito_Fallback_eef148', sans-serif;
+  font-family: -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
 /* Marquee layout for brands */

@@ -105,6 +105,11 @@ partnerBrands = [
       desktopImage: 'https://res.cloudinary.com/dafzz2c9j/image/upload/v1762180607/IMG_5704_ygymmu.jpg',
       mobileImage: 'https://res.cloudinary.com/dafzz2c9j/image/upload/v1762180607/IMG_5704_ygymmu.jpg',
       link: '#'
+    },
+    {
+      desktopImage: 'https://res.cloudinary.com/dvjknvfiz/image/upload/v1762616637/444444444_uidbhm.png',
+      mobileImage: 'https://res.cloudinary.com/dvjknvfiz/image/upload/v1762616637/444444444_uidbhm.png',
+      link: '#'
     }
   ];
 
