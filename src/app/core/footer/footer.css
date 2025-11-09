@@ -29,11 +29,10 @@
 }
 
 .footer-logo {
-  font-size: 26px;
-  font-weight: 700;
-  color: #2f4157; /* brand text */
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 2px;
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .footer-contact-info {
@@ -254,7 +253,7 @@
   }
 
   .footer-logo {
-    font-size: 28px;
+    height: 45px;
   }
 
   .floating-chat-icons {

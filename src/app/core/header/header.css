@@ -124,12 +124,10 @@
 }
 
 .logo-text {
-  font-size: 26px;
-  font-weight: 700;
-  color: #2f4157; /* brand text black on pink */
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 2px;
-  line-height: 1.2;
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 /* Desktop Navigation */
@@ -760,7 +758,7 @@
   }
 
   .logo-text {
-    font-size: 28px;
+    height: 45px;
   }
 
   .nav-bar-content {
