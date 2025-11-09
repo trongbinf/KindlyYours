@@ -1,8 +1,8 @@
 [
   {
     "id": "period-care-premium",
-    "name": "Gói chăm sóc chu kỳ kinh nguyệt",
-    "price": 1000000 ,
+    "name": "Period Care Package",
+    "price": 990000 ,
     "rating": 5,
     "discountPercent": 0.15,
     "sold": 1240,
@@ -47,7 +47,7 @@
   },
   {
     "id": "period-care-compact",
-    "name": "Gói chăm sóc chu kỳ kinh nguyệt",
+    "name": "Period Care Package",
     "price": 550000,
     "rating": 5,
     "discountPercent": 0.1,
