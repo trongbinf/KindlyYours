@@ -41,7 +41,12 @@
 
       <!-- Step 2: Choose items -->
       <div *ngIf="currentStep === 2">
-        <h2 class="section-title">Chọn vật phẩm cho hộp quà</h2>
+        <div class="step-2-header">
+          <h2 class="section-title">Chọn vật phẩm cho hộp quà</h2>
+          <div class="item-limit-info" *ngIf="getSelectedItemCount() > 0">
+            <span>Đã chọn: {{ getSelectedItemCount() }} món sản phẩm</span>
+          </div>
+        </div>
 
         <div class="page-header">
           <div class="title">Bộ lọc</div>
@@ -116,9 +121,12 @@
         </div>
         <div class="selection-bar" *ngIf="getSelectedThumbs().length > 0">
           <div class="thumbs">
-            <div class="thumb" *ngFor="let t of getSelectedThumbs()">
+            <div class="thumb" *ngFor="let t of getDisplayedThumbs()">
               <img [src]="t.image || 'assets/images/logo/placeholder.png'" [alt]="t.name">
               <button class="remove" (click)="handleThumbAction(t)" title="Xóa">×</button>
+            </div>
+            <div class="thumb view-all-thumb" *ngIf="hasMoreThumbs()" (click)="openAllItemsModal()" title="Xem tất cả sản phẩm">
+              <span>+{{ getSelectedThumbs().length - 8 }}</span>
             </div>
             <div class="thumb add">+</div>
           </div>
@@ -136,9 +144,12 @@
         <div class="selection-bar selection-bar--light" *ngIf="getSelectedThumbs().length > 0">
           <div class="previous-step" (click)="prevStep()">‹ Bước trước</div>
           <div class="thumbs">
-            <div class="thumb" *ngFor="let t of getSelectedThumbs()">
+            <div class="thumb" *ngFor="let t of getDisplayedThumbs()">
               <img [src]="t.image || 'assets/images/logo/placeholder.png'" [alt]="t.name">
               <button class="remove" (click)="handleThumbAction(t)" title="Xóa">×</button>
+            </div>
+            <div class="thumb view-all-thumb" *ngIf="hasMoreThumbs()" (click)="openAllItemsModal()" title="Xem tất cả sản phẩm">
+              <span>+{{ getSelectedThumbs().length - 8 }}</span>
             </div>
           </div>
         </div>
@@ -260,7 +271,7 @@
             </div>
 
             <!-- Items -->
-            <div class="review-item" *ngFor="let it of getSelectedItems()">
+            <div class="review-item" *ngFor="let it of getDisplayedItems()">
               <div class="review-item-image">
                 <img [src]="(it.product.images && it.product.images[0]) || 'assets/images/logo/placeholder.png'" [alt]="it.product.name" />
               </div>
@@ -269,6 +280,13 @@
                 <p class="review-item-name">{{ it.product.name }}</p>
                 <p class="review-item-meta">Số lượng: x{{ it.quantity }}</p>
               </div>
+            </div>
+
+            <!-- View All Button -->
+            <div class="review-view-all" *ngIf="hasMoreItems()">
+              <button class="btn btn-outline" (click)="openAllItemsModal()">
+                Xem tất cả sản phẩm ({{ getSelectedItems().length }})
+              </button>
             </div>
 
             <!-- Card -->
@@ -303,6 +321,58 @@
       <div class="navigation-buttons" *ngIf="currentStep === 1">
         <button class="btn btn-outline" disabled>← Quay lại</button>
         <button class="btn btn-primary" [disabled]="!selectedBox" (click)="nextStep()">Tiếp tục →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: All Selected Items -->
+  <div class="modal-overlay" *ngIf="isModalOpen" (click)="closeAllItemsModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h2 class="modal-title">Tất cả sản phẩm đã chọn ({{ getSelectedThumbs().length }})</h2>
+        <button class="modal-close" (click)="closeAllItemsModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-items-list">
+          <!-- Box -->
+          <div class="review-item" *ngIf="selectedBox">
+            <div class="review-item-image">
+              <img [src]="selectedBox.image" [alt]="selectedBox.name" />
+            </div>
+            <div class="review-item-info">
+              <h3>Hộp quà</h3>
+              <p class="review-item-name">{{ selectedBox.name }}</p>
+              <p class="review-item-meta">{{ selectedBox.dimensions }}</p>
+            </div>
+          </div>
+          <!-- Items -->
+          <div class="review-item" *ngFor="let it of getSelectedItems()">
+            <div class="review-item-image">
+              <img [src]="(it.product.images && it.product.images[0]) || 'assets/images/logo/placeholder.png'" [alt]="it.product.name" />
+            </div>
+            <div class="review-item-info">
+              <h3>Sản phẩm</h3>
+              <p class="review-item-name">{{ it.product.name }}</p>
+              <p class="review-item-meta">Số lượng: x{{ it.quantity }}</p>
+              <p class="review-item-price">Giá: {{ (it.product.price * it.quantity) | number }} ₫</p>
+            </div>
+          </div>
+          <!-- Card -->
+          <div class="review-item" *ngIf="selectedCard">
+            <div class="review-item-image">
+              <img [src]="selectedCard.image || 'assets/images/logo/placeholder.png'" [alt]="selectedCard.name" />
+            </div>
+            <div class="review-item-info">
+              <h3>Thiệp</h3>
+              <p class="review-item-name">{{ selectedCard.name }}</p>
+              <p class="review-item-meta" *ngIf="leaveCardBlank">(không nhắn)</p>
+              <p class="review-item-message" *ngIf="!leaveCardBlank && messageText">"{{ messageText }}"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" (click)="closeAllItemsModal()">Đóng</button>
       </div>
     </div>
   </div>

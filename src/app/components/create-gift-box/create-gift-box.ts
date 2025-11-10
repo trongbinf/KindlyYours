@@ -78,6 +78,9 @@ export class CreateGiftBox implements OnInit {
   messageCharLimit = 300;
   leaveCardBlank = false;
 
+  // Modal
+  isModalOpen = false;
+
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
@@ -204,6 +207,10 @@ export class CreateGiftBox implements OnInit {
     return this.getSelectedItems().length > 0;
   }
 
+  getSelectedItemCount() {
+    return Object.keys(this.selectedItems).length;
+  }
+
   getSubtotal() {
     let total = this.getSelectedItems().reduce((sum, it) => sum + (it.product.price * it.quantity), 0);
     if (this.selectedBox?.price) {
@@ -278,6 +285,34 @@ export class CreateGiftBox implements OnInit {
       });
     });
     return thumbs;
+  }
+
+  getDisplayedThumbs() {
+    // Chỉ hiển thị tối đa 8 sản phẩm đầu tiên
+    return this.getSelectedThumbs().slice(0, 8);
+  }
+
+  getDisplayedItems() {
+    // Chỉ hiển thị tối đa 8 sản phẩm đầu tiên trong review
+    return this.getSelectedItems().slice(0, 8);
+  }
+
+  hasMoreItems() {
+    // Kiểm tra xem có nhiều hơn 8 sản phẩm không
+    return this.getSelectedItems().length > 8;
+  }
+
+  hasMoreThumbs() {
+    // Kiểm tra xem có nhiều hơn 8 items trong thumbs không (bao gồm box, card, items)
+    return this.getSelectedThumbs().length > 8;
+  }
+
+  openAllItemsModal() {
+    this.isModalOpen = true;
+  }
+
+  closeAllItemsModal() {
+    this.isModalOpen = false;
   }
 
   // Filters & sorting
