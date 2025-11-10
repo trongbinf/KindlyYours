@@ -47,7 +47,8 @@ export class GiftboxList implements OnInit {
   ];
 
   async ngOnInit() {
-    window.scrollTo(0, 0);
+    // Scroll to top when component is initialized
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     this.allGiftboxes = await this.templatesService.getTemplates();
     this.giftboxes = this.allGiftboxes;
     this.updatePagination();

@@ -260,7 +260,7 @@
 }
 
 .stars {
-  color: #E11D48;
+  color: #FFD700;
   letter-spacing: 2px;
   margin-bottom: 8px;
 }
@@ -270,7 +270,7 @@
 }
 
 .stars .star.filled {
-  color: #B4232C;
+  color: #FFD700;
 }
 
 .price-row {

@@ -31,7 +31,8 @@ export class CorporateGifts implements OnInit {
   };
 
   async ngOnInit() {
-    window.scrollTo(0, 0);
+    // Scroll to top when component is initialized
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     const allGiftboxes = await this.templatesService.getTemplates();
     // Filter for corporate gifts - include corporate-box and any others that might be corporate
     this.corporateGiftboxes = allGiftboxes.filter(g => 

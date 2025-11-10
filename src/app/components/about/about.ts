@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Header } from '../../core/header/header';
 import { Footer } from '../../core/footer/footer';
@@ -10,6 +10,11 @@ import { Footer } from '../../core/footer/footer';
   templateUrl: './about.html',
   styleUrl: './about.css',
 })
-export class About {}
+export class About implements OnInit {
+  ngOnInit() {
+    // Scroll to top when component is initialized
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
 
 

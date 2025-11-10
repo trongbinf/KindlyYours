@@ -114,8 +114,8 @@ partnerBrands = [
   ];
 
   newProductData = {
-    desktopImage: 'https://api.teamogift.com/uploads/KHUNG__NH___CH_T_L__NG_CAO/1761115032238_0.jpg',
-    mobileImage: 'https://api.teamogift.com/uploads/KHUNG__NH___CH_T_L__NG_CAO/1761115088219_0.jpg'
+    desktopImage: 'https://res.cloudinary.com/dc0undyaa/image/upload/v1762802731/A%CC%89nh_ma%CC%80n_hi%CC%80nh_2025-11-11_lu%CC%81c_02.25.06_xkvqfd.png',
+    mobileImage: 'https://res.cloudinary.com/dc0undyaa/image/upload/v1762802731/A%CC%89nh_ma%CC%80n_hi%CC%80nh_2025-11-11_lu%CC%81c_02.25.06_xkvqfd.png'
   };
 
   qrCodeData = {
@@ -123,86 +123,7 @@ partnerBrands = [
     mobileImage: 'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1732351160057_0.jpg'
   };
 
-  corporateGifts = [
-    {
-      id: 1,
-      image: 'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1726840771402_3.jpg',
-      name: 'Hộp Quà Tết Doanh Nghiệp',
-      originalPrice: 2500000,
-      salePrice: 1980000,
-      discount: 21,
-      sold: 156,
-      rating: 4.8,
-      reviewCount: 89,
-      isNew: false,
-      isSale: true
-    },
-    {
-      id: 2,
-      image: 'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1726840771400_0.jpg',
-      name: 'Combo Quà Tri Ân Khách Hàng',
-      originalPrice: 1200000,
-      salePrice: 950000,
-      discount: 21,
-      sold: 234,
-      rating: 4.9,
-      reviewCount: 156,
-      isNew: true,
-      isSale: true
-    },
-    {
-      id: 3,
-      image: 'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1726840771401_1.jpg',
-      name: 'Set Quà Kỷ Niệm Thành Lập',
-      originalPrice: 3500000,
-      salePrice: 2890000,
-      discount: 17,
-      sold: 89,
-      rating: 4.7,
-      reviewCount: 67,
-      isNew: false,
-      isSale: true
-    },
-    {
-      id: 4,
-      image: 'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1726840771402_2.jpg',
-      name: 'Hộp Quà Chúc Mừng Đối Tác',
-      originalPrice: 1800000,
-      salePrice: 0,
-      discount: 0,
-      sold: 78,
-      rating: 4.6,
-      reviewCount: 45,
-      isNew: true,
-      isSale: false
-    },
-    {
-      id: 5,
-      image: 'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1736921329241_0.jpg',
-      name: 'Gift Box Cao Cấp VIP',
-      originalPrice: 5200000,
-      salePrice: 4680000,
-      discount: 10,
-      sold: 23,
-      rating: 5.0,
-      reviewCount: 12,
-      isNew: true,
-      isSale: true
-    },
-    {
-      id: 6,
-      image: 'https://api.teamogift.com/uploads/_NH_UP_TRANG_CH_/1736921372822_0.jpg',
-      name: 'Bộ Quà Tặng Nhân Viên',
-      originalPrice: 890000,
-      salePrice: 720000,
-      discount: 19,
-      sold: 312,
-      rating: 4.5,
-      reviewCount: 198,
-      isNew: false,
-      isSale: true
-    }
-  ];
+  
 
   // (categories removed as requested)
 
@@ -211,6 +132,7 @@ partnerBrands = [
   giftBoxesOnHome: GiftBoxTemplate[] = [];
   corporateBox: GiftBoxTemplate | null = null;
   corporateGiftboxes: GiftBoxTemplate[] = [];
+  randomProducts: GiftBoxTemplate[] = []; // 8 random products for home section
 
   async ngOnInit() {
     try {
@@ -253,11 +175,15 @@ partnerBrands = [
       this.giftBoxesOnHome = typeOrder
         .map((ty) => result.find((r) => r && r.name.toLowerCase().includes(ty.toLowerCase())))
         .filter((x): x is GiftBoxTemplate => !!x);
+      
+      // Get 8 random products for home section
+      this.randomProducts = this.getRandomProducts(templates, 8);
     } catch {
       this.featuredGift = null;
       this.giftBoxesOnHome = [];
       this.corporateBox = null;
       this.corporateGiftboxes = [];
+      this.randomProducts = [];
     }
   }
 
@@ -269,6 +195,15 @@ partnerBrands = [
 
   getOriginalPrice(g: GiftBoxTemplate): number {
     return g.promoPrice ?? g.price;
+  }
+
+  // Function to get random products
+  getRandomProducts(products: GiftBoxTemplate[], count: number): GiftBoxTemplate[] {
+    if (products.length <= count) {
+      return [...products];
+    }
+    const shuffled = [...products].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
   }
 
   ngAfterViewInit() {

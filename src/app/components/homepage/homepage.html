@@ -128,12 +128,14 @@
           </div>
         </section>
 
-        <!-- Gift Boxes from giftboxes.json (one per type) -->
-        <section class="categories-section" *ngIf="giftBoxesOnHome.length">
-          <!-- Section Header -->
-         
+        <!-- Random Products Section -->
+        <section class="categories-section" *ngIf="randomProducts.length">
+          <div class="section-header">
+            <h2 class="section-title">SẢN PHẨM NỔI BẬT</h2>
+            <p class="section-subtitle">Khám phá những món quà tinh tế dành cho người thương</p>
+          </div>
           <div class="categories-grid gift-grid">
-            <div class="category-item gift-card" *ngFor="let g of giftBoxesOnHome" 
+            <div class="category-item gift-card" *ngFor="let g of randomProducts" 
                  [routerLink]="['/product', g.id]" style="cursor:pointer">
               <img *ngIf="g.image" [src]="g.image" [alt]="g.name" class="gift-image" />
               <div *ngIf="!g.image" class="gift-image flex items-center justify-center bg-gray-100 text-[#B4232C] font-semibold">
@@ -154,7 +156,12 @@
               </div>
             </div>
           </div>
+          <div class="section-ctas">
+            <a routerLink="/collections/giftboxes" class="btn-primary">Xem tất cả sản phẩm</a>
+          </div>
         </section>
+
+       
             
 
         <!-- Featured Images Section with Swiper -->
@@ -249,6 +256,13 @@
               </div>
               </ng-container>
             </div>
+          </div>
+        </section>
+
+        <!-- Community Banner Section -->
+        <section class="community-banner-section">
+          <div class="community-banner-container">
+            <img src="https://res.cloudinary.com/dvjknvfiz/image/upload/v1762749293/THAM_GIA_CO%CC%A3%CC%82NG_DOODGF_1_mw7met.png" alt="Tham gia cộng đồng TEAMO" class="community-banner-image">
           </div>
         </section>
 
