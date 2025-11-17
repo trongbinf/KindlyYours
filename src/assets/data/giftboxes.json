@@ -211,7 +211,7 @@
     "rating": 5,
     "discountPercent": 0.1,
     "sold": 540,
-    "image": "https://res.cloudinary.com/dfslf5ylj/image/upload/v1762192273/uc_rafguu.jpg",
+    "image": "https://res.cloudinary.com/dvjknvfiz/image/upload/v1762684509/baby2_rab6vd.png",
     "description": "Khi những ngày đầu đông khẽ chạm, Season Box mang đến hơi ấm nhẹ nhàng và cảm giác được yêu thương trọn vẹn.\n\nMột món quà tinh tế, gói ghém sự quan tâm và ấm áp – dành tặng người thân, bạn bè hay đồng nghiệp như lời nhắn gửi dịu dàng: \"Giữ ấm và yêu thương trong mùa gió đầu.\"\n\n🎁 Bên trong hộp gồm:\n\n- Khăn quàng – Chất mềm mịn, giữ ấm cổ và tạo điểm nhấn thanh lịch.\n\n- Tất len – Êm ái, ấm chân trong những ngày thời tiết lạnh.\n\n- 2 miếng mặt nạ dưỡng da – Cấp ẩm, làm dịu và nuôi dưỡng làn da mịn màng.\n\n- Nến thơm – Hương nhẹ nhàng, giúp thư giãn và tạo không gian ấm cúng.\n\n- Trà – Mang lại cảm giác dễ chịu và thư thái sau ngày dài.\n\n- Băng đô rửa mặt – Giữ tóc gọn gàng, tiện khi skincare.\n\n- Dưỡng môi Vaseline – Giúp môi mềm mại, tránh khô nứt.\n\n- Lăn nách Nivea – Giúp cơ thể luôn khô thoáng và tự tin.\n\n- Túi chườm nóng – Làm ấm cơ thể, giảm đau và giúp thư giãn cơ bắp.",
     "cardOptions": [
       "Thiệp Season Greeting",
@@ -266,7 +266,7 @@
     "rating": 5,
     "discountPercent": 0.2625,
     "sold": 430,
-    "image": "https://res.cloudinary.com/dlci8havj/image/upload/v1762508130/uc_cxtcri.jpg",
+    "image": "https://res.cloudinary.com/dvjknvfiz/image/upload/v1762697568/IMG_5739-Picsart-AiImageEnhancer_dzdqth.jpg",
     "description": "Set quà lý tưởng cho những ngày se lạnh, mang lại cảm giác ấm áp – tinh tế – đầy yêu thương. Phù hợp tặng bạn bè, người yêu hoặc đồng nghiệp trong mùa đông đầu năm.\n\nBên trong hộp gồm:\n- Khăn len caro.\n- Găng tay len “HELLO”.\n- Mũ len trơn.\n- Móc khóa gấu bông.\n- Thiệp chúc ấm áp.",
     "cardOptions": [
       "Thiệp Season Greeting",
@@ -462,6 +462,90 @@
       },
       {
         "productId": "photo-frame-mini",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "id": "for-him-box-premium",
+    "name": "For Him Box",
+    "price": 860000,
+    "rating": 5,
+    "discountPercent": 0,
+    "sold": 0,
+    "image": "https://res.cloudinary.com/dc0undyaa/image/upload/v1763126628/A%CC%89nh_ma%CC%80n_hi%CC%80nh_2025-11-14_lu%CC%81c_20.23.32_iunhgw.png",
+    "description": "Bạn đang tìm một món quà dành tặng cho người đàn ông đặc biệt trong cuộc đời mình – có thể là chồng, người yêu, anh trai hay bạn thân – vào những dịp như sinh nhật, kỷ niệm hoặc đơn giản chỉ là muốn gửi một điều gì đó tinh tế để thể hiện sự quan tâm?\n\nFor Him Box chính là lựa chọn hoàn hảo dành cho bạn. Hộp quà được Kindly Yours thiết kế riêng cho phái mạnh – đơn giản, sang trọng nhưng vẫn tinh tế và đầy đủ những món đồ chăm sóc cá nhân giúp chàng luôn tự tin, chỉn chu và cuốn hút trong mọi hoàn cảnh.\n\nSet gồm có:\n\n- Khăn quàng cổ – Giúp giữ ấm trong những ngày se lạnh, là món phụ kiện thể hiện sự quan tâm tinh tế.\n\n- Sữa rửa mặt Romano – Làm sạch sâu, mang lại làn da khỏe mạnh, tươi mát sau một ngày dài.\n\n- Lăn nách Romano – Giúp khử mùi, mang lại cảm giác khô thoáng và tự tin suốt cả ngày.\n\n- Xịt body Romano – Mùi hương nam tính, mạnh mẽ nhưng không kém phần tinh tế.\n\n- Xà bông tắm Romano – Sạch da, thơm mát, mang đến cảm giác sảng khoái mỗi ngày.\n\n- Kẹo Mentos – Hơi thở thơm mát, thể hiện sự chỉn chu trong từng chi tiết nhỏ.\n\n- Cà phê Birdy – Năng lượng khởi đầu ngày mới, gợi cảm giác tỉnh táo và mạnh mẽ đặc trưng của phái mạnh.",
+    "cardOptions": [
+      "Thiệp Thanks For Everything",
+      "Thiệp Cheer",
+      "Thiệp You are the best",
+      "Thiệp ConGradulations"
+    ],
+    "items": [
+      {
+        "productId": "scarf",
+        "quantity": 1
+      },
+      {
+        "productId": "romano-face-wash",
+        "quantity": 1
+      },
+      {
+        "productId": "romano-deodorant",
+        "quantity": 1
+      },
+      {
+        "productId": "romano-body-spray",
+        "quantity": 1
+      },
+      {
+        "productId": "romano-soap",
+        "quantity": 1
+      },
+      {
+        "productId": "mentos-yogurt-box",
+        "quantity": 1
+      },
+      {
+        "productId": "birdy-coffee-can",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "id": "for-him-box-standard",
+    "name": "For Him Box",
+    "price": 650000,
+    "rating": 5,
+    "discountPercent": 0,
+    "sold": 0,
+    "image": "https://res.cloudinary.com/dvjknvfiz/image/upload/v1763370929/snapedit_1763370915484_fadilx.jpg",
+    "description": "For Him Box Standard là hộp quà Kindly Yours thiết kế dành riêng cho phái mạnh – tối giản, tinh tế và cực kỳ thực tế. Mỗi món bên trong đều mang ý nghĩa “chăm chút nhỏ nhưng ấm áp lớn”, phù hợp để tặng thầy giáo, anh trai, bạn nam, đồng nghiệp hoặc người thân.\n\nBên trong gồm có:\n\n- Khăn tắm thấm hút cao cấp – mềm, sạch, tiện dụng hằng ngày.\n\n- Cốc nước – tối giản, bền, dễ mang theo.\n\n- Sổ tay ghi chép A5 – đồng hành cùng công việc & học tập.\n\n- Cà phê rang xay – hương thơm nhẹ, giúp bắt đầu ngày mới tràn năng lượng.\n\n- Cuộn duy băng trang trí – tăng sự tinh tế cho hộp quà.\n\n- Tất len – ấm áp, tiện dụng, hợp mọi mùa.\n\nTông hộp lịch sự – sang nhẹ, phù hợp cho mọi dịp, đặc biệt là 20/11 – dịp tri ân thầy cô 💙\n\nHộp được Kindly Yours gói sẵn, kèm thiệp viết tay và hỗ trợ giao tận tay người nhận, giúp bạn gửi trọn tình cảm một cách tinh tế và chỉn chu nhất 💌🎁",
+    "cardOptions": [
+      "Thiệp Thanks For Everything",
+      "Thiệp Cheer",
+      "Thiệp ConGradulations",
+      "Thiệp Good for You"
+    ],
+    "items": [
+      {
+        "productId": "dry-face-towel",
+        "quantity": 1
+      },
+      {
+        "productId": "mug-ceramic",
+        "quantity": 1
+      },
+      {
+        "productId": "notebook",
+        "quantity": 1
+      },
+      {
+        "productId": "coffee-002",
+        "quantity": 1
+      },
+      {
+        "productId": "socks-warm",
         "quantity": 1
       }
     ]
