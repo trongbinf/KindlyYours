@@ -140,6 +140,35 @@
   margin-bottom: 12px;
 }
 
+.occasion-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.occasion-chip {
+  border: 1px solid #E5E7EB;
+  border-radius: 999px;
+  padding: 8px 16px;
+  background: #fff;
+  color: #2f4157;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.occasion-chip:hover {
+  border-color: #ffb3c6;
+  color: #B4232C;
+}
+
+.occasion-chip.active {
+  background: #ffb3c6;
+  border-color: #ffb3c6;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(255, 179, 198, 0.35);
+}
+
 .checkbox {
   display: flex;
   align-items: center;

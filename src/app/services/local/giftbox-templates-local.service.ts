@@ -18,6 +18,7 @@ export interface GiftBoxTemplate {
   sold?: number;
   image?: string;
   description?: string;
+  occasions?: string[];
   cardOptions?: (string | CardOption)[]; // Optional: if not provided, use all common cards
   items: GiftBoxTemplateItem[]; // preselected items (can be editable in UI)
 }

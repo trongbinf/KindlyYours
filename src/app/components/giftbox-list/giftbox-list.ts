@@ -23,6 +23,7 @@ export class GiftboxList implements OnInit {
   readonly Math = Math;
   selectedSort = 'default';
   selectedPriceRange = '';
+  selectedOccasion = 'all';
   searchText = '';
   isSortOpen = false;
   
@@ -44,6 +45,13 @@ export class GiftboxList implements OnInit {
     { value: 'oldest', label: 'Theo cũ nhất' },
     { value: 'price-low', label: 'Theo giá thấp nhất' },
     { value: 'price-high', label: 'Theo giá cao nhất' }
+  ];
+  occasionFilters = [
+    { value: 'all', label: 'Tất cả' },
+    { value: 'birthday', label: 'Sinh nhật' },
+    { value: 'anniversary', label: 'Ngày kỷ niệm' },
+    { value: 'other', label: 'Dịp khác' },
+    { value: 'christmas', label: 'Noel' }
   ];
 
   async ngOnInit() {
@@ -77,6 +85,13 @@ export class GiftboxList implements OnInit {
       data = data.filter(g => {
         const price = this.getFinalPrice(g);
         return price >= min && price <= max;
+      });
+    }
+
+    if (this.selectedOccasion !== 'all') {
+      data = data.filter(g => {
+        const tags = g.occasions && g.occasions.length ? g.occasions : ['other'];
+        return tags.includes(this.selectedOccasion);
       });
     }
 
@@ -115,6 +130,13 @@ export class GiftboxList implements OnInit {
     this.applyFilters();
   }
 
+  selectOccasion(value: string) {
+    if (this.selectedOccasion !== value) {
+      this.selectedOccasion = value;
+      this.applyFilters();
+    }
+  }
+
   getSortLabel(): string {
     const opt = this.sortOptions.find(o => o.value === this.selectedSort);
     return opt ? opt.label : 'mặc định';
@@ -124,6 +146,7 @@ export class GiftboxList implements OnInit {
     this.selectedPriceRange = '';
     this.searchText = '';
     this.selectedSort = 'default';
+    this.selectedOccasion = 'all';
     this.giftboxes = this.allGiftboxes;
     this.currentPage = 1;
     this.updatePagination();

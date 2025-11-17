@@ -32,10 +32,16 @@
 
         <div class="filter-section">
           <div class="filter-title">Dịp tặng quà</div>
-          <label class="checkbox"><input type="checkbox" /> <span>Sinh nhật</span></label>
-          <label class="checkbox"><input type="checkbox" /> <span>Ngày kỷ niệm</span></label>
-          <label class="checkbox"><input type="checkbox" /> <span>Dịp khác</span></label>
-          <label class="checkbox"><input type="checkbox" /> <span>Noel</span></label>
+          <div class="occasion-chips">
+            <button 
+              class="occasion-chip" 
+              *ngFor="let opt of occasionFilters"
+              [class.active]="selectedOccasion === opt.value"
+              type="button"
+              (click)="selectOccasion(opt.value)">
+              {{ opt.label }}
+            </button>
+          </div>
         </div>
 
         <div class="filter-section">
