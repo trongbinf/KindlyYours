@@ -96,16 +96,7 @@ partnerBrands = [
     'https://res.cloudinary.com/dlci8havj/image/upload/v1762508816/uc_ei2mg4.jpg'
   ];
   heroBanners = [
-    {
-      desktopImage: 'https://res.cloudinary.com/dafzz2c9j/image/upload/v1762180608/banner_19_11_mwfnpz.png',
-      mobileImage: 'https://res.cloudinary.com/dafzz2c9j/image/upload/v1762180608/banner_19_11_mwfnpz.png',
-      link: '#'
-    },
-    {
-      desktopImage: 'https://res.cloudinary.com/dafzz2c9j/image/upload/v1762180607/IMG_5704_ygymmu.jpg',
-      mobileImage: 'https://res.cloudinary.com/dafzz2c9j/image/upload/v1762180607/IMG_5704_ygymmu.jpg',
-      link: '#'
-    },
+    
     {
       desktopImage: 'https://res.cloudinary.com/dvjknvfiz/image/upload/v1762616637/444444444_uidbhm.png',
       mobileImage: 'https://res.cloudinary.com/dvjknvfiz/image/upload/v1762616637/444444444_uidbhm.png',

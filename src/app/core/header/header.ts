@@ -28,7 +28,7 @@ export class Header {
 
   navLinks = [
     { href: '/', label: 'Trang chủ', hasDropdown: false },
-    { href: '/collections/giftboxes', label: 'GIFT BOX', hasDropdown: true, key: 'giftbox' as const },
+    { href: '/collections/giftboxes', label: 'Bộ Sưu Tập', hasDropdown: true, key: 'giftbox' as const },
     { href: '/corporate-gifts', label: 'Quà tặng doanh nghiệp', hasDropdown: true, key: 'corporate' as const },
     { href: '/about', label: 'Giới thiệu', hasDropdown: false },
   ];

@@ -324,19 +324,22 @@
   gap: 10px;
   padding: 12px 24px;
   margin-right: 8px;
-  background: #ffb3c6; /* solid pink per theme */
-  border: none;
+  background: linear-gradient(135deg, #ff6b9d, #ff8fab, #ffb3c6); /* vibrant gradient */
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 28px;
   color: #fff; /* white text/icon */
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14px;
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(255, 179, 198, 0.2);
+  box-shadow: 0 4px 20px rgba(255, 107, 157, 0.4),
+              0 0 0 0 rgba(255, 107, 157, 0.7);
   position: relative;
   overflow: hidden;
+  animation: buttonGlow 2s ease-in-out infinite;
+  z-index: 10;
 }
 
 .create-gift-btn::before {
@@ -346,18 +349,61 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  z-index: 1;
+  animation: shimmerAuto 3s ease-in-out infinite;
 }
 
 .create-gift-btn:hover::before {
+  animation: shimmerHover 0.6s ease-in-out;
   left: 100%;
 }
 
+@keyframes shimmerAuto {
+  0%, 90%, 100% {
+    left: -100%;
+  }
+  5%, 15% {
+    left: 100%;
+  }
+}
+
+@keyframes shimmerHover {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.create-gift-btn::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #ff6b9d, #ff8fab, #ffb3c6, #ff6b9d);
+  border-radius: 30px;
+  z-index: -1;
+  opacity: 0.5;
+  animation: borderPulse 2s ease-in-out infinite;
+  filter: blur(8px);
+  pointer-events: none;
+}
+
 .create-gift-btn:hover {
-  transform: translateY(-1px);
-  background: #ff9bb3; /* darker pink on hover */
-  box-shadow: 0 6px 18px rgba(255, 179, 198, 0.3);
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #ff5a8a, #ff7a9f, #ffa0b8);
+  box-shadow: 0 8px 25px rgba(255, 107, 157, 0.6),
+              0 0 20px rgba(255, 107, 157, 0.5);
+  border-color: rgba(255, 255, 255, 0.5);
+  animation: buttonGlow 1s ease-in-out infinite;
+}
+
+.create-gift-btn:active {
+  transform: translateY(0);
 }
 
 /* Keyboard accessibility */
@@ -367,60 +413,90 @@
   outline-offset: 2px;
 }
 
-/* Gift Box Animation */
+/* Gift Box Animation - Enhanced */
 @keyframes giftBounce {
   0%, 100% { 
-    transform: translateY(0) scale(1); 
+    transform: translateY(0) scale(1) rotate(0deg); 
   }
   25% { 
-    transform: translateY(-8px) scale(1.05); 
+    transform: translateY(-6px) scale(1.1) rotate(-5deg); 
   }
   50% { 
-    transform: translateY(-12px) scale(1.1); 
+    transform: translateY(-8px) scale(1.15) rotate(5deg); 
   }
   75% { 
-    transform: translateY(-6px) scale(1.05); 
+    transform: translateY(-4px) scale(1.05) rotate(-3deg); 
   }
 }
 
 @keyframes giftFloat {
   0%, 100% { 
-    transform: translateY(0px) rotate(0deg); 
+    transform: translateY(0px) rotate(0deg) scale(1); 
   }
-  33% { 
-    transform: translateY(-4px) rotate(2deg); 
+  25% { 
+    transform: translateY(-3px) rotate(-2deg) scale(1.05); 
   }
-  66% { 
-    transform: translateY(-2px) rotate(-1deg); 
+  50% { 
+    transform: translateY(-5px) rotate(2deg) scale(1.1); 
+  }
+  75% { 
+    transform: translateY(-2px) rotate(-1deg) scale(1.02); 
   }
 }
 
-/* Continuous floating animation */
+@keyframes giftWiggle {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  25% { 
+    transform: rotate(-8deg); 
+  }
+  75% { 
+    transform: rotate(8deg); 
+  }
+}
+
+/* Continuous floating animation - More attention-grabbing */
 .shake-animation .gift-icon {
-  animation: giftFloat 3s ease-in-out infinite;
+  animation: giftFloat 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 2px 6px rgba(255, 255, 255, 0.6));
+  transform-origin: center;
+  position: relative;
+  z-index: 2;
 }
 
 /* Enhanced hover effect */
 .shake-animation:hover .gift-icon {
-  animation: giftBounce 0.8s ease-in-out;
+  animation: giftBounce 0.6s ease-in-out, giftWiggle 0.5s ease-in-out;
 }
 
-/* Button pulse effect */
-@keyframes buttonPulse {
-  0% { 
-    box-shadow: 0 0 0 0 rgba(139, 0, 0, 0.4); 
+/* Button glow animation */
+@keyframes buttonGlow {
+  0%, 100% { 
+    box-shadow: 0 4px 20px rgba(255, 107, 157, 0.4),
+                0 0 0 0 rgba(255, 107, 157, 0.7);
   }
-  70% { 
-    box-shadow: 0 0 0 10px rgba(139, 0, 0, 0); 
-  }
-  100% { 
-    box-shadow: 0 0 0 0 rgba(139, 0, 0, 0); 
+  50% { 
+    box-shadow: 0 6px 25px rgba(255, 107, 157, 0.6),
+                0 0 15px rgba(255, 107, 157, 0.9);
   }
 }
 
-.shake-animation {
-  animation: buttonPulse 4s infinite;
+/* Shimmer effect handled by ::before pseudo-element with left transition */
+
+/* Border pulse effect */
+@keyframes borderPulse {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.7;
+    transform: scale(1.02);
+  }
 }
+
+/* Shake animation class - animations applied via buttonGlow and shimmer on button */
 
 .btn-icon {
   width: 18px;
@@ -622,23 +698,63 @@
   justify-content: center;
   gap: 10px;
   padding: 14px 20px;
-  background: #fee0e8; /* solid pink per theme */
-  border: none;
+  background: linear-gradient(135deg, #ff6b9d, #ff8fab, #ffb3c6);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 28px;
-  color: #2f4157;
-  font-weight: 600;
+  color: #ffffff;
+  font-weight: 700;
   font-size: 14px;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 20px rgba(255, 107, 157, 0.4),
+              0 0 0 0 rgba(255, 107, 157, 0.7);
+  position: relative;
+  overflow: hidden;
+  animation: buttonGlow 2s ease-in-out infinite;
+}
+
+.mobile-create-gift-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  z-index: 1;
+  animation: shimmerAuto 3s ease-in-out infinite;
+}
+
+.mobile-create-gift-btn:hover::before {
+  animation: shimmerHover 0.6s ease-in-out;
+  left: 100%;
+}
+
+.mobile-create-gift-btn::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #ff6b9d, #ff8fab, #ffb3c6, #ff6b9d);
+  border-radius: 30px;
+  z-index: -1;
+  opacity: 0.5;
+  animation: borderPulse 2s ease-in-out infinite;
+  filter: blur(8px);
+  pointer-events: none;
 }
 
 .mobile-create-gift-btn:hover {
-  transform: translateY(-1px);
-  background: #f6ccd7; /* darker pink on hover */
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #ff5a8a, #ff7a9f, #ffa0b8);
+  box-shadow: 0 8px 25px rgba(255, 107, 157, 0.6),
+              0 0 20px rgba(255, 107, 157, 0.5);
+  border-color: rgba(255, 255, 255, 0.5);
+  animation: buttonGlow 1s ease-in-out infinite;
 }
 
 .mobile-create-gift-btn:focus,
